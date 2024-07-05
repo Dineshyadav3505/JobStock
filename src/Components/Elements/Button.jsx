@@ -10,7 +10,7 @@ const Button = (
     }
 ) => {
   return (
-    <NavLink to={`${onClick}`}  className={`rounded-md py-2 px-4 text-sm text-white bg-[#119766] ${className} `}>
+    <NavLink to={`${onClick}`}  className={`rounded-md py-2 px-4 text-sm bg-[#119766] ${className} `}>
         {children}
         {span && <span className="ml-2 text-xs font-semibold">{span}</span>}
     </NavLink>

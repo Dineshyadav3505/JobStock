@@ -33,17 +33,17 @@ const JobCard = (
 
                 {/* Job Title */}
                 <div className=" space-y-2 mb-2 w-full">
-                    <h1 className="text-xl font-Jost font-semibold ">{title}</h1>
+                    <h1 className="text-xl font-Jost font-semibold text-[#0E0202] ">{title}</h1>
                     <div className=" flex flex-wrap gap-2">
                         <Button
-                            className="text-xs py-1 px-2 rounded-sm bg-slate-100 text-zinc-900 font-Jost font-semibold"
+                            className="text-xs py-1 px-2 rounded-sm bg-[#DFE0E1] text-zinc-900 font-Jost font-semibold"
                             onClick=""
                             children="Begin:"
                             span={date}
                         />
                         <Button
-                            className="text-xs py-1 px-2 rounded-sm bg-slate-100 text-red-400 font-Jost font-semibold"
-                            onClick=""
+                            className="text-xs py-1 px-2 rounded-sm bg-[#DFE0E1] text-[#D03030] font-Jost font-semibold"
+                            onClick="" 
                             children="Last Date:"
                             span={lastDate}
                         />
@@ -53,10 +53,10 @@ const JobCard = (
                 </div>
 
                 {/* Save Button */}
-                <div onClick={save}  className={`bg-[#FEEDDF] min-h-10 max-h-10 min-w-10 max-w-10 rounded-full p-2 ${saveBtn}`}>
-                    <img src="/Images/Save.svg" alt="" />
-               </div>
-                <div onClick={remove}  className={`bg-[#FEEDDF] min-h-10 max-h-10 min-w-10 max-w-10 rounded-full p-2 ${removeBtn}`}>
+                <div onClick={save}  className={`bg-[#FEEDDF] flex justify-center items-center text-[#d26634] hover:text-[#119766] min-h-10 max-h-10 min-w-10 max-w-10 rounded-full p-2 ${saveBtn}`}>
+                    <i className ="ri-bookmark-line "></i>
+                </div>
+                <div onClick={remove}  className={`bg-[#FEEDDF] text-black hover:text-[#119766] min-h-10 max-h-10 min-w-10 max-w-10 rounded-full p-2 ${removeBtn}`}>
                     <img src="/Images/Save.svg" alt="" />
                </div>
                 
@@ -64,9 +64,9 @@ const JobCard = (
             </div>
             {/* Apply Button And Time */}
             <div className="flex  justify-end items-center ">
-                <h1 className=" text-sm font-Jost">07 days ago</h1>
+                <h1 className=" text-sm font-Jost text-[#0E0202]">07 days ago</h1>
                 <Button 
-                    className="ml-3"
+                    className="ml-3 text-[#F2F2F2]"
                     onClick={applyBtn}
                 />
             </div>

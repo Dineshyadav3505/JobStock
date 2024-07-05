@@ -28,7 +28,7 @@ const JobCard = (
             <div className="flex gap-4 ">
                 {/* Icon */}
                 <div className=" inline-block h-14 w-14 p-1 ">
-                    <img className=" object-fill h-full w-full" src={img} alt="" />
+                    <img className="h-full object-contain" src={img} alt="" />
                 </div>
 
                 {/* Job Title */}

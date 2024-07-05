@@ -30,7 +30,7 @@ const NavBar = () => {
     </div>
 
     {/* Mobile Bottom NavBar */}
-    <div className="fixed bottom-0 py-4 bg-white w-full flex justify-around lg:hidden font-Jost ">
+    <div className="fixed z-20 bottom-0 py-4 bg-white w-full flex justify-around lg:hidden font-Jost ">
 
         <NavLink to="/" className="flex flex-col justify-center items-center">
             <img className='' src="/Images/Job.svg" alt="" />

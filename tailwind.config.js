@@ -1,11 +1,18 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+import Jost from './public/Fonts/Jost-VariableFont_wght.ttf';
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'Jost': ['Jost', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

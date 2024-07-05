@@ -19,7 +19,7 @@ const NavBar = () => {
                 <NavLink to="/"           className={`${isActive('/')          ? 'font-bold underline' : ''}`}  activeClassName="font-bold" > Latest Job</NavLink>
                 <NavLink to="/result"     className={`${isActive('/result')    ? 'font-bold underline' : ''}`}  activeClassName="font-bold" > Result</NavLink>
                 <NavLink to="/syllabus"   className={`${isActive('/syllabus')  ? 'font-bold underline' : ''}`}  activeClassName="font-bold" > Syllabus</NavLink>
-                <NavLink to="/adminCard"  className={`${isActive('/admitCard') ? 'font-bold underline' : ''}`}  activeClassName="font-bold" > Admit Card</NavLink>
+                <NavLink to="/adminCard"  className={`${isActive('/adminCard') ? 'font-bold underline' : ''}`}  activeClassName="font-bold" > Admit Card</NavLink>
             </div>
         </div>
 

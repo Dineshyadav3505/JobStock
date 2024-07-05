@@ -12,9 +12,9 @@ const JobDetailsUpperdiv = () => {
             <h5 className='font-Jost text-sm md:text-base'>Important Dates</h5>
 
             <div className=" flex gap-3 flex-wrap">
-                <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#127464] capitalize px-2 py-1 bg-[#ace9df]" > <span> ✩ Begin:</span> 10-05-2021 </p>
-                <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#b4301c] capitalize px-2 py-1 bg-[#ace9df]" > <span> ✩ Last Date:</span> 10-05-2021 </p>
-                <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#127464] capitalize px-2 py-1 bg-[#ace9df]" > <span> ✩ Accept before:</span> 06:00 PM </p>
+                <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#000000] capitalize px-2 py-1 bg-[#119766]" > <span> ✩ Begin:</span> 10-05-2021 </p>
+                <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#c43434] capitalize px-2 py-1 bg-[#119766]" > <span> ✩ Last Date:</span> 10-05-2021 </p>
+                <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#000000] capitalize px-2 py-1 bg-[#119766]" > <span> ✩ Accept before:</span> 06:00 PM </p>
             </div>
         </div>
     </div>

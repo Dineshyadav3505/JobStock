@@ -16,10 +16,10 @@ const NavBar = () => {
         <div className="flex  justify-between lg:w-[60%]">
             <h1 className='text-xl font-Jost '>NavBar</h1>
             <div className=" text-base hidden font-Jost px-5 lg:flex gap-4 ">
-                <NavLink to="/"           className={`${isActive('/')          ? 'font-bold underline' : ''} hover:font-bold transition-all duration-300`}  activeClassName="font-bold" > Latest Job</NavLink>
-                <NavLink to="/result"     className={`${isActive('/result')    ? 'font-bold underline' : ''} hover:font-bold transition-all duration-300`}  activeClassName="font-bold" > Result</NavLink>
-                <NavLink to="/syllabus"   className={`${isActive('/syllabus')  ? 'font-bold underline' : ''} hover:font-bold transition-all duration-300`}  activeClassName="font-bold" > Syllabus</NavLink>
-                <NavLink to="/adminCard"  className={`${isActive('/admitCard') ? 'font-bold underline' : ''} hover:font-bold transition-all duration-300`}  activeClassName="font-bold" > Admit Card</NavLink>
+                <NavLink to="/"           className={`${isActive('/')          ? 'font-bold underline' : ''}`}  activeClassName="font-bold" > Latest Job</NavLink>
+                <NavLink to="/result"     className={`${isActive('/result')    ? 'font-bold underline' : ''}`}  activeClassName="font-bold" > Result</NavLink>
+                <NavLink to="/syllabus"   className={`${isActive('/syllabus')  ? 'font-bold underline' : ''}`}  activeClassName="font-bold" > Syllabus</NavLink>
+                <NavLink to="/adminCard"  className={`${isActive('/admitCard') ? 'font-bold underline' : ''}`}  activeClassName="font-bold" > Admit Card</NavLink>
             </div>
         </div>
 
@@ -30,7 +30,7 @@ const NavBar = () => {
     </div>
 
     {/* Mobile Bottom NavBar */}
-    <div className=" absolute bottom-0 py-4 w-full flex justify-around lg:hidden font-Jost ">
+    <div className="fixed bottom-0 py-4 bg-white w-full flex justify-around lg:hidden font-Jost ">
 
         <NavLink className="flex flex-col justify-center items-center">
             <img className='' src="/Images/Job.svg" alt="" />

@@ -32,22 +32,22 @@ const NavBar = () => {
     {/* Mobile Bottom NavBar */}
     <div className="fixed bottom-0 py-4 bg-white w-full flex justify-around lg:hidden font-Jost ">
 
-        <NavLink className="flex flex-col justify-center items-center">
+        <NavLink to="/" className="flex flex-col justify-center items-center">
             <img className='' src="/Images/Job.svg" alt="" />
             <span className="text-sm">Latest Job</span>
         </NavLink>
 
-        <NavLink className="flex flex-col justify-center items-center">
+        <NavLink to="/result" className="flex flex-col justify-center items-center">
             <img className='' src="/Images/Result.svg" alt="" />
             <span className="text-sm">Result</span>
         </NavLink>
 
-        <NavLink className="flex flex-col justify-center items-center">
+        <NavLink to="/syllabus" className="flex flex-col justify-center items-center">
             <img className='' src="/Images/Syllabus.svg" alt="" />
             <span className="text-sm">Syllabus</span>
         </NavLink>
 
-        <NavLink className="flex flex-col justify-center items-center">
+        <NavLink to="/adminCard" className="flex flex-col justify-center items-center">
             <img className='' src="/Images/AdmitCard.svg" alt="" />
             <span className="text-sm">Admit Card</span>
         </NavLink>

@@ -1,7 +1,5 @@
-/** @type {import('tailwindcss').Config} */
-import Jost from './public/Fonts/Jost-VariableFont_wght.ttf';
+import chach from './public/Fonts/Jost-VariableFont_wght.ttf'
 
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./index.html",
@@ -10,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'Jost': ['Jost', 'sans-serif'],
+        'bitter': ['Bitter', 'serif'],
+        'Jost': ['Fustat', 'sans-serif'],
       },
     },
   },

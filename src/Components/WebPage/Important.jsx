@@ -1,40 +1,15 @@
 import React from 'react'
 import NavBar from '../Elements/NavBar'
-import JobCard from '../Elements/JobCard'
-import SearchBox from '../Elements/SearchBox'
 import { useForm } from 'react-hook-form';
+import JobCard from '../Elements/JobCard'
 
-const Home = () => {
-
-    const { register, handleSubmit, reset} = useForm();
+const Important = () => {
+  const { register, handleSubmit, reset} = useForm();
     const onSubmit = (data) => {
         console.log(data);
         reset();
     };
-
-    function getDaysBetweenDates(endDate) {
-        const today = new Date();
-        const diffInDays = Math.floor((endDate - today) / (1000 * 60 * 60 * 24));
-        return diffInDays;
-    }
     
-    const someDate = new Date('2024-07-5');
-    const diffInDays = getDaysBetweenDates(someDate);
-
-    let days;
-    if (diffInDays < -1) {
-        days = "Application Closed";
-    } else if (diffInDays === -1) {
-        days = "Today is the last day to apply";
-    } else if (diffInDays === 0) {
-        days = "1 day left";
-    } else if (diffInDays > 0) {
-        days = `${diffInDays} days left`;
-    } else {
-        days = `${Math.abs(diffInDays)} days ago`;
-    }
-
-    console.log(days);
     const data =[
         {},
         {},
@@ -43,6 +18,7 @@ const Home = () => {
         {},
         {},
     ]
+
   return (
     <>
     <NavBar/>
@@ -75,7 +51,6 @@ const Home = () => {
                     saveBtn="block"
                     removeBtn="hidden"
                     applyBtn="/id"
-                    days={days}
                 />
             ))  
         }
@@ -85,4 +60,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Important

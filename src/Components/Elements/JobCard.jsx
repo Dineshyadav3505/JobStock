@@ -11,6 +11,7 @@ const JobCard = (
         saveBtn="block",
         removeBtn="hidden",
         applyBtn,
+        days,
     }
 ) => {
 
@@ -64,7 +65,7 @@ const JobCard = (
             </div>
             {/* Apply Button And Time */}
             <div className="flex  justify-end items-center ">
-                <h1 className=" text-sm font-Jost text-[#0E0202]">07 days ago</h1>
+                <h1 className=" text-sm font-Jost text-[#D03030]">{days}</h1>
                 <Button 
                     className="ml-3 text-[#F2F2F2]"
                     onClick={applyBtn}

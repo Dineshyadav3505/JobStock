@@ -5,33 +5,40 @@ import { useForm } from 'react-hook-form';
 import axios from '../../utils/Axios';
 
 const Home = () => {
-
     const [data, setData] = useState([]);
-    useEffect(() => {
-        const fetchProducts = async () => {
-          try {
-            const response = await axios.get('/job/job');
-            setData(response.data.data);
-            console.log(response.data.data);
-          } catch (error) {
-            console.error(error);
-          }
-        };
-    
-        fetchProducts();
-      }, []);
-    
-    const { register, handleSubmit, reset} = useForm();
-    const onSubmit = (data) => {
-        console.log(data);
-        reset();
+    const [filteredData, setFilteredData] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const { register, handleSubmit, reset } = useForm();
+
+    const onSubmit = (formData) => {
+      const { searchTerm: newSearchTerm } = formData;
+      setSearchTerm(newSearchTerm);
+      reset();
     };
+
+    useEffect(() => {
+      const fetchProducts = async () => {
+        try {
+          const response = await axios.get('/job/job', {
+            params: {
+              searchTerm
+            }
+          });
+          setData(response.data.data);
+          setFilteredData(response.data.data);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+    
+      fetchProducts();
+    }, [searchTerm]);
 
   return (
     <>
     <NavBar/>
-    <div className="p-5 flex flex-wrap  justify-between pb-24">
-
+    <div className="p-5 flex flex-wrap justify-between pb-24">
         <form onSubmit={handleSubmit(onSubmit)} className="border rounded-md p-2 w-full">
                 <input
                 {...register('searchTerm')}
@@ -48,20 +55,25 @@ const Home = () => {
         </form>
 
         {
-            data.map((item, index) => (
-                <JobCard 
-                    key={index}
-                    id={item.id}
-                    img={item.iconImage}
-                    title={item.postName}
-                    date={item.beginDate}
-                    lastDate={item.lastDate}
-                    saveBtn="block"
-                    removeBtn="hidden"
-                    applyBtn={item._id}
-                    yyyymmddDate={item.yyyymmddDate}
-                />
-            ))  
+          filteredData.length > 0 ? 
+            (filteredData.map((item, index) => (
+                  <JobCard 
+                      key={index}
+                      id={item.id}
+                      img={item.iconImage}
+                      title={item.postName}
+                      date={item.beginDate}
+                      lastDate={item.lastDate}
+                      saveBtn="block"
+                      removeBtn="hidden"
+                      applyBtn={item._id}
+                      yyyymmddDate={item.yyyymmddDate}
+                  />
+              )))
+              :
+              <div className="h-96 w-full flex justify-center items-center">
+                <h1 className=' text-lg font-Jost font-bold capitalize'>no Data found</h1>
+              </div>
         }
 
     </div>

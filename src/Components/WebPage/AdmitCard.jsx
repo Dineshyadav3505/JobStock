@@ -12,12 +12,7 @@ const AdmitCard = () => {
     };
     
     const data =[
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
+      {},
     ]
 
   return (

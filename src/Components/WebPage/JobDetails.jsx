@@ -10,12 +10,13 @@ const JobDetails = () => {
 
   const [data, setData] = useState([]);
   const { id } = useParams();
+  const [loading , setLoading] = useState(true);
   useEffect(() => {
       const fetchProducts = async () => {
         try {
           const response = await axios.get(`/job/${id}`);
           setData(response.data.data);
-          console.log(response.data.data);
+          setLoading(false);
         } catch (error) {
           console.error(error);
         }
@@ -24,7 +25,7 @@ const JobDetails = () => {
       fetchProducts();
     }, []);
 
-    console.log(data)
+    if(loading) return <div className='flex justify-center items-center '>Loading...</div>
 
   return (
     <>

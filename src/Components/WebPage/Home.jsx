@@ -3,11 +3,15 @@ import NavBar from '../Elements/NavBar'
 import JobCard from '../Elements/JobCard'
 import { useForm } from 'react-hook-form';
 import axios from '../../utils/Axios';
+import { useSelector, useDispatch } from'react-redux'
+import { setPost } from "../../Store/jobpost"
 
 const Home = () => {
-    const [data, setData] = useState([]);
+
+    const data = useSelector((state) => state.jobPost.product);
     const [filteredData, setFilteredData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const dispatch = useDispatch();
 
     const { register, handleSubmit, reset } = useForm();
 
@@ -25,7 +29,7 @@ const Home = () => {
               searchTerm
             }
           });
-          setData(response.data.data);
+          dispatch(setPost(response.data.data));
           setFilteredData(response.data.data);
         } catch (error) {
           console.error(error);

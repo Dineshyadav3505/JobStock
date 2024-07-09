@@ -4,18 +4,22 @@ import JobDetailsUpperdiv from '../Elements/JobDetailsUpperdiv'
 import JobDetailsBottomdiv from '../Elements/JobDetailsBottomdiv'
 import { useParams } from 'react-router-dom';
 import axios from '../../utils/Axios';
+import { useSelector, useDispatch } from 'react-redux';
+import { setPostDetails } from '../../Store/singleJobPost';
 
 
 const JobDetails = () => {
 
-  const [data, setData] = useState([]);
+  const data = useSelector((state) => state.jobPostDetails.product);
   const { id } = useParams();
   const [loading , setLoading] = useState(true);
+  const dispatch = useDispatch();
+
   useEffect(() => {
       const fetchProducts = async () => {
         try {
           const response = await axios.get(`/job/${id}`);
-          setData(response.data.data);
+          dispatch(setPostDetails(response.data.data));
           setLoading(false);
         } catch (error) {
           console.error(error);

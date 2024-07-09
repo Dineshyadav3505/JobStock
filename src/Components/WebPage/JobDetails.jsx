@@ -1,11 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '../Elements/NavBar'
-import Button from '../Elements/Button'
 import JobDetailsUpperdiv from '../Elements/JobDetailsUpperdiv'
 import JobDetailsBottomdiv from '../Elements/JobDetailsBottomdiv'
+import { useParams } from 'react-router-dom';
+import axios from '../../utils/Axios';
 
 
 const JobDetails = () => {
+
+  const [data, setData] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+      const fetchProducts = async () => {
+        try {
+          const response = await axios.get(`/job/${id}`);
+          setData(response.data.data);
+          console.log(response.data.data);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+  
+      fetchProducts();
+    }, []);
+
+    console.log(data)
 
   return (
     <>
@@ -18,10 +37,48 @@ const JobDetails = () => {
             <div className="w-full bg-white rounded-lg overflow-hidden ">
                 
                 <JobDetailsUpperdiv
-
+                    img={data.iconImage}
+                    title={data.postName}
+                    date={data.beginDate}
+                    lastDate={data.lastDate}
+                    yyyymmddDate={data.yyyymmddDate} 
                 />
 
                 <JobDetailsBottomdiv
+                  postImage={data.postImage}
+                  postDescription={data.postDescription}
+                  applyLink={data.applyLink}
+                  totalPost={data.totalPost}
+                  date1={data.date1}
+                  date2={data.date2}
+                  date3={data.date3}
+                  date4={data.date4}
+                  date5={data.date5}
+                  date6={data.date6}
+                  date7={data.date7}
+                  date8={data.date8}
+                  date9={data.date9}
+                  date10={data.date10}
+                  age1={data.age1}
+                  age2={data.age2}
+                  age3={data.age3}
+                  age4={data.age4}
+                  age5={data.age5}
+                  age6={data.age6}
+                  age7={data.age7}
+                  age8={data.age8}
+                  age9={data.age9}
+                  age10={data.age10}
+                  Fee1={data.Fee1}
+                  Fee2={data.Fee2}
+                  Fee3={data.Fee3}
+                  Fee4={data.Fee4}
+                  Fee5={data.Fee5}
+                  Fee6={data.Fee6}
+                  Fee7={data.Fee7}
+                  Fee8={data.Fee8}
+                  Fee9={data.Fee9}
+                  Fee10={data.Fee10}
                 />
 
 

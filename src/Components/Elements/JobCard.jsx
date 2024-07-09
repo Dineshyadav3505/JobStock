@@ -11,10 +11,33 @@ const JobCard = (
         saveBtn="block",
         removeBtn="hidden",
         applyBtn,
-        days,
+        yyyymmddDate,
     }
+
+
 ) => {
 
+    const someDate = new Date(yyyymmddDate);
+    const diffInDays = getDaysBetweenDates(someDate);
+
+    function getDaysBetweenDates(endDate) {
+        const today = new Date();
+        const diffInDays = Math.floor((endDate - today) / (1000 * 60 * 60 * 24));
+        return diffInDays;
+    }
+
+    let days;
+    if (diffInDays < -1) {
+        days = "Application Closed";
+    } else if (diffInDays === -1) {
+        days = "Today is the last day to apply";
+    } else if (diffInDays === 0) {
+        days = "1 day left";
+    } else if (diffInDays > 0) {
+        days = `${diffInDays} days left`;
+    } else {
+        days = `${Math.abs(diffInDays)} days ago`;
+    }
 
     const save = () => {
         console.log('Save Job');
@@ -22,7 +45,6 @@ const JobCard = (
     const remove = () => {
         console.log('Remove Job');
     }
-
 
   return (
     <div className=" p-5 mt-5 rounded-lg border-[1px] border-zinc-300 md:w-[47vw] lg:w-[31.4vw]">

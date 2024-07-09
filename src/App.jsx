@@ -10,6 +10,7 @@ import AnswerKey from './Components/WebPage/AnswerKey'
 import Important from './Components/WebPage/Important'
 import CertificateVerification from './Components/WebPage/CertificateVerification'
 import SavedPost from './Components/WebPage/SavedPost'
+import ImageView from './Components/WebPage/ImageView'
 
 
 
@@ -28,6 +29,7 @@ const App = () => {
       <Route path='/certificate_Verification' element={<CertificateVerification/>}></Route>
       <Route path='/saved_Post'               element={<SavedPost/>}></Route>
       
+      <Route path='/viewPost' element={<ImageView/>}></Route>
       <Route path='/:id' element={<JobDetails/>}></Route>
  
     </Routes>

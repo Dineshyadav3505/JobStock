@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Button from './Button'
+import { NavLink } from 'react-router-dom'
 
 const JobDetailsBottomdiv = (
     {
@@ -40,12 +41,15 @@ const JobDetailsBottomdiv = (
     }
 ) => {
     const [activeTab, setActiveTab] = useState('description')
+    const [showImage, setShowImage] = useState(false)
 
     const handleTabClick = (tab) => {
         setActiveTab(tab)
     }
 
-    const Description = "Themezhub Web provides equal employment opportunities to all qualified individuals without regard to race, color, religion, sex, gender identity, sexual orientation, pregnancy, age, national origin, physical or mental disability, military or veteran status, genetic information, or any other protected classification. Equal employment opportunity includes, but is not limited to, hiring, training, promotion, demotion, transfer, leaves of absence, and termination. Thynk Web takes allegations of discrimination, harassment, and retaliation seriously, and will promptly investigate when such behavior is reported.Our company is seeking to hire a skilled Web Developer to help with the development of our current projects. Your duties will primarily revolve around building software by writing code, as well as modifying software to fix errors, adapt it to new hardware, improve its performance, or upgrade interfaces. You will also be involved in directing system testing and validation procedures, and also working with customers or departments on technical issues including software system design and maintenance. We are looking for a Senior Web Developer to build and maintain functional web pages and applications. Senior Web Developer will be leading junior developers, refining website specifications, and resolving technical issues. He/She should have extensive experience building web pages from scratch and in-depth knowledge of at least one of the following programming languages: Javascript, Ruby, or PHP. He/She will ensure our web pages are up and running and cover both internal and customer needs."
+    const imageToggle = () => { 
+        setShowImage(!showImage)
+    }
 
     return (
         <div className="px-5 py-7 rounded-b-lg bg-[#F1F5F8] mb-24 flex flex-wrap">
@@ -113,7 +117,7 @@ const JobDetailsBottomdiv = (
                     <div className=" space-y-3 flex flex-col pb-5">
                         <div className="">
                             <h6 className='text-[#0E0202] font-Jost font-bold '>Application Fee:</h6>
-                            {age1.length  > 0 && age1  ? <p className='text-[#0E0202]'>  ❗{age1} </p> : null}
+                            {age1.length  > 0 && age1  ? <p className='text-[#0E0202]'> ❗{age1} </p> : null}
                             {age2.length  > 0 && age2  ? <p className='text-[#0E0202]'> ❗{age2} </p> : null}
                             {age3.length  > 0 && age3  ? <p className='text-[#0E0202]'> ❗{age3} </p> : null}
                             {age4.length  > 0 && age4  ? <p className='text-[#0E0202]'> ❗{age4} </p> : null}
@@ -125,11 +129,9 @@ const JobDetailsBottomdiv = (
                             {age10.length > 0 && age10 ? <p className='text-[#0E0202]'> ❗{age10} </p> : null}
                         </div>
                         <div className="">
-                            {totalPost.length > 0 && totalPost ? <h6 className='text-[#0E0202] font-Jost font-bold mb-2'>Total Post: <span>{totalPost}</span></h6> : null}
-                            {postImage.length > 0 && postImage ? <img src={postImage} alt="" className="h-full object-cover" /> : null}
+                            <h6 className='text-[#0E0202] font-Jost font-bold mb-2'>Total Post: {totalPost}</h6>
+                            {postImage.length > 0 && postImage ? <NavLink to="/viewPost" className={`text-blue-600 text-sm  underline w-full`}> Show Vacancy Details</NavLink> : null}
                         </div>
-
-
                     </div>
                 )}
             </div>

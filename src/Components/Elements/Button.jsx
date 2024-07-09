@@ -14,6 +14,7 @@ const Button = (
         {children}
         {span && <span className="ml-2 text-xs font-semibold">{span}</span>}
     </NavLink>
+
   )
 }
 

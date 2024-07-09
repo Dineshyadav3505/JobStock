@@ -1,48 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '../Elements/NavBar'
 import JobCard from '../Elements/JobCard'
-import SearchBox from '../Elements/SearchBox'
 import { useForm } from 'react-hook-form';
+import axios from '../../utils/Axios';
 
 const Home = () => {
 
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        const fetchProducts = async () => {
+          try {
+            const response = await axios.get('/job/job');
+            setData(response.data.data);
+            console.log(response.data.data);
+          } catch (error) {
+            console.error(error);
+          }
+        };
+    
+        fetchProducts();
+      }, []);
+    
     const { register, handleSubmit, reset} = useForm();
     const onSubmit = (data) => {
         console.log(data);
         reset();
     };
 
-    function getDaysBetweenDates(endDate) {
-        const today = new Date();
-        const diffInDays = Math.floor((endDate - today) / (1000 * 60 * 60 * 24));
-        return diffInDays;
-    }
-    
-    const someDate = new Date('2024-07-5');
-    const diffInDays = getDaysBetweenDates(someDate);
-
-    let days;
-    if (diffInDays < -1) {
-        days = "Application Closed";
-    } else if (diffInDays === -1) {
-        days = "Today is the last day to apply";
-    } else if (diffInDays === 0) {
-        days = "1 day left";
-    } else if (diffInDays > 0) {
-        days = `${diffInDays} days left`;
-    } else {
-        days = `${Math.abs(diffInDays)} days ago`;
-    }
-
-    console.log(days);
-    const data =[
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-    ]
   return (
     <>
     <NavBar/>
@@ -68,14 +52,14 @@ const Home = () => {
                 <JobCard 
                     key={index}
                     id={item.id}
-                    img="https://imgs.search.brave.com/MLrsy63K6fj92Gwd-_7bbhEcIqZ1xA4QfLgHeApfPRA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZWRpZ2l0YWxhZ2Vu/Y3kuY29tLmF1L3dw/LWNvbnRlbnQvdXBs/b2Fkcy9JbnN0YWdy/YW0tbG9nby1QTkct/bGFyZ2Utc2l6ZS5w/bmc"
-                    title="Union Public Service Commission (UPSC)"
-                    date="15th June 2021"
-                    lastDate="15th June 2021"
+                    img={item.iconImage}
+                    title={item.postName}
+                    date={item.beginDate}
+                    lastDate={item.lastDate}
                     saveBtn="block"
                     removeBtn="hidden"
-                    applyBtn="/id"
-                    days={days}
+                    applyBtn={item._id}
+                    yyyymmddDate={item.yyyymmddDate}
                 />
             ))  
         }

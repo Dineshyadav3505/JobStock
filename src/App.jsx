@@ -28,7 +28,7 @@ const App = () => {
       <Route path='/certificate_Verification' element={<CertificateVerification/>}></Route>
       <Route path='/saved_Post'               element={<SavedPost/>}></Route>
       
-      <Route path='/id' element={<JobDetails/>}></Route>
+      <Route path='/:id' element={<JobDetails/>}></Route>
  
     </Routes>
 

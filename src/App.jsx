@@ -16,6 +16,7 @@ import AdmitCardDetails from './Components/WebPage/AdmitCard/AdmitCardDetails'
 import Loading from './Components/Elements/Loader'
 import AnswerKeyDetails from './Components/WebPage/AnswerKey/AnswerKeyDetails'
 import AdmissionDetails from './Components/WebPage/Admission/AdmissionDetails'
+import Upcomming from './Components/WebPage/Upcomming/Upcomming'
 
 
 
@@ -39,8 +40,8 @@ const App = () => {
       <Route path='/adminCard/:id' element={<AdmitCardDetails/>}></Route>
       <Route path='/answer_Key/:id' element={<AnswerKeyDetails/>}></Route>
       <Route path='/admission/:id' element={<AdmissionDetails/>}></Route>
+      <Route path='/upcomming' element={<Upcomming/>}></Route>
       <Route path='/:id' element={<JobDetails/>}></Route>
-      <Route path='/c' element={<Loading/>}></Route>
 
  
     </Routes>

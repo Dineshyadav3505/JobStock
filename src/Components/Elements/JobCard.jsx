@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../Elements/Button'
+import { NavLink } from 'react-router-dom';
 
 const JobCard = (
     {
@@ -13,7 +14,9 @@ const JobCard = (
         applyBtn,
         yyyymmddDate,
         yyyymmddDateLine="hidden",
-        children
+        children,
+        button,
+        upcommingButton="hidden"
     }
 
 
@@ -94,10 +97,14 @@ const JobCard = (
                 <h1 className ={`text-sm font-Jost text-[#D03030] ${yyyymmddDateLine}`}>{days}</h1>
 
                 <Button 
-                    className="ml-3 text-[#F2F2F2]"
+                    className={`ml-3 text-[#F2F2F2] ${button}`}
                     onClick={applyBtn}
                     children={children}
                 />
+                <NavLink className={`rounded-md py-2 px-4 text-sm text-[#F2F2F2] bg-[#119766] ${upcommingButton} `}>
+                    Upcomming
+                </NavLink>
+
             </div>
         </div>
   )

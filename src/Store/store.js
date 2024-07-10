@@ -9,6 +9,7 @@ import answerKeyPostReducer from './allAnswerKeyPost';
 import answerKeyDetailsReducer from './singleAnswerKeyPost';
 import admissionPostReducer from './allAdmissionPost';
 import admissionDetailsReducer from './singleAdmissionPost';
+import upcommingPostReducer from './allUpcomminPost';
 
 
 
@@ -24,8 +25,7 @@ const store = configureStore({
     answerKeyDetails: answerKeyDetailsReducer,
     admissionPost: admissionPostReducer,
     admissionDetails: admissionDetailsReducer,
-
-
+    upcommingPost: upcommingPostReducer,
   },
 });
 

@@ -5,12 +5,11 @@ import JobDetailsBottomdiv from '../../Elements/JobDetailsBottomdiv'
 import { useParams } from 'react-router-dom';
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { setAnswerKeyDetails } from '../../../Store/singleAnswerKeyPost';
+import { setAdmissionDetails } from '../../../Store/singleAdmissionPost';
 
-const AnswerKeyDetails = () => {
+const AdmissionDetails = () => {
 
-
-  const data = useSelector((state) => state.answerKeyDetails.product);
+    const data = useSelector((state) => state.admissionDetails.product);
   const { id } = useParams();
   const [loading , setLoading] = useState(true);
   const dispatch = useDispatch();
@@ -18,8 +17,8 @@ const AnswerKeyDetails = () => {
   useEffect(() => {
       const fetchProducts = async () => {
         try {
-          const response = await axios.get(`/admitCard/${id}`);
-          dispatch(setAnswerKeyDetails(response.data.data));
+          const response = await axios.get(`/admission/${id}`);
+          dispatch(setAdmissionDetails(response.data.data));
           setLoading(false);
         } catch (error) {
           console.error(error);
@@ -84,8 +83,10 @@ const AnswerKeyDetails = () => {
                   Fee8={data.Fee8}
                   Fee9={data.Fee9}
                   Fee10={data.Fee10}
-                  children="Answer Key"
+                  children="View Result"
                 />
+
+
                 
             </div>
 
@@ -96,4 +97,4 @@ const AnswerKeyDetails = () => {
 }
 
 
-export default AnswerKeyDetails
+export default AdmissionDetails

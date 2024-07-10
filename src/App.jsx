@@ -12,11 +12,13 @@ import CertificateVerification from './Components/WebPage/CertificateVerificatio
 import SavedPost from './Components/WebPage/SavedPost/SavedPost'
 import ImageView from './Components/WebPage/Job/ImageView'
 import ResultDetails from './Components/WebPage/Result/ResultDetails'
+import AdmitCardDetails from './Components/WebPage/AdmitCard/AdmitCardDetails'
+import Loading from './Components/Elements/Loader'
 
 
 
 const App = () => {
-  return (
+  return (        
     <>
     
     <Routes>
@@ -32,7 +34,10 @@ const App = () => {
       
       <Route path='/viewPost' element={<ImageView/>}></Route>
       <Route path='/result/:id' element={<ResultDetails/>}></Route>
+      <Route path='/adminCard/:id' element={<AdmitCardDetails/>}></Route>
       <Route path='/:id' element={<JobDetails/>}></Route>
+      <Route path='/c' element={<Loading/>}></Route>
+
  
     </Routes>
 

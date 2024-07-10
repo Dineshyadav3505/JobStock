@@ -118,7 +118,7 @@ const JobDetailsBottomdiv = (
                 {activeTab === 'information' && (
                     <div className=" space-y-3 flex flex-col pb-5">
                         <div className="">
-                            <h6 className='text-[#0E0202] font-Jost font-bold '>Application Fee:</h6>
+                            <h6 className='text-[#0E0202] font-Jost font-bold '>Eligibility and Exam Details:</h6>
                             {age1.length  > 0 && age1  ? <p className='text-[#0E0202]'> ❗{age1} </p> : null}
                             {age2.length  > 0 && age2  ? <p className='text-[#0E0202]'> ❗{age2} </p> : null}
                             {age3.length  > 0 && age3  ? <p className='text-[#0E0202]'> ❗{age3} </p> : null}
@@ -131,7 +131,7 @@ const JobDetailsBottomdiv = (
                             {age10.length > 0 && age10 ? <p className='text-[#0E0202]'> ❗{age10} </p> : null}
                         </div>
                         <div className="">
-                            <h6 className='text-[#0E0202] font-Jost font-bold mb-2'>Total Post: {totalPost}</h6>
+                            <h6 className='text-[#0E0202] font-Jost font-bold mb-2'>Total Vacancy: {totalPost}</h6>
                             {postImage.length > 0 && postImage ? <NavLink to="/viewPost" className={`text-blue-600 text-sm  underline w-full ${vacancyDetails}`}> Show Vacancy Details</NavLink> : null}
                         </div>
                     </div>

@@ -5,10 +5,12 @@ import { useForm } from 'react-hook-form';
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from'react-redux'
 import { setPost } from "../../../Store/allJobPost"
+import Loader from '../../Elements/Loader'
 
 const Home = () => {
 
     const data = useSelector((state) => state.jobPost.product);
+    const [Loading, setLoading] = useState(true);
     const [filteredData, setFilteredData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const dispatch = useDispatch();
@@ -31,6 +33,7 @@ const Home = () => {
           });
           dispatch(setPost(response.data.data));
           setFilteredData(response.data.data);
+          setLoading(false);
         } catch (error) {
           console.error(error);
         }
@@ -42,6 +45,7 @@ const Home = () => {
   return (
     <>
     <NavBar/>
+    {Loading === true ? Loader : (
     <div className="p-5 flex flex-wrap justify-between pb-24">
         <form onSubmit={handleSubmit(onSubmit)} className="border rounded-md p-2 w-full">
                 <input
@@ -82,6 +86,7 @@ const Home = () => {
         }
 
     </div>
+    )}
     </>
   )
 }

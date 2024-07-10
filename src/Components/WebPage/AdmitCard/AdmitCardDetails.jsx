@@ -5,12 +5,12 @@ import JobDetailsBottomdiv from '../../Elements/JobDetailsBottomdiv'
 import { useParams } from 'react-router-dom';
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { setPostDetails } from '../../../Store/singleJobPost';
+import { setAdmitCardDetails } from '../../../Store/singleAdmitCardPost';
 
 
-const JobDetails = () => {
+const AdmitCardDetails = () => {
 
-  const data = useSelector((state) => state.jobPostDetails.product);
+  const data = useSelector((state) => state.admitCardDetails.product);
   const { id } = useParams();
   const [loading , setLoading] = useState(true);
   const dispatch = useDispatch();
@@ -18,8 +18,8 @@ const JobDetails = () => {
   useEffect(() => {
       const fetchProducts = async () => {
         try {
-          const response = await axios.get(`/job/${id}`);
-          dispatch(setPostDetails(response.data.data));
+          const response = await axios.get(`/admitCard/${id}`);
+          dispatch(setAdmitCardDetails(response.data.data));
           setLoading(false);
         } catch (error) {
           console.error(error);
@@ -35,7 +35,7 @@ const JobDetails = () => {
     <>
     <NavBar/>
     <div className="relative ">
-      <img className='w-full md:hidden' src="/Images/Banner.jpeg" alt="" />
+      <img className='w-full md:hidden' src="/Images/banner.jpeg" alt="" />
       <img className='w-full hidden md:block lg:hidden' src="/Images/bannermd.svg" alt="" />
       <img className='w-full hidden lg:block' src="/Images/bannerLG.svg" alt="" />
         <div className="px-5 absolute top-56 w-screen md:px-16 ">
@@ -84,9 +84,7 @@ const JobDetails = () => {
                   Fee8={data.Fee8}
                   Fee9={data.Fee9}
                   Fee10={data.Fee10}
-                  children="Apply Now"
-                  vacancyDetails="Block"
-
+                  children="Download AdmitCard"
                 />
 
 
@@ -99,4 +97,5 @@ const JobDetails = () => {
   )
 }
 
-export default JobDetails
+
+export default AdmitCardDetails

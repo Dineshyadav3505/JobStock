@@ -24,8 +24,9 @@ const NavBar = () => {
     {/* Mobbile Top NavBar */}
     <div className=' flex py-4 justify-between px-4 border-b-[1px] relative'>
         <div className="flex  justify-between lg:w-[60%]">
-            <h1 className='text-xl font-Jost '>NavBar</h1>
-            <div className=" text-base hidden font-Jost px-5 lg:flex gap-4 ">
+            <img className='h-10' src="Images/Logo.jpeg" alt="" />
+            {/* <h1 className='font font-mono font-black text-xl tracking-tighter '>NAUKRI VACANCY</h1> */}
+            <div className=" text-base hidden font-Jost px-5 lg:flex gap-4 items-end ">
                 <NavLink to="/"           className={`${isActive('/')          ? 'font-bold underline' : ''}`}  activeClassName="font-bold" > Latest Job</NavLink>
                 <NavLink to="/result"     className={`${isActive('/result')    ? 'font-bold underline' : ''}`}  activeClassName="font-bold" > Result</NavLink>
                 <NavLink to="/syllabus"   className={`${isActive('/syllabus')  ? 'font-bold underline' : ''}`}  activeClassName="font-bold" > Syllabus</NavLink>
@@ -52,8 +53,8 @@ const NavBar = () => {
                     <h1 className='text-3xl font-bitter capitalize underline mb-3' >hello!</h1>
                     
                     <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/"                         className='font-bitter font-medium italic' > Home                      </NavLink> </div>
-                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/"                         className='font-bitter font-medium italic' > Up-comming Update         </NavLink> </div>
-                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/"                         className='font-bitter font-medium italic' > State Job                 </NavLink> </div>
+                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/up-commingUpdate"                         className='font-bitter font-medium italic' > Up-comming Update         </NavLink> </div>
+                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/stateJob"                         className='font-bitter font-medium italic' > State Job                 </NavLink> </div>
                     <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/admission"                className='font-bitter font-medium italic' > Admission                 </NavLink> </div>
                     <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/answer_Key"               className='font-bitter font-medium italic' > Answer Key                </NavLink> </div>
                     <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/important"                className='font-bitter font-medium italic' > Important                 </NavLink> </div>

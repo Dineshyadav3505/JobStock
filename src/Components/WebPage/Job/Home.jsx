@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import NavBar from '../Elements/NavBar'
-import JobCard from '../Elements/JobCard'
+import NavBar from '../../Elements/NavBar'
+import JobCard from '../../Elements/JobCard'
 import { useForm } from 'react-hook-form';
-import axios from '../../utils/Axios';
+import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from'react-redux'
-import { setPost } from "../../Store/allJobPost"
+import { setPost } from "../../../Store/allJobPost"
 
 const Home = () => {
 

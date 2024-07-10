@@ -1,9 +1,9 @@
 import React from 'react'
-import NavBar from '../Elements/NavBar'
+import NavBar from '../../Elements/NavBar'
+import JobCard from '../../Elements/JobCard'
 import { useForm } from 'react-hook-form';
-import JobCard from '../Elements/JobCard'
 
-const CertificateVerification = () => {
+const Admission = () => {
   const { register, handleSubmit, reset} = useForm();
     const onSubmit = (data) => {
         console.log(data);
@@ -18,6 +18,7 @@ const CertificateVerification = () => {
         {},
         {},
     ]
+
   return (
     <>
     <NavBar/>
@@ -59,4 +60,4 @@ const CertificateVerification = () => {
   )
 }
 
-export default CertificateVerification
+export default Admission

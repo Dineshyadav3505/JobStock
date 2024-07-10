@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import NavBar from '../Elements/NavBar'
-import JobDetailsUpperdiv from '../Elements/JobDetailsUpperdiv'
-import JobDetailsBottomdiv from '../Elements/JobDetailsBottomdiv'
+import NavBar from '../../Elements/NavBar'
+import JobDetailsUpperdiv from '../../Elements/JobDetailsUpperdiv'
+import JobDetailsBottomdiv from '../../Elements/JobDetailsBottomdiv'
 import { useParams } from 'react-router-dom';
-import axios from '../../utils/Axios';
+import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { setPostDetails } from '../../Store/singleJobPost';
+import { setPostDetails } from '../../../Store/singleJobPost';
 
 
 const JobDetails = () => {

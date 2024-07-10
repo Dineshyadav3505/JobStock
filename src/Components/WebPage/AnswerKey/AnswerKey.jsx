@@ -1,9 +1,9 @@
 import React from 'react'
-import NavBar from '../Elements/NavBar'
-import JobCard from '../Elements/JobCard'
+import NavBar from '../../Elements/NavBar'
 import { useForm } from 'react-hook-form';
+import JobCard from '../../Elements/JobCard'
 
-const Admission = () => {
+const AnswerKey = () => {
   const { register, handleSubmit, reset} = useForm();
     const onSubmit = (data) => {
         console.log(data);
@@ -18,7 +18,6 @@ const Admission = () => {
         {},
         {},
     ]
-
   return (
     <>
     <NavBar/>
@@ -60,4 +59,4 @@ const Admission = () => {
   )
 }
 
-export default Admission
+export default AnswerKey

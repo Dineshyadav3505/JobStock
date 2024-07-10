@@ -1,25 +1,23 @@
 import React from 'react'
-import NavBar from '../Elements/NavBar'
-import JobCard from '../Elements/JobCard'
+import NavBar from '../../Elements/NavBar'
 import { useForm } from 'react-hook-form';
+import JobCard from '../../Elements/JobCard'
 
-const Syllabus = () => {
+const CertificateVerification = () => {
   const { register, handleSubmit, reset} = useForm();
     const onSubmit = (data) => {
         console.log(data);
         reset();
     };
     
-
-  const data =[
-    {},
-    {},
-    {},
-    {},
-    {},
-  
-  ]
-
+    const data =[
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+    ]
   return (
     <>
     <NavBar/>
@@ -61,4 +59,4 @@ const Syllabus = () => {
   )
 }
 
-export default Syllabus
+export default CertificateVerification

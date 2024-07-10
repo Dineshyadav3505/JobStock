@@ -1,23 +1,24 @@
 import React from 'react'
-import NavBar from '../Elements/NavBar'
+import NavBar from '../../Elements/NavBar'
+import JobCard from '../../Elements/JobCard'
 import { useForm } from 'react-hook-form';
-import JobCard from '../Elements/JobCard'
 
-const Important = () => {
+const Syllabus = () => {
   const { register, handleSubmit, reset} = useForm();
     const onSubmit = (data) => {
         console.log(data);
         reset();
     };
     
-    const data =[
-        {},
-        {},
-        {},
-        {},
-        {},
-        {},
-    ]
+
+  const data =[
+    {},
+    {},
+    {},
+    {},
+    {},
+  
+  ]
 
   return (
     <>
@@ -60,4 +61,4 @@ const Important = () => {
   )
 }
 
-export default Important
+export default Syllabus

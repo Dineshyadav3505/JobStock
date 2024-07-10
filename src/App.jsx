@@ -1,16 +1,16 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Home from './Components/WebPage/Home'
-import AdmitCard from './Components/WebPage/AdmitCard'
-import Result from './Components/WebPage/Result'
-import Syllabus from './Components/WebPage/Syllabus'
-import JobDetails from './Components/WebPage/JobDetails'
-import Admission from './Components/WebPage/Admission'
-import AnswerKey from './Components/WebPage/AnswerKey'
-import Important from './Components/WebPage/Important'
-import CertificateVerification from './Components/WebPage/CertificateVerification'
-import SavedPost from './Components/WebPage/SavedPost'
-import ImageView from './Components/WebPage/ImageView'
+import Home from './Components/WebPage/Job/Home'
+import AdmitCard from './Components/WebPage/AdmitCard/AdmitCard'
+import Result from './Components/WebPage/Result/Result'
+import Syllabus from './Components/WebPage/Syllabus/Syllabus'
+import JobDetails from './Components/WebPage/Job/JobDetails'
+import Admission from './Components/WebPage/Admission/Admission'
+import AnswerKey from './Components/WebPage/AnswerKey/AnswerKey'
+import Important from './Components/WebPage/Important/Important'
+import CertificateVerification from './Components/WebPage/CertificateVerification/CertificateVerification'
+import SavedPost from './Components/WebPage/SavedPost/SavedPost'
+import ImageView from './Components/WebPage/Job/ImageView'
 
 
 
@@ -30,6 +30,7 @@ const App = () => {
       <Route path='/saved_Post'               element={<SavedPost/>}></Route>
       
       <Route path='/viewPost' element={<ImageView/>}></Route>
+      <Route path='/result/:id' element={<JobDetails/>}></Route>
       <Route path='/:id' element={<JobDetails/>}></Route>
  
     </Routes>

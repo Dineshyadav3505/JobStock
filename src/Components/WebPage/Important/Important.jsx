@@ -1,10 +1,9 @@
 import React from 'react'
-import NavBar from '../Elements/NavBar'
+import NavBar from '../../Elements/NavBar'
 import { useForm } from 'react-hook-form';
-import JobCard from '../Elements/JobCard'
+import JobCard from '../../Elements/JobCard'
 
-
-const SavedPost = () => {
+const Important = () => {
   const { register, handleSubmit, reset} = useForm();
     const onSubmit = (data) => {
         console.log(data);
@@ -19,6 +18,7 @@ const SavedPost = () => {
         {},
         {},
     ]
+
   return (
     <>
     <NavBar/>
@@ -60,4 +60,4 @@ const SavedPost = () => {
   )
 }
 
-export default SavedPost
+export default Important

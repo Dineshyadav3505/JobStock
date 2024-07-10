@@ -1,12 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import jobPostReducer from './allJobPost';
-import jobPosrDetailReducer from './singleJobPost';
+import jobPostDetailReducer from './singleJobPost';
+import resultPostReducer from './allResultPost';
+
 
 
 const store = configureStore({
   reducer: {
     jobPost: jobPostReducer,
-    jobPostDetails: jobPosrDetailReducer,
+    jobPostDetails: jobPostDetailReducer,
+    resultPost: resultPostReducer,
   },
 });
 

@@ -14,6 +14,7 @@ import ImageView from './Components/WebPage/Job/ImageView'
 import ResultDetails from './Components/WebPage/Result/ResultDetails'
 import AdmitCardDetails from './Components/WebPage/AdmitCard/AdmitCardDetails'
 import Loading from './Components/Elements/Loader'
+import AnswerKeyDetails from './Components/WebPage/AnswerKey/AnswerKeyDetails'
 
 
 
@@ -35,6 +36,7 @@ const App = () => {
       <Route path='/viewPost' element={<ImageView/>}></Route>
       <Route path='/result/:id' element={<ResultDetails/>}></Route>
       <Route path='/adminCard/:id' element={<AdmitCardDetails/>}></Route>
+      <Route path='/answer_Key/:id' element={<AnswerKeyDetails/>}></Route>
       <Route path='/:id' element={<JobDetails/>}></Route>
       <Route path='/c' element={<Loading/>}></Route>
 

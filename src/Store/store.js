@@ -5,6 +5,7 @@ import resultPostReducer from './allResultPost';
 import resultPostDetailsReducer from './singleResultPost';
 import admitCardReducer from './allAdmitCardPost';
 import admitCardDetailsReducer from './singleAdmitCardPost';
+import answerKeyPost from './allAnswerKeyPost';
 
 
 
@@ -16,6 +17,8 @@ const store = configureStore({
     resultPostDetails: resultPostDetailsReducer,
     admitCard: admitCardReducer,
     admitCardDetails: admitCardDetailsReducer,
+    answerKeyPost: answerKeyPost,
+
 
   },
 });

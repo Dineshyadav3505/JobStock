@@ -52,13 +52,10 @@ const NavBar = () => {
                     <button className='w-full flex justify-end'><img onClick={toggleSideMenu} src="/Images/close.svg" alt="" /></button>
                     <h1 className='text-3xl font-bitter capitalize underline mb-3' >hello!</h1>
                     
-                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/"                         className='font-bitter font-medium italic' > Home                      </NavLink> </div>
-                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/up-commingUpdate"                         className='font-bitter font-medium italic' > Up-comming Update         </NavLink> </div>
-                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/stateJob"                         className='font-bitter font-medium italic' > State Job                 </NavLink> </div>
+                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/"                         className='font-bitter font-medium italic' > Latest job                      </NavLink> </div>
+                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/up-commingUpdate"         className='font-bitter font-medium italic' > Up-comming Update         </NavLink> </div>
                     <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/admission"                className='font-bitter font-medium italic' > Admission                 </NavLink> </div>
                     <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/answer_Key"               className='font-bitter font-medium italic' > Answer Key                </NavLink> </div>
-                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/important"                className='font-bitter font-medium italic' > Important                 </NavLink> </div>
-                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/certificate_Verification" className='font-bitter font-medium italic' > Certificate Verification  </NavLink> </div>
                     <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/saved_Post"               className='font-bitter font-medium italic' > Saved Post                </NavLink> </div>
                 </div>
 

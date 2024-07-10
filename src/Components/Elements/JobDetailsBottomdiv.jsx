@@ -38,6 +38,8 @@ const JobDetailsBottomdiv = (
         Fee9,
         Fee10,
         postImage,
+        children,
+        vacancyDetails="hidden"
     }
 ) => {
     const [activeTab, setActiveTab] = useState('description')
@@ -130,13 +132,13 @@ const JobDetailsBottomdiv = (
                         </div>
                         <div className="">
                             <h6 className='text-[#0E0202] font-Jost font-bold mb-2'>Total Post: {totalPost}</h6>
-                            {postImage.length > 0 && postImage ? <NavLink to="/viewPost" className={`text-blue-600 text-sm  underline w-full`}> Show Vacancy Details</NavLink> : null}
+                            {postImage.length > 0 && postImage ? <NavLink to="/viewPost" className={`text-blue-600 text-sm  underline w-full ${vacancyDetails}`}> Show Vacancy Details</NavLink> : null}
                         </div>
                     </div>
                 )}
             </div>
             <div className="inline-block">
-                <a href={applyLink} target="_blank" className={`rounded-md py-2 px-4 text-sm bg-[#119766]`}> Apply now</a>
+                <a href={applyLink} target="_blank" className={`rounded-md py-2 px-4 text-sm bg-[#119766]`}> {children}</a>
             </div>
         </div>
     )

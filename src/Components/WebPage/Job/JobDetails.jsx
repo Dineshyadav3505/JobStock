@@ -84,6 +84,9 @@ const JobDetails = () => {
                   Fee8={data.Fee8}
                   Fee9={data.Fee9}
                   Fee10={data.Fee10}
+                  children="Apply Now"
+                  vacancyDetails="Block"
+
                 />
 
 

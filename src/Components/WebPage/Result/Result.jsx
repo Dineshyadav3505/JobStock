@@ -72,6 +72,9 @@ return (
                     removeBtn="hidden"
                     applyBtn={item._id}
                     yyyymmddDate={item.yyyymmddDate}
+                    resultupdateclass="Block"
+                    resultupdate={item.updatedAt}
+                    children="View Result"
                 />
             )))
             :

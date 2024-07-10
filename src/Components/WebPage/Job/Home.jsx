@@ -72,6 +72,7 @@ const Home = () => {
                       removeBtn="hidden"
                       applyBtn={item._id}
                       yyyymmddDate={item.yyyymmddDate}
+                      yyyymmddDateLine="Block"
                   />
               )))
               :

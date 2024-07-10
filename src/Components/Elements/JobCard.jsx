@@ -12,6 +12,8 @@ const JobCard = (
         removeBtn="hidden",
         applyBtn,
         yyyymmddDate,
+        yyyymmddDateLine="hidden",
+        children
     }
 
 
@@ -19,6 +21,8 @@ const JobCard = (
 
     const someDate = new Date(yyyymmddDate);
     const diffInDays = getDaysBetweenDates(someDate);
+
+
 
     function getDaysBetweenDates(endDate) {
         const today = new Date();
@@ -87,10 +91,12 @@ const JobCard = (
             </div>
             {/* Apply Button And Time */}
             <div className="flex  justify-end items-center ">
-                <h1 className=" text-sm font-Jost text-[#D03030]">{days}</h1>
+                <h1 className ={`text-sm font-Jost text-[#D03030] ${yyyymmddDateLine}`}>{days}</h1>
+
                 <Button 
                     className="ml-3 text-[#F2F2F2]"
                     onClick={applyBtn}
+                    children={children}
                 />
             </div>
         </div>

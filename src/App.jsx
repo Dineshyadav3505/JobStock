@@ -11,6 +11,7 @@ import Important from './Components/WebPage/Important/Important'
 import CertificateVerification from './Components/WebPage/CertificateVerification/CertificateVerification'
 import SavedPost from './Components/WebPage/SavedPost/SavedPost'
 import ImageView from './Components/WebPage/Job/ImageView'
+import ResultDetails from './Components/WebPage/Result/ResultDetails'
 
 
 
@@ -30,7 +31,7 @@ const App = () => {
       <Route path='/saved_Post'               element={<SavedPost/>}></Route>
       
       <Route path='/viewPost' element={<ImageView/>}></Route>
-      <Route path='/result/:id' element={<JobDetails/>}></Route>
+      <Route path='/result/:id' element={<ResultDetails/>}></Route>
       <Route path='/:id' element={<JobDetails/>}></Route>
  
     </Routes>

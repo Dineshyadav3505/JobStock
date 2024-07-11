@@ -43,8 +43,12 @@ const Upcomming = () => {
   return (
     <>
   <NavBar/>
-  {Loading === true ? (Loader) : null}
-
+  {Loading === true ? (
+          <div className="h-screen w-full flex justify-center items-center">
+            <div className="border-[5px] h-12 w-12 rounded-full border-t-[#119766] animate-spin"
+            ></div>
+          </div>
+    ) : (
     <div className="p-5 flex flex-wrap justify-between pb-24">
         <form onSubmit={handleSubmit(onSubmit)} className="border rounded-md p-2 w-full">
                 <input
@@ -89,6 +93,7 @@ const Upcomming = () => {
         }
 
     </div>
+    )};
   </>
 )
 }

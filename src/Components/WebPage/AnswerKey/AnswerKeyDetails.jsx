@@ -16,6 +16,7 @@ const AnswerKeyDetails = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    ReactGA.pageview(window.location.pathname)
       const fetchProducts = async () => {
         try {
           const response = await axios.get(`/admitCard/${id}`);
@@ -29,7 +30,6 @@ const AnswerKeyDetails = () => {
       fetchProducts();
     }, []);
 
-    if(loading) return <div className='flex justify-center items-center '>Loading...</div>
 
   return (
     <>

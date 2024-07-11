@@ -5,7 +5,7 @@ import JobCard from '../../Elements/JobCard'
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from'react-redux'
 import { setResultPost } from "../../../Store/allResultPost"
-import Loader from '../../Elements/Loader'
+import ReactGA from 'react-ga';
 
 const Result = () => {
 
@@ -24,6 +24,7 @@ const Result = () => {
   };
 
   useEffect(() => {
+    ReactGA.pageview(window.location.pathname)
     const fetchProducts = async () => {
       try {
         const response = await axios.get('/result/result', {

@@ -5,7 +5,7 @@ import JobCard from '../../Elements/JobCard'
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from'react-redux'
 import { setUpcommingPost } from "../../../Store/allUpcomminPost"
-import Loader from '../../Elements/Loader'
+import ReactGA from 'react-ga';
 
 const Upcomming = () => {
   const data = useSelector((state) => state.upcommingPost.product);
@@ -23,6 +23,7 @@ const Upcomming = () => {
   };
 
   useEffect(() => {
+    ReactGA.pageview(window.location.pathname)
     const fetchProducts = async () => {
       try {
         const response = await axios.get('/upcomming/post', {

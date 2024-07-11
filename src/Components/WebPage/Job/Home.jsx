@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from'react-redux'
 import { setPost } from "../../../Store/allJobPost"
-import Loader from '../../Elements/Loader'
+import ReactGA from 'react-ga';
 
 const Home = () => {
 
@@ -24,6 +24,7 @@ const Home = () => {
     };
 
     useEffect(() => {
+      ReactGA.pageview(window.location.pathname)
       const fetchProducts = async () => {
         try {
           const response = await axios.get('/job/job', {

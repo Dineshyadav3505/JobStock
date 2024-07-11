@@ -5,7 +5,7 @@ import JobCard from '../../Elements/JobCard'
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from'react-redux'
 import { setAnswerKey } from "../../../Store/allAnswerKeyPost"
-import Loader from '../../Elements/Loader'
+import ReactGA from 'react-ga';
 
 const AnswerKey = () => {
   const data = useSelector((state) => state.answerKeyPost.product);

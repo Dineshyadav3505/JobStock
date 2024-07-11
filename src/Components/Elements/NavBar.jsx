@@ -6,29 +6,26 @@ import axios from '../../utils/Axios';
 const NavBar = () => {
     const location = useLocation();
     const [data, setData] = useState([]);
-    console.log(data);
-
-
-    useEffect(() => {
-        const fetchProducts = async () => {
-          try {
-            const response = await axios.get('/notifiction/notificition');
-  
-            setData(response.data.data);
-          } catch (error) {
-            console.error(error);
-          }
-        };
-      
-        fetchProducts();
-      }, []);
 
     const [notification, setNotifications] = useState(false)
     const [sideMenu , setSideMenu] = useState(false)
 
     const toggleNotification = () => {
       setNotifications(!notification);
+      const fetchProducts = async () => {
+        try {
+          const response = await axios.get('/notifiction/notificition');
+
+          setData(response.data.data);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      fetchProducts();
+
     };
+
+
     const toggleSideMenu = () => {
         setSideMenu(!sideMenu);
     };
@@ -52,12 +49,19 @@ const NavBar = () => {
         </div>
 
         <div className=" flex gap-4 justify-end lg:w-44 ">
-            <button onClick={toggleNotification} className='hidden md:block relative' ><span className=' absolute rounded-full top-0 right-0 h-2 w-2 bg-red-500'></span><img src="/Images/notification.svg" alt="" /> </button>
-            <button onClick={toggleSideMenu} > <img src="/Images/Search.svg" alt="" /> </button>
+        <button
+            onClick={toggleNotification}
+            className="hidden md:block relative"
+            >
+            <span className="absolute rounded-full top-0 right-0 h-2 w-2 bg-red-500"></span>
+            <span className="sr-only">Notifications</span>
+            <img src="/Images/notification.svg" alt="" />
+        </button>            
+        <button onClick={toggleSideMenu} className='menu button' > <img src="/Images/Search.svg" alt="" /> </button>
         </div>
 
         {notification === true ? (
-            <div className="bg-gray-200 rounded-2xl w-1/3 p-4 absolute top-14 right-10">
+            <div className="bg-gray-200 z-50 rounded-2xl w-1/3 p-4 absolute top-14 right-10">
                 <div className="text-gray-700 h-96  overflow-x-auto space-y-2">
                     {data.map((item, index) => (
                         <div className="px-2 py-1 bg-slate-100 rounded ">

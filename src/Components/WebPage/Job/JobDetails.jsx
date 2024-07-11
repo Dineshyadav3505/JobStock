@@ -31,7 +31,6 @@ const JobDetails = () => {
       fetchProducts();
     }, []);
 
-    if(loading) return <div className='flex justify-center items-center '>Loading...</div>
 
   return (
     <>

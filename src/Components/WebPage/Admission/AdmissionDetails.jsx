@@ -11,7 +11,7 @@ const AdmissionDetails = () => {
 
     const data = useSelector((state) => state.admissionDetails.product);
   const { id } = useParams();
-  const [loading , setLoading] = useState(true);
+  const [Loading , setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,6 +33,14 @@ const AdmissionDetails = () => {
   return (
     <>
     <NavBar/>
+    {Loading === true ? 
+  (
+    <div className="h-screen w-full flex justify-center items-center">
+      <div className="border-[5px] h-12 w-12 rounded-full border-t-[#119766] animate-spin"
+      ></div>
+    </div>
+    
+  ) : (
     <div className="relative ">
       <img className='w-full md:hidden' src="/Images/banner.jpeg" alt="" />
       <img className='w-full hidden md:block lg:hidden' src="/Images/bannermd.svg" alt="" />
@@ -92,6 +100,7 @@ const AdmissionDetails = () => {
 
         </div>
     </div>
+  )};
     </>
   )
 }

@@ -17,6 +17,7 @@ import Loading from './Components/Elements/Loader'
 import AnswerKeyDetails from './Components/WebPage/AnswerKey/AnswerKeyDetails'
 import AdmissionDetails from './Components/WebPage/Admission/AdmissionDetails'
 import Upcomming from './Components/WebPage/Upcomming/Upcomming'
+import ReactGA from 'react-ga';
 
 
 

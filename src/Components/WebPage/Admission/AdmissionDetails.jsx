@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAdmissionDetails } from '../../../Store/singleAdmissionPost';
+import ReactGA from 'react-ga';
 
 const AdmissionDetails = () => {
 
@@ -15,6 +16,7 @@ const AdmissionDetails = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+      ReactGA.pageview(window.location.pathname)
       const fetchProducts = async () => {
         try {
           const response = await axios.get(`/admission/${id}`);

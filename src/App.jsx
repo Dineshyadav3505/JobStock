@@ -19,7 +19,8 @@ import AdmissionDetails from './Components/WebPage/Admission/AdmissionDetails'
 import Upcomming from './Components/WebPage/Upcomming/Upcomming'
 import ReactGA from 'react-ga';
 
-
+const trackingId = "UA-207427297-1"; // Replace with your Google Analytics tracking ID
+ReactGA.initialize(trackingId);
 
 const App = () => {
   return (        

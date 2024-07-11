@@ -5,7 +5,7 @@ import JobCard from '../../Elements/JobCard'
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from'react-redux'
 import { setAdmitCardPost } from "../../../Store/allAdmitCardPost"
-import Loader from '../../Elements/Loader'
+import ReactGA from 'react-ga';
 
 
 const AdmitCard = () => {
@@ -14,6 +14,7 @@ const AdmitCard = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const dispatch = useDispatch();
+
 
   const { register, handleSubmit, reset } = useForm();
 
@@ -24,6 +25,7 @@ const AdmitCard = () => {
   };
 
   useEffect(() => {
+    ReactGA.pageview(window.location.pathname)
     const fetchProducts = async () => {
       try {
         const response = await axios.get('/admitCard/admitcard', {

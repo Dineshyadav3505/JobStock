@@ -23,6 +23,7 @@ const AnswerKey = () => {
   };
 
   useEffect(() => {
+    ReactGA.pageview(window.location.pathname)
     const fetchProducts = async () => {
       try {
         const response = await axios.get('/admitCard/admitcard', {

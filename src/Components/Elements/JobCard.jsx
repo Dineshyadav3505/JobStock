@@ -84,10 +84,10 @@ const JobCard = (
 
                 {/* Save Button */}
                 <div onClick={save}  className={`bg-[#FEEDDF] flex justify-center items-center text-[#d26634] hover:text-[#119766] min-h-10 max-h-10 min-w-10 max-w-10 rounded-full p-2 ${saveBtn}`}>
-                    <i className ="ri-bookmark-line "></i>
+                    <img src="/Images/save.svg" alt="" />
                 </div>
                 <div onClick={remove}  className={`bg-[#FEEDDF] text-black hover:text-[#119766] min-h-10 max-h-10 min-w-10 max-w-10 rounded-full p-2 ${removeBtn}`}>
-                    <img src="/Images/Save.svg" alt="" />
+                    <img src="/Images/save.svg" alt="" />
                </div>
                 
 

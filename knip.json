@@ -1,0 +1,5 @@
+{
+    "enter":["src/index.js"],
+    "project":["src/**/*.{js,jsx,ts,tsx}"],
+    "ignore":["src/Store/*.js"]
+}

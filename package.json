@@ -41,6 +41,7 @@
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.4",
     "vite": "^5.3.1",
+    "vite-plugin-compression2": "^1.1.2",
     "webpack": "^5.93.0",
     "webpack-cli": "^5.1.4"
   }

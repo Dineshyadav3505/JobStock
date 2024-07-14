@@ -1,7 +1,7 @@
 import axios from "axios";
 
  const instance = axios.create({
-    baseURL:'http://localhost:1234/api/v1',
+    baseURL:'https://king-prawn-app-7mxo3.ondigitalocean.app/api/v1/',
  })
 
  export default instance;

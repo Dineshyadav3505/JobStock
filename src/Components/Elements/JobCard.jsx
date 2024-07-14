@@ -57,13 +57,13 @@ const JobCard = (
     <div className=" p-5 mt-5 rounded-lg border-[1px] border-zinc-300 md:w-[47vw] lg:w-[31.4vw]">
             <div className="flex gap-4 ">
                 {/* Icon */}
-                <div className=" inline-block h-14 w-14 p-1 ">
-                    <img className="h-full object-contain" src={img} alt="" />
+                <div className=" inline-flex h-14 w-14 p-1 justify-center items-center ">
+                    <img className="h-full  object-contain" src={img} alt="" />
                 </div>
 
                 {/* Job Title */}
                 <div className=" space-y-2 mb-2 w-full">
-                    <h1 className="text-xl font-Jost font-semibold text-[#0E0202] ">{title}</h1>
+                    <NavLink to={applyBtn} className="text-xl font-Jost font-semibold text-[#0E0202] ">{title}</NavLink>
                     <div className=" flex flex-wrap gap-2">
                         <Button
                             className="text-xs py-1 px-2 rounded-sm bg-[#DFE0E1] text-zinc-900 font-Jost font-semibold"

@@ -40,7 +40,7 @@ const JobDetailsUpperdiv = ({
 
   return (
     <div className="w-full bg-[#D3F4E5] px-5 pt-8 pb-4 md:flex gap-5">
-        <div className=" h-24 w-24 md:h-28 md:w-28 rounded-full p-2 overflow-hidden bg-white">
+        <div className=" h-24 w-24 md:h-28 md:w-28 rounded-full p-2 overflow-hidden bg-white flex justify-center items-center">
             <img className='h-full object-contain' src={img} alt="" />
         </div>
         <div className="py-5 space-y-3">

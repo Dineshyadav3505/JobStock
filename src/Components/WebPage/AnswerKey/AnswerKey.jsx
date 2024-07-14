@@ -19,14 +19,13 @@ const AnswerKey = () => {
   const onSubmit = (formData) => {
     const { searchTerm: newSearchTerm } = formData;
     setSearchTerm(newSearchTerm);
-    reset();
   };
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname)
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('/admitCard/admitcard', {
+        const response = await axios.get('/answerKey/answerKey', {
           params: {
             searchTerm
           }

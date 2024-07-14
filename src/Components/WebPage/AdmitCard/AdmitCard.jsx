@@ -21,7 +21,6 @@ const AdmitCard = () => {
   const onSubmit = (formData) => {
     const { searchTerm: newSearchTerm } = formData;
     setSearchTerm(newSearchTerm);
-    reset();
   };
 
   useEffect(() => {

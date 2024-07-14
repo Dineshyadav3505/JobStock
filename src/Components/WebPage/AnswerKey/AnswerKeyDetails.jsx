@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAnswerKeyDetails } from '../../../Store/singleAnswerKeyPost';
+import ReactGA from'react-ga';
 
 const AnswerKeyDetails = () => {
 
@@ -19,9 +20,10 @@ const AnswerKeyDetails = () => {
     ReactGA.pageview(window.location.pathname)
       const fetchProducts = async () => {
         try {
-          const response = await axios.get(`/admitCard/${id}`);
+          const response = await axios.get(`/answerKey/${id}`);
           dispatch(setAnswerKeyDetails(response.data.data));
           setLoading(false);
+          console.log(response.data.data)
         } catch (error) {
           console.error(error);
         }
@@ -43,9 +45,9 @@ const AnswerKeyDetails = () => {
     
   ) : (
     <div className="relative ">
-      <img className='w-full md:hidden' src="/Images/banner.jpeg" alt="" />
+      {/* <img className='w-full md:hidden' src="/Images/banner.jpeg" alt="" />
       <img className='w-full hidden md:block lg:hidden' src="/Images/bannermd.svg" alt="" />
-      <img className='w-full hidden lg:block' src="/Images/bannerLG.svg" alt="" />
+      <img className='w-full hidden lg:block' src="/Images/bannerLG.svg" alt="" /> */}
         <div className="px-5 absolute top-56 w-screen md:px-16 ">
             <div className="w-full bg-white rounded-lg overflow-hidden ">
                 

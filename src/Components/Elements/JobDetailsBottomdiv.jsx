@@ -44,6 +44,7 @@ const JobDetailsBottomdiv = (
 ) => {
     const [activeTab, setActiveTab] = useState('description')
     const [showImage, setShowImage] = useState(false)
+    const images = postImage;
 
     const handleTabClick = (tab) => {
         setActiveTab(tab)
@@ -86,31 +87,31 @@ const JobDetailsBottomdiv = (
                     <div className=" space-y-3 flex flex-col pb-5">
                         <div className="">
                         <h6 className='text-[#0E0202] font-Jost font-bold '>Important Dates:</h6>
-                        {date1.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date1} </p> : null}
-                        {date2.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date2} </p> : null}
-                        {date3.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date3} </p> : null}
-                        {date4.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date4} </p> : null}
-                        {date5.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date5} </p> : null}
-                        {date6.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date6} </p> : null}
-                        {date7.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date7} </p> : null}
-                        {date8.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date8} </p> : null}
-                        {date9.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date9} </p> : null}
-                        {date10.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date10} </p> : null}
+                        {date1?.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date1} </p> : null}
+                        {date2?.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date2} </p> : null}
+                        {date3?.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date3} </p> : null}
+                        {date4?.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date4} </p> : null}
+                        {date5?.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date5} </p> : null}
+                        {date6?.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date6} </p> : null}
+                        {date7?.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date7} </p> : null}
+                        {date8?.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date8} </p> : null}
+                        {date9?.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date9} </p> : null}
+                        {date10?.length > 0 && date1 ? <p className='text-[#0E0202]'> ❗{date10} </p> : null}
                         </div>
                     </div>
                     <div className=" space-y-3 flex flex-col pb-5">
                         <div className="">
                         <h6 className='text-[#0E0202] font-Jost font-bold '>Application Fee:</h6>
-                        {Fee1.length  > 0 && Fee1 ? <p className='text-[#0E0202]'> ❗ { Fee1} </p> : null}
-                        {Fee2.length  > 0 && Fee2 ? <p className='text-[#0E0202]'>  ❗{Fee2} </p> : null}
-                        {Fee3.length  > 0 && Fee3 ? <p className='text-[#0E0202]'>  ❗{Fee3} </p> : null}
-                        {Fee4.length  > 0 && Fee4 ? <p className='text-[#0E0202]'>  ❗{Fee4} </p> : null}
-                        {Fee5.length  > 0 && Fee5 ? <p className='text-[#0E0202]'>  ❗{Fee5} </p> : null}
-                        {Fee6.length  > 0 && Fee6 ? <p className='text-[#0E0202]'>  ❗{Fee6} </p> : null}
-                        {Fee7.length  > 0 && Fee7 ? <p className='text-[#0E0202]'>  ❗{Fee7} </p> : null}
-                        {Fee8.length  > 0 && Fee8 ? <p className='text-[#0E0202]'>  ❗{Fee8} </p> : null}
-                        {Fee9.length  > 0 && Fee9 ? <p className='text-[#0E0202]'>  ❗{Fee9} </p> : null}
-                        {Fee10.length > 0 && Fee10 ? <p className='text-[#0E0202]'> ❗{Fee10} </p> : null}
+                        {Fee1?.length  > 0 && Fee1 ? <p className='text-[#0E0202]'> ❗ { Fee1} </p> : null}
+                        {Fee2?.length  > 0 && Fee2 ? <p className='text-[#0E0202]'>  ❗{Fee2} </p> : null}
+                        {Fee3?.length  > 0 && Fee3 ? <p className='text-[#0E0202]'>  ❗{Fee3} </p> : null}
+                        {Fee4?.length  > 0 && Fee4 ? <p className='text-[#0E0202]'>  ❗{Fee4} </p> : null}
+                        {Fee5?.length  > 0 && Fee5 ? <p className='text-[#0E0202]'>  ❗{Fee5} </p> : null}
+                        {Fee6?.length  > 0 && Fee6 ? <p className='text-[#0E0202]'>  ❗{Fee6} </p> : null}
+                        {Fee7?.length  > 0 && Fee7 ? <p className='text-[#0E0202]'>  ❗{Fee7} </p> : null}
+                        {Fee8?.length  > 0 && Fee8 ? <p className='text-[#0E0202]'>  ❗{Fee8} </p> : null}
+                        {Fee9?.length  > 0 && Fee9 ? <p className='text-[#0E0202]'>  ❗{Fee9} </p> : null}
+                        {Fee10?.length > 0 && Fee10 ? <p className='text-[#0E0202]'> ❗{Fee10} </p> : null}
                         </div>
                     </div>
                     </>
@@ -119,20 +120,20 @@ const JobDetailsBottomdiv = (
                     <div className=" space-y-3 flex flex-col pb-5">
                         <div className="">
                             <h6 className='text-[#0E0202] font-Jost font-bold '>Eligibility and Exam Details:</h6>
-                            {age1.length  > 0 && age1  ? <p className='text-[#0E0202]'> ❗{age1} </p> : null}
-                            {age2.length  > 0 && age2  ? <p className='text-[#0E0202]'> ❗{age2} </p> : null}
-                            {age3.length  > 0 && age3  ? <p className='text-[#0E0202]'> ❗{age3} </p> : null}
-                            {age4.length  > 0 && age4  ? <p className='text-[#0E0202]'> ❗{age4} </p> : null}
-                            {age5.length  > 0 && age5  ? <p className='text-[#0E0202]'> ❗{age5} </p> : null}
-                            {age6.length  > 0 && age6  ? <p className='text-[#0E0202]'> ❗{age6} </p> : null}
-                            {age7.length  > 0 && age7  ? <p className='text-[#0E0202]'> ❗{age7} </p> : null}
-                            {age8.length  > 0 && age8  ? <p className='text-[#0E0202]'> ❗{age8} </p> : null}
-                            {age9.length  > 0 && age9  ? <p className='text-[#0E0202]'> ❗{age9} </p> : null}
-                            {age10.length > 0 && age10 ? <p className='text-[#0E0202]'> ❗{age10} </p> : null}
+                            {age1?.length  > 0 && age1  ? <p className='text-[#0E0202]'> ❗{age1} </p> : null}
+                            {age2?.length  > 0 && age2  ? <p className='text-[#0E0202]'> ❗{age2} </p> : null}
+                            {age3?.length  > 0 && age3  ? <p className='text-[#0E0202]'> ❗{age3} </p> : null}
+                            {age4?.length  > 0 && age4  ? <p className='text-[#0E0202]'> ❗{age4} </p> : null}
+                            {age5?.length  > 0 && age5  ? <p className='text-[#0E0202]'> ❗{age5} </p> : null}
+                            {age6?.length  > 0 && age6  ? <p className='text-[#0E0202]'> ❗{age6} </p> : null}
+                            {age7?.length  > 0 && age7  ? <p className='text-[#0E0202]'> ❗{age7} </p> : null}
+                            {age8?.length  > 0 && age8  ? <p className='text-[#0E0202]'> ❗{age8} </p> : null}
+                            {age9?.length  > 0 && age9  ? <p className='text-[#0E0202]'> ❗{age9} </p> : null}
+                            {age10?.length > 0 && age10 ? <p className='text-[#0E0202]'> ❗{age10} </p> : null}
                         </div>
                         <div className="">
                             <h6 className='text-[#0E0202] font-Jost font-bold mb-2'>Total Vacancy: {totalPost}</h6>
-                            {postImage.length > 0 && postImage ? <NavLink to="/viewPost" className={`text-blue-600 text-sm  underline w-full ${vacancyDetails}`}> Show Vacancy Details</NavLink> : null}
+                            {postImage.length > 0 && postImage ? <NavLink onClick={imageToggle} className={`text-blue-600 text-sm  underline w-full ${vacancyDetails}`}> Show Vacancy Details</NavLink> : null}
                         </div>
                     </div>
                 )}
@@ -140,6 +141,19 @@ const JobDetailsBottomdiv = (
             <div className="inline-block">
                 <a href={applyLink} target="_blank" className={`rounded-md py-2 px-4 text-sm bg-[#119766]`}> {children}</a>
             </div>
+            {showImage === true ? (
+                <div className=" relative mt-5 bg-transparent">
+                    <img onClick={imageToggle} className=' absolute top-2 left-2' src="/Images/close.svg " alt="" />
+                    {images && images.map((item, index) => (
+                    <img
+                        key={index}
+                        className="w-full bg-red-300 object-cover"
+                        src={item}
+                        alt=""
+                    />
+                    ))}
+                </div>
+            ) : null }
         </div>
     )
 }

@@ -3,12 +3,11 @@ import NavBar from '../../Elements/NavBar'
 import { useForm } from 'react-hook-form';
 import JobCard from '../../Elements/JobCard'
 import axios from '../../../utils/Axios';
-import { useSelector, useDispatch } from'react-redux'
-import { setUpcommingPost } from "../../../Store/allUpcomminPost"
+import { useDispatch } from'react-redux'
 import ReactGA from 'react-ga';
 
 const Upcomming = () => {
-  const data = useSelector((state) => state.upcommingPost.product);
+
   const [Loading, setLoading] = useState(true);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -30,8 +29,7 @@ const Upcomming = () => {
             searchTerm
           }
         });
-        dispatch(setUpcommingPost(response.data.data));
-        setFilteredData(response.data.data);
+        setFilteredData([...response.data.data].reverse());
         setLoading(false);
       } catch (error) {
         console.error(error);

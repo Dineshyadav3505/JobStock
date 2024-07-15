@@ -54,7 +54,7 @@ const JobCard = (
     }
 
   return (
-    <div className=" p-5 mt-5 rounded-lg border-[1px] border-zinc-300 md:w-[47vw] lg:w-[31.4vw]">
+    <div className=" p-5 mt-5 rounded-lg border-[1px] border-zinc-300 w-full md:w-[47vw] lg:w-[31.4vw]">
             <div className="flex gap-4 ">
                 {/* Icon */}
                 <div className=" inline-flex h-14 w-14 p-1 justify-center items-center ">

@@ -4,12 +4,9 @@ import JobCard from '../../Elements/JobCard'
 import { useForm } from 'react-hook-form';
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from'react-redux'
-import { setPost } from "../../../Store/allJobPost"
 import ReactGA from 'react-ga';
 
 const Home = () => {
-
-    const data = useSelector((state) => state.jobPost.product);
     const [Loading, setLoading] = useState(true);
     const [filteredData, setFilteredData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -31,8 +28,7 @@ const Home = () => {
               searchTerm
             }
           });
-          dispatch(setPost(response.data.data));
-          setFilteredData(response.data.data);
+          setFilteredData([...response.data.data].reverse());
           setLoading(false);
         } catch (error) {
           console.error(error);

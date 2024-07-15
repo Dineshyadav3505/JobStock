@@ -3,13 +3,12 @@ import NavBar from '../../Elements/NavBar'
 import { useForm } from 'react-hook-form';
 import JobCard from '../../Elements/JobCard'
 import axios from '../../../utils/Axios';
-import { useSelector, useDispatch } from'react-redux'
-import { setAdmitCardPost } from "../../../Store/allAdmitCardPost"
+import {useDispatch } from'react-redux'
 import ReactGA from 'react-ga';
 
 
 const AdmitCard = () => {
-  const data = useSelector((state) => state.jobPost.product);
+
   const [Loading, setLoading] = useState(true);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -32,8 +31,7 @@ const AdmitCard = () => {
             searchTerm
           }
         });
-        dispatch(setAdmitCardPost(response.data.data));
-        setFilteredData(response.data.data);
+        setFilteredData([...response.data.data].reverse());
         setLoading(false);
       } catch (error) {
         console.error(error);

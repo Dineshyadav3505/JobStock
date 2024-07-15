@@ -4,11 +4,9 @@ import { useForm } from 'react-hook-form';
 import JobCard from '../../Elements/JobCard'
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from'react-redux'
-import { setAdmissionPost } from "../../../Store/allAdmissionPost"
 import ReactGA from 'react-ga';
 
 const Admission = () => {
-  const data = useSelector((state) => state.admissionPost.product);
   const [Loading, setLoading] = useState(true);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -30,8 +28,7 @@ const Admission = () => {
             searchTerm
           }
         });
-        dispatch(setAdmissionPost(response.data.data));
-        setFilteredData(response.data.data);
+        setFilteredData([...response.data.data].reverse());
         setLoading(false);
       } catch (error) {
         console.error(error);

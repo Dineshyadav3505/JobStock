@@ -3,12 +3,11 @@ import NavBar from '../../Elements/NavBar'
 import { useForm } from 'react-hook-form';
 import JobCard from '../../Elements/JobCard'
 import axios from '../../../utils/Axios';
-import { useSelector, useDispatch } from'react-redux'
-import { setAnswerKey } from "../../../Store/allAnswerKeyPost"
+import { useDispatch } from'react-redux'
 import ReactGA from 'react-ga';
 
 const AnswerKey = () => {
-  const data = useSelector((state) => state.answerKeyPost.product);
+
   const [Loading, setLoading] = useState(true);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -30,8 +29,7 @@ const AnswerKey = () => {
             searchTerm
           }
         });
-        dispatch(setAnswerKey(response.data.data));
-        setFilteredData(response.data.data);
+        setFilteredData([...response.data.data].reverse());
         setLoading(false);
       } catch (error) {
         console.error(error);

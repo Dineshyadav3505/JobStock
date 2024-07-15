@@ -12,7 +12,7 @@ const ImageView = () => {
   return (
     <>
       <NavBar />
-      <div className=" relative">
+      <div className=" relative bg-transparent">
         <img onClick={navigate} className=' absolute top-2 left-2' src="/Images/close.svg " alt="" />
         {images && images.map((item, index) => (
           <img

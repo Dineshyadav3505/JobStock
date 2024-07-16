@@ -22,7 +22,6 @@ const JobDetails = () => {
         try {
           const response = await axios.get(`/job/${id}`);
           dispatch(setPostDetails(response.data.data));
-          console.log(response.data.data)
           setLoading(false);
         } catch (error) {
           console.error(error);

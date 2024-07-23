@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import NavBar from '../../Elements/NavBar'
 import JobDetailsUpperdiv from '../../Elements/JobDetailsUpperdiv'
 import JobDetailsBottomdiv from '../../Elements/JobDetailsBottomdiv'
@@ -7,7 +7,6 @@ import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPostDetails } from '../../../Store/singleJobPost';
 import ReactGA from 'react-ga';
-
 
 const JobDetails = () => {
 
@@ -44,9 +43,9 @@ const JobDetails = () => {
     
   ) : (
     <div className="relative ">
-      <img className='w-full md:hidden' src="/Images/Banner.jpeg" alt="" />
-      <img className='w-full hidden md:block lg:hidden' src="/Images/bannermd.svg" alt="" />
-      <img className='w-full hidden lg:block' src="/Images/bannerLG.svg" alt="" />
+      <img className='w-full md:hidden' src="/Images/Banner.svg" alt="" />
+      <img className='w-full hidden md:block lg:hidden' src="/Images/Bannermd.svg" alt="" />
+      <img className='w-full hidden lg:block' src="/Images/BannerLG.svg" alt="" />
         <div className="px-5 absolute top-56 w-screen md:px-16 ">
             <div className="w-full bg-white rounded-lg overflow-hidden ">
                 

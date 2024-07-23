@@ -5,6 +5,7 @@ import JobCard from '../../Elements/JobCard'
 import axios from '../../../utils/Axios';
 import {useDispatch } from'react-redux'
 import ReactGA from 'react-ga';
+import { NavLink} from 'react-router-dom';
 
 
 const AdmitCard = () => {
@@ -13,7 +14,6 @@ const AdmitCard = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const dispatch = useDispatch();
-
 
   const { register, handleSubmit, reset } = useForm();
 

@@ -1,6 +1,9 @@
 import React from 'react'
 import Button from '../Elements/Button'
 import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+
 
 const JobCard = (
     {
@@ -24,8 +27,32 @@ const JobCard = (
 
     const someDate = new Date(yyyymmddDate);
     const diffInDays = getDaysBetweenDates(someDate);
+    const [copy, setCopy] = useState(false);
+    const location = useLocation();
 
+    const jobPostDetails = () => {
+        let url;
+        if (location.pathname === "/") {
+          url = `https://naukrivacancy.com${location.pathname}${applyBtn}`;
+        } else if (location.pathname === "/upcomming") {
+          url = `https://naukrivacancy.com${location.pathname}`;
+        } else {
+          url = `https://naukrivacancy.com${location.pathname}/${applyBtn}`;
+        }
+      
+        navigator.clipboard.writeText(url).then(
+          () => {
+            setCopy(true);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      };
 
+    setTimeout(() => {
+        setCopy(false);
+    }, 2000);
 
     function getDaysBetweenDates(endDate) {
         const today = new Date();
@@ -46,12 +73,9 @@ const JobCard = (
         days = `${Math.abs(diffInDays)} days ago`;
     }
 
-    const save = () => {
-        console.log('Save Job');
-    }
-    const remove = () => {
-        console.log('Remove Job');
-    }
+
+    const short = title.length > 40 ? title.substring(0, 45) + "..." : title;
+
 
   return (
     <div className=" p-5 mt-5 rounded-lg border-[1px] border-zinc-300 w-full md:w-[47vw] lg:w-[31.4vw]">
@@ -63,7 +87,7 @@ const JobCard = (
 
                 {/* Job Title */}
                 <div className=" space-y-2 mb-2 w-full">
-                    <NavLink to={applyBtn} className="text-xl font-Jost font-semibold text-[#0E0202] ">{title}</NavLink>
+                    <NavLink to={applyBtn} className="text-xl block min-h-16 font-Jost font-semibold text-[#0E0202] ">{short}</NavLink>
                     <div className=" flex flex-wrap gap-2">
                         <Button
                             className="text-xs py-1 px-2 rounded-sm bg-[#DFE0E1] text-zinc-900 font-Jost font-semibold"
@@ -82,14 +106,10 @@ const JobCard = (
 
                 </div>
 
-                {/* Save Button */}
-                <div onClick={save}  className={`bg-[#FEEDDF] flex justify-center items-center text-[#d26634] hover:text-[#119766] min-h-10 max-h-10 min-w-10 max-w-10 rounded-full p-2 ${saveBtn}`}>
-                    <img src="/Images/save.svg" alt="" />
+                {/* Share Button */}
+                <div onClick={jobPostDetails}  className={`bg-[#FEEDDF] flex justify-center items-center text-[#d26634] hover:text-[#119766] min-h-10 max-h-10 min-w-10 max-w-10 rounded-full p-2 ${saveBtn}`}>
+                    {copy === true ? (<img src='/Images/copy.svg'/>) : (<img src="/Images/save.svg" alt="" />)}
                 </div>
-                <div onClick={remove}  className={`bg-[#FEEDDF] text-black hover:text-[#119766] min-h-10 max-h-10 min-w-10 max-w-10 rounded-full p-2 ${removeBtn}`}>
-                    <img src="/Images/save.svg" alt="" />
-               </div>
-                
 
             </div>
             {/* Apply Button And Time */}
@@ -111,3 +131,5 @@ const JobCard = (
 }
 
 export default JobCard
+
+

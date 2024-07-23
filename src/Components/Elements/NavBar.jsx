@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { NavLink} from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import axios from '../../utils/Axios';
+import Social from './Social';
 
 const NavBar = () => {
     const location = useLocation();
@@ -43,7 +44,7 @@ const NavBar = () => {
             <div className=" text-base hidden font-Jost px-5 lg:flex gap-4 items-end ">
                 <NavLink to="/"           className={` font-serif ${isActive('/')          ? 'font-serif font-black text-sx' : ''}`}> Latest Job</NavLink>
                 <NavLink to="/result"     className={` font-serif ${isActive('/result')    ? 'font-serif font-black text-sx' : ''}`}> Result</NavLink>
-                <NavLink to="/syllabus"   className={` font-serif ${isActive('/syllabus')  ? 'font-serif font-black text-sx' : ''}`}> Syllabus</NavLink>
+                <NavLink to="/statejob"   className={` font-serif ${isActive('/statejob')        ? 'font-serif font-black text-sx' : ''}`}> State Jobs</NavLink>
                 <NavLink to="/adminCard"  className={` font-serif ${isActive('/adminCard') ? 'font-serif font-black text-sx' : ''}`}> Admit Card</NavLink>
             </div>
         </div>
@@ -61,14 +62,15 @@ const NavBar = () => {
         </div>
 
         {notification === true ? (
-            <div className="bg-gray-200 z-50 rounded-2xl w-1/3 p-4 absolute top-14 right-10">
+            <div className="bg-gray-200 z-50 rounded-2xl w-1/5 p-4 absolute top-14 right-10">
                 <div className="text-gray-700 h-96  overflow-x-auto space-y-2">
+                    <h1 className='font-Jost  flex items-end gap-1 text-sm'> <img src="/Images/noti.svg" alt="" />Notification</h1>
                     {data.map((item, index) => (
                         <div className="px-2 py-1 bg-slate-100 rounded ">
                             <div className="flex items-center justify-between">
                                 <h1 className="text-sm font-bold font-bitter capitalize text-gray-700">{item.title}</h1>
                             </div>
-                            <p className="text-gray-700 font-Jost text-sm">{item.message}</p>
+                            <p className="text-gray-700 font-Jost text-sm px-2 ">{item.message}</p>
                         </div>
                     ))}
                 </div>
@@ -79,15 +81,15 @@ const NavBar = () => {
 
         {sideMenu == true ? 
             (
-                <div className=" absolute right-0 z-50 h-screen top-0 w-[70%] lg:w-1/3 py-5 px-5 bg-[rgba(255,255,255,.9)] ">
-                    <button className='w-full flex justify-end'><img onClick={toggleSideMenu} src="/Images/close.svg" alt="" /></button>
-                    <h1 className='text-3xl font-bitter capitalize underline mb-3' >hello!</h1>
-                    
-                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/"                         className='font-bitter font-medium italic' > Latest job                </NavLink> </div>
-                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/upcomming"                className='font-bitter font-medium italic' > Up-comming Update         </NavLink> </div>
-                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/admission"                className='font-bitter font-medium italic' > Admission                 </NavLink> </div>
-                    <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/answer_Key"               className='font-bitter font-medium italic' > Answer Key                </NavLink> </div>
-                    {/* <div className="p-2 flex items-center text-2xl hover:text-4xl hover:underline duration-300"> <NavLink to="/saved_Post"               className='font-bitter font-medium italic' > Saved Post                </NavLink> </div> */}
+                <div className=" absolute flex flex-col justify-between right-0 z-50 h-screen rounded-l-2xl top-0 w-[70%] lg:w-1/3 py-5 px-5 bg-[#FDFDFD] ">
+                    <div className="">
+                        <button className='w-full flex justify-end mb-5'><img onClick={toggleSideMenu} src="/Images/close.svg" alt="" /></button>
+                        <NavLink to="/"            className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/Job.svg"       alt="/" /> <p              className='font-Jost font-medium' > Latest job                </p> </NavLink>
+                        <NavLink to="/upcomming"   className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/soon.svg"      alt="/" /> <p              className='font-Jost font-medium' > Up-comming Update         </p> </NavLink>
+                        <NavLink to="/admission"   className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/admission.svg" alt="/" /> <p              className='font-Jost font-medium' > Admission                 </p> </NavLink>
+                        <NavLink to="/answer_Key"  className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/key.svg"       alt="/" /> <p              className='font-Jost font-medium' > Answer Key                </p> </NavLink>
+                    </div>
+                    <Social/>
                 </div>
 
             ): null
@@ -108,9 +110,9 @@ const NavBar = () => {
             <span className="text-sm">Result</span>
         </NavLink>
 
-        <NavLink to="/syllabus" className="flex flex-col justify-center items-center">
+        <NavLink to="/statejob" className="flex flex-col justify-center items-center">
             <img className='' src="/Images/Syllabus.svg" alt="" />
-            <span className="text-sm">Syllabus</span>
+            <span className="text-sm">State Jobs</span>
         </NavLink>
 
         <NavLink to="/adminCard" className="flex flex-col justify-center items-center">

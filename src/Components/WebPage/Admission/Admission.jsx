@@ -53,7 +53,7 @@ const Admission = () => {
               {...register('searchTerm')}
               className="w-[70%] md:w-[80%] lg:w-[90%] text-base text-black focus:bg-transparent outline-none px-2"
               type="text"
-              placeholder='Search for Answer Key...'
+              placeholder='Search for Admission...'
               />
               <button
               className="h-12 lg:h-8 bg-[#119766] rounded-md text-[#F2F2F2] w-[30%] md:w-[20%] lg:w-[10%]"

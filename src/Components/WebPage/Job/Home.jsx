@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useHistory } from 'react'
 import NavBar from '../../Elements/NavBar'
 import JobCard from '../../Elements/JobCard'
 import { useForm } from 'react-hook-form';
@@ -75,7 +75,7 @@ const Home = () => {
                       lastDate={item.lastDate}
                       saveBtn="block"
                       removeBtn="hidden"
-                      applyBtn={item._id}
+                      applyBtn={item.postlink || item._id}
                       yyyymmddDate={item.yyyymmddDate}
                       yyyymmddDateLine="Block"
                   />

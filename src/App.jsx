@@ -1,55 +1,46 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Home from './Components/WebPage/Job/Home'
-import AdmitCard from './Components/WebPage/AdmitCard/AdmitCard'
-import Result from './Components/WebPage/Result/Result'
-import Syllabus from './Components/WebPage/Syllabus/Syllabus'
-import JobDetails from './Components/WebPage/Job/JobDetails'
-import Admission from './Components/WebPage/Admission/Admission'
-import AnswerKey from './Components/WebPage/AnswerKey/AnswerKey'
-import Important from './Components/WebPage/Important/Important'
-import CertificateVerification from './Components/WebPage/CertificateVerification/CertificateVerification'
-import SavedPost from './Components/WebPage/SavedPost/SavedPost'
-import ImageView from './Components/WebPage/Job/ImageView'
-import ResultDetails from './Components/WebPage/Result/ResultDetails'
-import AdmitCardDetails from './Components/WebPage/AdmitCard/AdmitCardDetails'
-import Loading from './Components/Elements/Loader'
-import AnswerKeyDetails from './Components/WebPage/AnswerKey/AnswerKeyDetails'
-import AdmissionDetails from './Components/WebPage/Admission/AdmissionDetails'
-import Upcomming from './Components/WebPage/Upcomming/Upcomming'
+import React from 'react';
 import ReactGA from 'react-ga';
+import { Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-const trackingId = "G-RKS7E9435N"; 
+// Importing components
+import Home from './Components/WebPage/Job/Home';
+import AdmitCard from './Components/WebPage/AdmitCard/AdmitCard';
+import Result from './Components/WebPage/Result/Result';
+import JobDetails from './Components/WebPage/Job/JobDetails';
+import Admission from './Components/WebPage/Admission/Admission';
+import AnswerKey from './Components/WebPage/AnswerKey/AnswerKey';
+import Important from './Components/WebPage/Important/Important';
+import ResultDetails from './Components/WebPage/Result/ResultDetails';
+import AdmitCardDetails from './Components/WebPage/AdmitCard/AdmitCardDetails';
+import AnswerKeyDetails from './Components/WebPage/AnswerKey/AnswerKeyDetails';
+import AdmissionDetails from './Components/WebPage/Admission/AdmissionDetails';
+import Upcomming from './Components/WebPage/Upcomming/Upcomming';
+import StateJob from './Components/WebPage/StateJob/Statejob';
+
+// Initialize Google Analytics
+const trackingId = "G-RKS7E9435N";
 ReactGA.initialize(trackingId);
 
 const App = () => {
-  return (        
-    <>
-    
-    <Routes>
-      <Route path='/'                         element={<Home/>}></Route>
-      <Route path='/adminCard'                element={<AdmitCard/>}></Route>
-      <Route path='/result'                   element={<Result/>}></Route>
-      <Route path='/syllabus'                 element={<Syllabus/>}></Route>
-      <Route path='/admission'                element={<Admission/>}></Route>
-      <Route path='/answer_Key'               element={<AnswerKey/>}></Route>
-      <Route path='/important'                element={<Important/>}></Route>
-      <Route path='/certificate_Verification' element={<CertificateVerification/>}></Route>
-      <Route path='/saved_Post'               element={<SavedPost/>}></Route>
-      
-      <Route path='/viewPost' element={<ImageView/>}></Route>
-      <Route path='/result/:id' element={<ResultDetails/>}></Route>
-      <Route path='/adminCard/:id' element={<AdmitCardDetails/>}></Route>
-      <Route path='/answer_Key/:id' element={<AnswerKeyDetails/>}></Route>
-      <Route path='/admission/:id' element={<AdmissionDetails/>}></Route>
-      <Route path='/upcomming' element={<Upcomming/>}></Route>
-      <Route path='/:id' element={<JobDetails/>}></Route>
+  return (
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/adminCard" element={<AdmitCard />} />
+          <Route path="/result" element={<Result />} />
+          <Route path="/statejob" element={<StateJob />} />
+          <Route path="/admission" element={<Admission />} />
+          <Route path="/answer_Key" element={<AnswerKey />} />
+          <Route path="/important" element={<Important />} />
+          <Route path="/result/:id" element={<ResultDetails />} />
+          <Route path="/adminCard/:id" element={<AdmitCardDetails />} />
+          <Route path="/answer_Key/:id" element={<AnswerKeyDetails />} />
+          <Route path="/admission/:id" element={<AdmissionDetails />} />
+          <Route path="/upcomming" element={<Upcomming />} />
+          <Route path="/:id" element={<JobDetails />} />
+        </Routes>
 
- 
-    </Routes>
+  );
+};
 
-    </>
-  )
-}
-
-export default App
+export default App;

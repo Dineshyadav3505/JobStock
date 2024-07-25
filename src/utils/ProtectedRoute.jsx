@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import axios from '../utils/Axios';
+import axios from './Axios';
 
-const ProtectedRoute = () => {
+const ProtectedRoute = ({ children }) => {
     const navigate = useNavigate();
     const accessToken = Cookies.get('cb_chec');
 
@@ -35,7 +35,7 @@ const ProtectedRoute = () => {
         checkAccessToken();
     }, [accessToken, navigate]);
 
-    return null; 
+    return children;
 };
 
 export default ProtectedRoute;

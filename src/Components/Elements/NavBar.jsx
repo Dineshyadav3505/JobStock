@@ -3,6 +3,7 @@ import { NavLink} from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import axios from '../../utils/Axios';
 import Social from './Social';
+import Cookies from 'js-cookie';
 
 const NavBar = () => {
     const location = useLocation();
@@ -10,6 +11,7 @@ const NavBar = () => {
 
     const [notification, setNotifications] = useState(false)
     const [sideMenu , setSideMenu] = useState(false)
+    const accessToken = Cookies.get('cb_chec');
 
     const toggleNotification = () => {
       setNotifications(!notification);
@@ -88,7 +90,11 @@ const NavBar = () => {
                         <NavLink to="/upcomming"   className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/soon.svg"      alt="/" /> <p              className='font-Jost font-medium' > Up-comming Update         </p> </NavLink>
                         <NavLink to="/admission"   className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/admission.svg" alt="/" /> <p              className='font-Jost font-medium' > Admission                 </p> </NavLink>
                         <NavLink to="/answer_Key"  className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/key.svg"       alt="/" /> <p              className='font-Jost font-medium' > Answer Key                </p> </NavLink>
-                        <NavLink to="/login"       className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/login.svg"     alt="/" /> <p              className='font-Jost font-medium' > LogIn                </p> </NavLink>
+                        {accessToken?.length > 20 ? (
+                            <NavLink onClick={LogOut} className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/login.svg" alt="/" /> <p className='font-Jost font-medium' > LogOut </p> </NavLink>
+                        ):(
+                            <NavLink to="/login" className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/login.svg" alt="/" /> <p className='font-Jost font-medium' > LogIn </p> </NavLink>
+                        )}
                     </div>
                     <Social/>
                 </div>
@@ -126,3 +132,7 @@ const NavBar = () => {
 }
 
 export default NavBar
+
+const LogOut = () => {
+    Cookies.remove('cb_chec');
+}

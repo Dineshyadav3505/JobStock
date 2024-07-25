@@ -45,11 +45,15 @@ const App = () => {
           <Route path="/:postname/:id" element={<JobDetails />} />
           <Route path="/login" element={<LogIn/>} />
 
-
           //// Protected Route
-          <Route element={<ProtectedRoute/>} >
-            <Route path="/admin" element={<Admin/>} />
-          </Route>
+          <Route 
+                    path="/admin" 
+                    element={
+                        <ProtectedRoute>
+                            <Admin />
+                        </ProtectedRoute>
+                    } 
+          />
 
         </Routes>
 

@@ -4,7 +4,8 @@ import AdminNavbar from './AdminNavbar'
 const Admin = () => {
   return (
     <>
-    <AdminNavbar/>
+        <AdminNavbar />
+        <div>Admin</div>    
 
     </>
   )

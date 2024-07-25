@@ -17,6 +17,7 @@ import AnswerKeyDetails from './Components/WebPage/AnswerKey/AnswerKeyDetails';
 import AdmissionDetails from './Components/WebPage/Admission/AdmissionDetails';
 import Upcomming from './Components/WebPage/Upcomming/Upcomming';
 import StateJob from './Components/WebPage/StateJob/Statejob';
+import StatejobDetails from './Components/WebPage/StateJob/StatejobDetails';
 
 // Initialize Google Analytics
 const trackingId = "G-RKS7E9435N";
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/answer_Key" element={<AnswerKey />} />
           <Route path="/important" element={<Important />} />
           <Route path="/result/:id" element={<ResultDetails />} />
+          <Route path="/statejob/:postname" element={<StatejobDetails/>} />
           <Route path="/adminCard/:id" element={<AdmitCardDetails />} />
           <Route path="/answer_Key/:id" element={<AnswerKeyDetails />} />
           <Route path="/admission/:id" element={<AdmissionDetails />} />

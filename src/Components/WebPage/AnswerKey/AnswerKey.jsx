@@ -71,14 +71,14 @@ const AnswerKey = () => {
           (filteredData.map((item, index) => (
                 <JobCard 
                     key={index}
-                    id={item.id}
+                    id={item._id}
                     img={item.iconImage}
                     title={item.postName}
                     date={item.beginDate}
                     lastDate={item.lastDate}
                     saveBtn="block"
                     removeBtn="hidden"
-                    applyBtn={item._id}
+                    postlink={item.postlink}
                     yyyymmddDate={item.yyyymmddDate}
                     resultupdateclass="Block"
                     resultupdate={item.updatedAt}

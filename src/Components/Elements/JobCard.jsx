@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '../Elements/Button'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const JobCard = (
         lastDate,
         saveBtn="block",
         removeBtn="hidden",
-        applyBtn,
+        postlink,
         yyyymmddDate,
         yyyymmddDateLine="hidden",
         children,
@@ -33,11 +33,11 @@ const JobCard = (
     const jobPostDetails = () => {
         let url;
         if (location.pathname === "/") {
-          url = `https://naukrivacancy.com${location.pathname}${applyBtn}`;
+          url = `https://naukrivacancy.com${location.pathname}${postlink || id}`;
         } else if (location.pathname === "/upcomming") {
           url = `https://naukrivacancy.com${location.pathname}`;
         } else {
-          url = `https://naukrivacancy.com${location.pathname}/${applyBtn}`;
+          url = `https://naukrivacancy.com${location.pathname}/${postlink || id}`;
         }
       
         navigator.clipboard.writeText(url).then(
@@ -48,7 +48,8 @@ const JobCard = (
             console.error(error);
           }
         );
-      };
+    }; 
+
 
     setTimeout(() => {
         setCopy(false);
@@ -87,7 +88,7 @@ const JobCard = (
 
                 {/* Job Title */}
                 <div className=" space-y-2 mb-2 w-full">
-                    <NavLink to={applyBtn} className="text-xl block min-h-16 font-Jost font-semibold text-[#0E0202] ">{short}</NavLink>
+                    <NavLink to={postlink || id} state={{ id: id }} className="text-xl block min-h-16 font-Jost font-semibold text-[#0E0202] ">{short}</NavLink>
                     <div className=" flex flex-wrap gap-2">
                         <Button
                             className="text-xs py-1 px-2 rounded-sm bg-[#DFE0E1] text-zinc-900 font-Jost font-semibold"
@@ -118,7 +119,8 @@ const JobCard = (
 
                 <Button 
                     className={`ml-3 text-[#F2F2F2] ${button}`}
-                    onClick={applyBtn}
+                    postlink={postlink}
+                    id={id}
                     children={children}
                 />
                 <NavLink className={`rounded-md py-2 px-4 text-sm text-[#F2F2F2] bg-[#119766] ${upcommingButton} `}>
@@ -131,5 +133,4 @@ const JobCard = (
 }
 
 export default JobCard
-
 

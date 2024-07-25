@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react'
 import NavBar from '../../Elements/NavBar'
 import JobDetailsUpperdiv from '../../Elements/JobDetailsUpperdiv'
 import JobDetailsBottomdiv from '../../Elements/JobDetailsBottomdiv'
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPostDetails } from '../../../Store/singleJobPost';
@@ -11,9 +11,12 @@ import ReactGA from 'react-ga';
 const JobDetails = () => {
 
   const data = useSelector((state) => state.jobPostDetails.product);
-  const { id } = useParams();
+  // const { id } = useParams();
   const [Loading , setLoading] = useState(true);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const ID = location.state ? location.state.id : null; 
+  const id = ID ? ID.toString() : null;
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname)

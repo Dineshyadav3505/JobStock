@@ -1,16 +1,19 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation} from 'react-router-dom'
+
 
 const Button = (
     {
         children="Quick Apply",
         className,
-        onClick,
+        postlink,
+        id,
         span
     }
 ) => {
+
   return (
-    <NavLink to={`${onClick}`}  className={`rounded-md py-2 px-4 text-sm bg-[#119766] ${className} `}>
+    <NavLink to={postlink || id} state={{ id: id }}  className={`rounded-md py-2 px-4 text-sm bg-[#119766] ${className} `}>
         {children}
         {span && <span className="ml-2 text-xs font-semibold">{span}</span>}
     </NavLink>

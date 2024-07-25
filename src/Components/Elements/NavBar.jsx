@@ -81,13 +81,14 @@ const NavBar = () => {
 
         {sideMenu == true ? 
             (
-                <div className=" absolute flex flex-col justify-between right-0 z-50 h-screen rounded-l-2xl top-0 w-[70%] lg:w-1/3 py-5 px-5 bg-[#FDFDFD] ">
+                <div className=" absolute flex flex-col right-0 z-50 bg-zinc-100 drop-shadow-md rounded-l-2xl top-0 w-[70%] lg:w-1/3 py-5 px-5 bg-[#FDFDFD] ">
                     <div className="">
                         <button className='w-full flex justify-end mb-5'><img onClick={toggleSideMenu} src="/Images/close.svg" alt="" /></button>
                         <NavLink to="/"            className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/Job.svg"       alt="/" /> <p              className='font-Jost font-medium' > Latest job                </p> </NavLink>
                         <NavLink to="/upcomming"   className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/soon.svg"      alt="/" /> <p              className='font-Jost font-medium' > Up-comming Update         </p> </NavLink>
                         <NavLink to="/admission"   className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/admission.svg" alt="/" /> <p              className='font-Jost font-medium' > Admission                 </p> </NavLink>
                         <NavLink to="/answer_Key"  className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/key.svg"       alt="/" /> <p              className='font-Jost font-medium' > Answer Key                </p> </NavLink>
+                        <NavLink to="/login"       className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/login.svg"     alt="/" /> <p              className='font-Jost font-medium' > LogIn                </p> </NavLink>
                     </div>
                     <Social/>
                 </div>

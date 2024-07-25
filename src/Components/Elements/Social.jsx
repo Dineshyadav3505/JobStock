@@ -9,12 +9,12 @@ const Social = () => {
     ];
 
     return (
-        <div className=" flex flex-col gap-2 mb-10">
+        <div className=" flex flex-col gap-2 mt-40 lg:mt-56">
             {data.map((item, index) => (
                 <a 
                     key={index} 
                     href={item.link} 
-                    className="py-2 px-4 bg-[#EEEEEE] rounded-3xl flex items-center gap-2"
+                    className="py-2 px-4 bg-[#dadada] rounded-3xl flex items-center gap-2"
                     target="_blank" 
                     rel="noopener noreferrer"
                 >

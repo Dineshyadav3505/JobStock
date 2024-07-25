@@ -3,14 +3,12 @@ import NavBar from '../../Elements/NavBar'
 import JobCard from '../../Elements/JobCard'
 import { useForm } from 'react-hook-form';
 import axios from '../../../utils/Axios';
-import { useSelector, useDispatch } from'react-redux'
 import ReactGA from 'react-ga';
 
 const Home = () => {
     const [Loading, setLoading] = useState(true);
     const [filteredData, setFilteredData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const dispatch = useDispatch();
 
     const { register, handleSubmit, reset } = useForm();
 

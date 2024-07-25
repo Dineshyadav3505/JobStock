@@ -19,9 +19,7 @@ const LogIn = () => {
                 email: data.email,
                 password: data.password
             });
-            console.log(response.data);
-            Cookies.set('accessToken', response.data.data.accessToken);
-            Cookies.set('email', response.data.data.user.email);
+            Cookies.set('cb_chec', response.data.data.accessToken);
     
             if (response.status === 200) {
                 if (response.data.data.user.role === 'Admin') {
@@ -37,6 +35,10 @@ const LogIn = () => {
             setError(error.response.data.message);
         }
     };
+
+    setTimeout(() => {
+        Cookies.set('cb_chec', "");
+    }, 7200000);
 
     return (
         <>

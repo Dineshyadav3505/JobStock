@@ -14,7 +14,6 @@ const JobCard = (
         lastDate,
         saveBtn="block",
         removeBtn="hidden",
-        postlink,
         yyyymmddDate,
         yyyymmddDateLine="hidden",
         children,
@@ -29,15 +28,16 @@ const JobCard = (
     const diffInDays = getDaysBetweenDates(someDate);
     const [copy, setCopy] = useState(false);
     const location = useLocation();
+    const postlink = title.replace(/ /g, "-");
 
     const jobPostDetails = () => {
         let url;
         if (location.pathname === "/") {
-          url = `https://naukrivacancy.com${location.pathname}${postlink || id}`;
+          url = `https://naukrivacancy.com${location.pathname}${postlink || title}/${id}`;
         } else if (location.pathname === "/upcomming") {
           url = `https://naukrivacancy.com${location.pathname}`;
         } else {
-          url = `https://naukrivacancy.com${location.pathname}/${postlink || id}`;
+          url = `https://naukrivacancy.com${location.pathname}/${postlink || title}/${id}`;
         }
       
         navigator.clipboard.writeText(url).then(
@@ -88,7 +88,7 @@ const JobCard = (
 
                 {/* Job Title */}
                 <div className=" space-y-2 mb-2 w-full">
-                    <NavLink to={postlink || id} state={{ id: id }} className="text-xl block min-h-16 font-Jost font-semibold text-[#0E0202] ">{short}</NavLink>
+                    <NavLink to={`${title}/${id}`} className="text-xl block min-h-16 font-Jost font-semibold text-[#0E0202] ">{short}</NavLink>
                     <div className=" flex flex-wrap gap-2">
                         <Button
                             className="text-xs py-1 px-2 rounded-sm bg-[#DFE0E1] text-zinc-900 font-Jost font-semibold"
@@ -119,7 +119,7 @@ const JobCard = (
 
                 <Button 
                     className={`ml-3 text-[#F2F2F2] ${button}`}
-                    postlink={postlink}
+                    postlink={postlink || title}
                     id={id}
                     children={children}
                 />

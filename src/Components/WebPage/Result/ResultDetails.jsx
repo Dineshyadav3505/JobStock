@@ -12,13 +12,12 @@ import ReactGA from 'react-ga';
 const ResultDetails = () => {
 
   const data = useSelector((state) => state.resultPostDetails.product);
-  // const { id } = useParams();
+  const { id } = useParams();
   const [Loading , setLoading] = useState(true);
   const dispatch = useDispatch();
-  const location = useLocation();
-  const { id } = location.state || {};
 
-  console.log(id);
+
+ 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname)
       const fetchProducts = async () => {

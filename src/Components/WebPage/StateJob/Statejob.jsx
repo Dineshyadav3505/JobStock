@@ -65,8 +65,7 @@ const StateJob = () => {
                 const response = await axios.get('/statejob/job', {
                     params: {
                         searchTerm,
-                        state: selectedState // Use selectedState for filtering
-
+                        state: selectedState 
                     }
                 });
                 setFilteredData([...response.data.data].reverse());
@@ -77,7 +76,7 @@ const StateJob = () => {
         };
 
         fetchProducts();
-    }, [searchTerm, selectedState]); // Add selectedState to dependencies
+    }, [searchTerm, selectedState]);
 
     const handleStateChange = (event) => {
         setSelectedState(event.target.value);
@@ -144,11 +143,10 @@ const StateJob = () => {
                             <h4 className='text-xl font-Jost font-semibold'>Select Your State</h4>
                             <img onClick={filter} className='h-5 cursor-pointer' src="Images/close.svg" alt="Close" />
                         </div>
-                        <div className="py-3 flex flex-wrap gap-3">
+                        <div className="py-3 mt-3 flex flex-wrap gap-3">
                             {statesOfIndia.map((state) => (
                                 <div key={state}
-                                    className="px-2 py-1 bg-[#F2F2F2] rounded-md hover:bg-[#119766] flex items-center gap-2"
-                                    >
+                                className={`px-2 py-1 rounded-md flex items-center gap-2 ${selectedState === state ? 'bg-[#119766]' : 'bg-[#F2F2F2]'} hover:bg-[#119766]`}                                    >
                                     <input
                                         type="radio"
                                         id={state}
@@ -157,12 +155,13 @@ const StateJob = () => {
                                         className='hidden'
                                         checked={selectedState === state}
                                         onChange={handleStateChange}
-                                        onClick={filter}
                                     />
                                     <label htmlFor={state}>{state}</label>
                                 </div>
+                                
                             ))}
                         </div>
+                        <button onClick={filter} className='mx-auto block py-2 px-4 bg-[#119766] rounded'>Apply Filter</button>
                     </div>
                 </div>
             )}

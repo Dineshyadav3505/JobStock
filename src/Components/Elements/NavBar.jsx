@@ -44,8 +44,8 @@ const NavBar = () => {
             <div className=" text-base hidden font-Jost px-5 lg:flex gap-4 items-end ">
                 <NavLink to="/"           className={` font-serif ${isActive('/')          ? 'font-serif font-black text-sx' : ''}`}> Latest Job</NavLink>
                 <NavLink to="/result"     className={` font-serif ${isActive('/result')    ? 'font-serif font-black text-sx' : ''}`}> Result</NavLink>
-                <NavLink to="/statejob"   className={` font-serif ${isActive('/statejob')        ? 'font-serif font-black text-sx' : ''}`}> State Jobs</NavLink>
-                <NavLink to="/adminCard"  className={` font-serif ${isActive('/adminCard') ? 'font-serif font-black text-sx' : ''}`}> Admit Card</NavLink>
+                <NavLink to="/statejob"   className={` font-serif ${isActive('/statejob')  ? 'font-serif font-black text-sx' : ''}`}> State Jobs</NavLink>
+                <NavLink to="/admitCard"  className={` font-serif ${isActive('/admitCard') ? 'font-serif font-black text-sx' : ''}`}> Admit Card</NavLink>
             </div>
         </div>
 
@@ -115,7 +115,7 @@ const NavBar = () => {
             <span className="text-sm">State Jobs</span>
         </NavLink>
 
-        <NavLink to="/adminCard" className="flex flex-col justify-center items-center">
+        <NavLink to="/admitCard" className="flex flex-col justify-center items-center">
             <img className='' src="/Images/AdmitCard.svg" alt="" />
             <span className="text-sm">Admit Card</span>
         </NavLink>

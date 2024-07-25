@@ -27,19 +27,19 @@ const App = () => {
   return (
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/adminCard" element={<AdmitCard />} />
+          <Route path="/admitCard" element={<AdmitCard />} />
           <Route path="/result" element={<Result />} />
           <Route path="/statejob" element={<StateJob />} />
           <Route path="/admission" element={<Admission />} />
           <Route path="/answer_Key" element={<AnswerKey />} />
           <Route path="/important" element={<Important />} />
-          <Route path="/result/:id" element={<ResultDetails />} />
-          <Route path="/statejob/:postname" element={<StatejobDetails/>} />
-          <Route path="/adminCard/:id" element={<AdmitCardDetails />} />
-          <Route path="/answer_Key/:id" element={<AnswerKeyDetails />} />
-          <Route path="/admission/:id" element={<AdmissionDetails />} />
+          <Route path="/result/:postname/:id" element={<ResultDetails />} />
+          <Route path="/admission/:postname/:id" element={<AdmissionDetails />} />   
+          <Route path="/statejob/:postname/:id" element={<StatejobDetails/>} />
+          <Route path="/admitCard/:postname/:id" element={<AdmitCardDetails/>} />
+          <Route path="/answer_Key/:postname/:id" element={<AnswerKeyDetails />} />
           <Route path="/upcomming" element={<Upcomming />} />
-          <Route path="/:id" element={<JobDetails />} />
+          <Route path="/:postname/:id" element={<JobDetails />} />
         </Routes>
 
   );

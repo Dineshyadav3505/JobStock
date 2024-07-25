@@ -11,12 +11,10 @@ import ReactGA from 'react-ga';
 const JobDetails = () => {
 
   const data = useSelector((state) => state.jobPostDetails.product);
-  // const { id } = useParams();
   const [Loading , setLoading] = useState(true);
-  const dispatch = useDispatch();
-  const location = useLocation();
-  const ID = location.state ? location.state.id : null; 
-  const id = ID ? ID.toString() : null;
+  const { id } = useParams();
+  const dispatch = useDispatch(); 
+
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname)

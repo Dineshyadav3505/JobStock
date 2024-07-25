@@ -19,6 +19,7 @@ import Upcomming from './Components/WebPage/Upcomming/Upcomming';
 import StateJob from './Components/WebPage/StateJob/Statejob';
 import StatejobDetails from './Components/WebPage/StateJob/StatejobDetails';
 import LogIn from './Components/WebPage/LogIn/LogIn';
+import Admin from './Components/Admin/Admin';
 
 // Initialize Google Analytics
 const trackingId = "G-RKS7E9435N";
@@ -42,6 +43,8 @@ const App = () => {
           <Route path="/upcomming" element={<Upcomming />} />
           <Route path="/:postname/:id" element={<JobDetails />} />
           <Route path="/login" element={<LogIn/>} />
+
+          <Route path="/admin" element={<Admin/>} />
 
         </Routes>
 

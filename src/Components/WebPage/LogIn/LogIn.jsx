@@ -1,24 +1,40 @@
 import React, { useState } from 'react';
 import NavBar from '../../Elements/NavBar';
-import { useForm } from 'react-hook-form';
+import { useForm } from "react-hook-form";
+import Cookies from 'js-cookie';
 import Input from './Input';
 import axios from '../../../utils/Axios';
+import { useNavigate } from 'react-router-dom';
 
 const LogIn = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [data, setData] = useState([]);
+    const [error, setError] = useState([]);
+    const navigate = useNavigate();
+    
 
     const onSubmit = async (data) => {
         try {
-            const response = await axios.post('/users/logIn',
-            {
+            const response = await axios.post('/users/logIn', {
                 email: data.email,
                 password: data.password
             });
             console.log(response.data);
+            Cookies.set('accessToken', response.data.data.accessToken);
+            Cookies.set('email', response.data.data.user.email);
+    
+            if (response.status === 200) {
+                if (response.data.data.user.role === 'Admin') {
+                    navigate('/admin');
+                }
+                else{
+                    navigate('/');
+                }
+            } else {
+                setError(response.data.message);
+            }
         } catch (error) {
-            console.error(error.response.data.message);
-            setData(error.response.data.message);
+            setError(error.response.data.message);
         }
     };
 
@@ -29,7 +45,7 @@ const LogIn = () => {
                 <div className="bg-gray-200 py-8 px-10 flex w-full rounded-lg shadow-md flex-col">
                     <h1 className='text-black py-3 text-2xl font-bold text-center'>Log In</h1>
                     <form onSubmit={handleSubmit(onSubmit)} className='space-y-4 mx-auto'>
-                    {data && <p className="text-red-500 text-xs text-center ">{data}</p>}
+                    {error && <p className="text-red-500 text-xs text-center ">{error}</p>}
 
                         <Input
                             label="Email"

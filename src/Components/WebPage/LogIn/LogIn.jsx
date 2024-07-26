@@ -37,13 +37,13 @@ const LogIn = () => {
     };
 
     setTimeout(() => {
-        Cookies.set('cb_chec', "");
+        Cookies.remove('cb_chec');
     }, 7200000);
 
     return (
         <>
             <NavBar />
-            <div className='flex justify-center  px-3 md:px-16 py-10 md:py-44 lg:px-96 '>
+            <div className='flex px-3 md:px-16 py-10 md:py-44 lg:px-96 lg:py-20 '>
                 <div className="bg-gray-200 py-8 px-10 flex w-full rounded-lg shadow-md flex-col">
                     <h1 className='text-black py-3 text-2xl font-bold text-center'>Log In</h1>
                     <form onSubmit={handleSubmit(onSubmit)} className='space-y-4 mx-auto'>

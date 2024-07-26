@@ -8,10 +8,10 @@ const Admin = () => {
     <div className="bg-zinc-900 h-screen ">
       <AdminNavbar />
       <div className="flex ">
-        <SideNavbar/>
-        <div className=" bg-red-300">
-          Admin Content Here...
+        
+        <div className=" bg-red-300 w-[97%] bg-zinc-800 h-96">
         </div>
+        <SideNavbar/>
       </div>
 
     </div>

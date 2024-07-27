@@ -11,6 +11,8 @@ const SideNavbar = () => {
         {label: 'AnswerKey Post',    to: '/answerKeyPost',   img:"Images/aanswer.svg"  },
         {label: 'Admission Post',    to: '/admissionPost',   img:"Images/aadmission.svg"  },
         {label: 'UpComming Post',    to: '/upCommingPost',   img:"Images/aupcomming.svg"  },
+        {label: 'Notification Post',    to: '/notificationPost',   img:"Images/anotification.svg"  },
+
     ]
 
     const logout = ()=>{

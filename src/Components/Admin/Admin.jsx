@@ -7,11 +7,14 @@ const Admin = () => {
     <>
     <div className="bg-zinc-900 h-screen ">
       <AdminNavbar />
-      <div className="flex ">
+      <div className="flex h-full ">
         
-        <div className=" bg-red-300 w-full lg:w-[97%] bg-zinc-800 h-96">
+        <div className=" bg-red-300 w-full flex item-center lg:w-[97%] bg-zinc-800">
+          <img className='object-cover' src="Images/Icon.svg" alt="" />
         </div>
+
         <SideNavbar/>
+      
       </div>
 
     </div>

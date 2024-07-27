@@ -76,6 +76,7 @@ const Home = () => {
                       postlink={item.postlink}
                       yyyymmddDate={item.yyyymmddDate}
                       yyyymmddDateLine="Block"
+                      createdDate={item.createdAt}
                   />
               )))
               :

@@ -18,7 +18,8 @@ const JobCard = (
         yyyymmddDateLine="hidden",
         children,
         button,
-        upcommingButton="hidden"
+        upcommingButton="hidden",
+        createdDate
     }
 
 
@@ -28,7 +29,8 @@ const JobCard = (
     const diffInDays = getDaysBetweenDates(someDate);
     const [copy, setCopy] = useState(false);
     const location = useLocation();
-    const postlink = title.replace(/ /g, "-");
+    const postlink = title.replace(/ /g, "-").replace(/\//g, "-");
+
 
     const jobPostDetails = () => {
         let url;
@@ -80,7 +82,9 @@ const JobCard = (
 
   return (
     <div className=" p-5 mt-5 rounded-lg border-[1px] border-zinc-300 w-full md:w-[47vw] lg:w-[31.4vw]">
-            <div className="flex gap-4 ">
+            <div className="flex gap-4 relative">
+            {<h1 className="absolute -left-3 -top-3 rounded text-xs font-Jost font-semibold text-[white] px-2 py-1 bg-black">{createdDate}</h1>}
+
                 {/* Icon */}
                 <div className=" inline-flex h-14 w-14 p-1 justify-center items-center ">
                     <img className="h-full  object-contain" src={img} alt="" />
@@ -114,7 +118,7 @@ const JobCard = (
 
             </div>
             {/* Apply Button And Time */}
-            <div className="flex  justify-end items-center ">
+            <div className="flex  justify-end items-center  ">
                 <h1 className ={`text-sm font-Jost text-[#D03030] ${yyyymmddDateLine}`}>{days}</h1>
 
                 <Button 

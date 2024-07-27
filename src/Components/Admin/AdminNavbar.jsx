@@ -11,12 +11,13 @@ const AdminNavbar = () => {
   }
   const link =[
     {label: 'Job Post',          to: '/jobPost',         img:"Images/ajob.svg"  },
-    {label: 'State Post',        to: '/stateJob',        img:"Images/astate.svg"  },
-    {label: 'Result Post',       to: '/resulJob',        img:"Images/aresult.svg"  },
+    {label: 'State Post',        to: '/stateJobPost',    img:"Images/astate.svg"  },
+    {label: 'Result Post',       to: '/resulJobPost',    img:"Images/aresult.svg"  },
     {label: 'AdmitCard Post',    to: '/admitCardPost',   img:"Images/aadmit.svg"  },
     {label: 'AnswerKey Post',    to: '/answerKeyPost',   img:"Images/aanswer.svg"  },
     {label: 'Admission Post',    to: '/admissionPost',   img:"Images/aadmission.svg"  },
     {label: 'UpComming Post',    to: '/upCommingPost',   img:"Images/aupcomming.svg"  },
+    {label: 'Notification Post',    to: '/notificationPost',   img:"Images/anotification.svg"  },
   ]
 
   const logout = ()=>{

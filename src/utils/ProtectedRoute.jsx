@@ -20,7 +20,7 @@ const ProtectedRoute = ({ children }) => {
                     });
                     if (response.status === 200) {
                         if (response.data.data.role === 'Admin') {
-                            navigate('/admin');
+                            return children;
                         } else {
                             navigate('/');
                         }

@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 const SideNavbar = () => {
     const link =[
         {label: 'Job Post',          to: '/jobPost',         img:"Images/ajob.svg"  },
-        {label: 'State Post',        to: '/stateJob',        img:"Images/astate.svg"  },
+        {label: 'State Post',        to: '/stateJobPost',    img:"Images/astate.svg"  },
         {label: 'Result Post',       to: '/resulJob',        img:"Images/aresult.svg"  },
         {label: 'AdmitCard Post',    to: '/admitCardPost',   img:"Images/aadmit.svg"  },
         {label: 'AnswerKey Post',    to: '/answerKeyPost',   img:"Images/aanswer.svg"  },
@@ -20,7 +20,7 @@ const SideNavbar = () => {
     }
 
   return (
-    <div className={`hidden lg:flex flex-col text-white h-full w-[6%]`}>
+    <div className={`hidden lg:flex flex-col text-white w-[6%]`}>
         {link.map((item,index)=>(
             <NavLink key={index} to={item.to} className="px-2 py-2 mb-2 flex flex-col items-center rounded hover:bg-zinc-800">
                 <img className='h-5' src={item.img} alt="" />

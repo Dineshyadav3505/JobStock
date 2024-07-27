@@ -21,6 +21,7 @@ import StatejobDetails from './Components/WebPage/StateJob/StatejobDetails';
 import LogIn from './Components/WebPage/LogIn/LogIn';
 import Admin from './Components/Admin/Admin';
 import ProtectedRoute from './utils/ProtectedRoute';
+import JobPost from './Components/WebPage/Job/JobPost';
 
 // Initialize Google Analytics
 const trackingId = "G-RKS7E9435N";
@@ -46,14 +47,8 @@ const App = () => {
           <Route path="/login" element={<LogIn/>} />
 
           //// Protected Route
-          <Route 
-                    path="/admin" 
-                    element={
-                        <ProtectedRoute>
-                            <Admin />
-                        </ProtectedRoute>
-                    } 
-          />
+          <Route path="/admin" element={ <ProtectedRoute> <Admin /> </ProtectedRoute> } />
+          <Route path="/jobPost" element={ <ProtectedRoute> <JobPost/> </ProtectedRoute> } />
 
         </Routes>
 

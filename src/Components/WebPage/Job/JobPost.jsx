@@ -47,14 +47,16 @@ const JobPost = () => {
     { label: 'Age Group 9', placeholder: 'Enter age', registername: 'age9', required: false },
     { label: 'Age Group 10', placeholder: 'Enter age', registername: 'age10', required: false },
     { label: 'Total Post', placeholder: 'Enter total posts', registername: 'totalPost', required: true },
-    { label: 'Icon Image URL', placeholder: 'Enter icon image URL', registername: 'iconImage', required: true },
-    { label: 'Post Image URL', placeholder: 'Enter post image URL', registername: 'postImage', required: true },
-    { label: 'Apply Link', placeholder: 'Enter apply link', registername: 'applyLink', required: true },
+    { label: 'Icon Image', placeholder: 'Upload icon image', registername: 'iconImage', required: true, type: 'file' },
+    { label: 'Post Image', placeholder: 'Upload post image', registername: 'postImage', required: true, type: 'file' },
+    { label: 'Apply Link', placeholder: 'Enter apply link',  registername: 'applyLink', required: true },
   ];
+
 
   const onSubmit = async(data) => {
 
       try {
+        console.log(data);
         const response = await axios.post('/job/create', {
           postName: data.postName,
           postDescription: data.postDescription,
@@ -96,7 +98,7 @@ const JobPost = () => {
           applyLink: data.applyLink,
         },{
           headers: {
-            accessToken
+            Authorization: `Bearer ${accessToken}`,
           }
         });
         console.log(response);
@@ -119,7 +121,7 @@ const JobPost = () => {
                   key={index}
                   label={item.label}
                   labelclass={`text-xs capitalize ${errors[item.registername] ? "text-red-500" : "text-white"}`}
-                  type="text"
+                  type={item.type || 'text'}
                   className='border text-white w-full md:w-96 h-10 block bg-transparent border-zinc-700 rounded-md text-xs px-4 focus:outline-none focus:ring-2 focus:ring-zinc-500'
                   placeholder={item.placeholder}
                   {...register(item.registername, {
@@ -127,6 +129,7 @@ const JobPost = () => {
                   })}
                 />
               ))}
+              {error && <p className="text-red-500 text-xs text-center ">{error}</p>} 
             </div>
             <button type="submit" className="bg-blue-500 block mx-auto mt-8 hover:bg-blue-700 text-white py-1 px-4 rounded">
               Submit

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NavBar from '../../Elements/NavBar';
 import { useForm } from "react-hook-form";
 import Cookies from 'js-cookie';
-import Input from './Input';
+import Input from '../../Elements/Input';
 import axios from '../../../utils/Axios';
 import { useNavigate } from 'react-router-dom';
 

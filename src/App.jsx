@@ -23,6 +23,12 @@ import Admin from './Components/Admin/Admin';
 import ProtectedRoute from './utils/ProtectedRoute';
 import JobPost from './Components/WebPage/Job/JobPost';
 import StatePost from './Components/WebPage/StateJob/StatePost';
+import AdmissionPost from './Components/WebPage/Admission/AdmissionPost';
+import AdmitCardPost from './Components/WebPage/AdmitCard/AdmitCardPost';
+import AnswerKeyPost from './Components/WebPage/AnswerKey/AnswerKeyPost';
+import ResultPost from './Components/WebPage/Result/ResultPost';
+import UpcommingPost from './Components/WebPage/Upcomming/UpcommingPost';
+import NotificationPost from './Components/WebPage/SavedPost/NotificationPost';
 
 // Initialize Google Analytics
 const trackingId = "G-RKS7E9435N";
@@ -51,12 +57,12 @@ const App = () => {
           <Route path="/admin" element={ <ProtectedRoute> <Admin /> </ProtectedRoute> } />
           <Route path="/jobPost" element={ <ProtectedRoute> <JobPost/> </ProtectedRoute> } />
           <Route path="/stateJobPost" element={ <ProtectedRoute> <StatePost/> </ProtectedRoute> } />
-          <Route path="/resulJobPost" element={ <ProtectedRoute> <StatePost/> </ProtectedRoute> } />
-          <Route path="/admitCardPost" element={ <ProtectedRoute> <StatePost/> </ProtectedRoute> } />
-          <Route path="/answerKeyPost" element={ <ProtectedRoute> <StatePost/> </ProtectedRoute> } />
-          <Route path="/admissionPost" element={ <ProtectedRoute> <StatePost/> </ProtectedRoute> } />
-          <Route path="/upCommingPost" element={ <ProtectedRoute> <StatePost/> </ProtectedRoute> } />
-          <Route path="/notificationPost" element={ <ProtectedRoute> <StatePost/> </ProtectedRoute> } />
+          <Route path="/resulJobPost" element={ <ProtectedRoute> <ResultPost/> </ProtectedRoute> } />
+          <Route path="/admitCardPost" element={ <ProtectedRoute> <AdmitCardPost/> </ProtectedRoute> } />
+          <Route path="/answerKeyPost" element={ <ProtectedRoute> <AnswerKeyPost/> </ProtectedRoute> } />
+          <Route path="/admissionPost" element={ <ProtectedRoute> <AdmissionPost/> </ProtectedRoute> } />
+          <Route path="/upCommingPost" element={ <ProtectedRoute> <UpcommingPost/> </ProtectedRoute> } />
+          <Route path="/notificationPost" element={ <ProtectedRoute> <NotificationPost/> </ProtectedRoute> } />
 
         </Routes>
 

@@ -29,6 +29,7 @@ import AnswerKeyPost from './Components/WebPage/AnswerKey/AnswerKeyPost';
 import ResultPost from './Components/WebPage/Result/ResultPost';
 import UpcommingPost from './Components/WebPage/Upcomming/UpcommingPost';
 import NotificationPost from './Components/WebPage/SavedPost/NotificationPost';
+import UpcommingDetails from './Components/WebPage/Upcomming/UpcommingDetails';
 
 // Initialize Google Analytics
 const trackingId = "G-RKS7E9435N";
@@ -50,6 +51,7 @@ const App = () => {
           <Route path="/admitCard/:postname/:id" element={<AdmitCardDetails/>} />
           <Route path="/answer_Key/:postname/:id" element={<AnswerKeyDetails />} />
           <Route path="/upcomming" element={<Upcomming />} />
+          <Route path="/upcomming/:postname/:id" element={<UpcommingDetails />} />
           <Route path="/:postname/:id" element={<JobDetails />} />
           <Route path="/login" element={<LogIn/>} />
 

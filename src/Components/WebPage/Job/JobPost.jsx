@@ -23,7 +23,7 @@ const JobPost = () => {
     ...Array.from({ length: 10 }, (_, i) => ({ label: `Age ${i + 1}`, placeholder: `Age ${i + 1}`, name: `age${i + 1}` })),
     { label: 'Total Post', placeholder: 'Enter total posts', name: 'totalPost', required: true, type: 'number' },
     { label: 'Icon Image', placeholder: 'Upload icon image', name: 'iconImage', required: true, type: 'file' },
-    { label: 'Post Image', placeholder: 'Upload post image', name: 'postImage', required: true, type: 'file' },
+    { label: 'Post Image', placeholder: 'Upload post image', name: 'postImage', required: true, type: 'file', multiple: true },
     { label: 'Apply Link', placeholder: 'Enter apply link', name: 'applyLink', required: true },
   ];
 
@@ -36,11 +36,17 @@ const JobPost = () => {
       
       Object.keys(data).forEach(key => {
         if (key === 'iconImage' || key === 'postImage') {
-          formData.append(key, data[key][0]);
+          if (data[key] && data[key].length > 0) {
+            for (let i = 0; i < data[key].length; i++) {
+              formData.append(key, data[key][i]);
+            }
+          }
         } else {
           formData.append(key, data[key]);
         }
       });
+
+      console.log(data);
 
       const response = await axios.post('/job/create', formData, {
         headers: {
@@ -71,22 +77,26 @@ const JobPost = () => {
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
-                {formFields.map((field, index) => (
-                  <div key={index} className="flex flex-col">
-                    <label className={`text-sm font-medium mb-1 px-2 ${errors[field.name] ? "text-red-500" : "text-white"}`}>
-                      {field.label}
-                    </label>
-                    <input
-                      type={field.type || 'text'}
-                      className='border text-white w-full h-10 bg-transparent border-zinc-700 rounded-md text-sm px-3 focus:outline-none focus:ring-2 focus:ring-blue-500'
-                      placeholder={field.placeholder}
-                      {...register(field.name, {
-                        required: field.required ? `${field.label} is required` : false,
-                      })}
-                    />
-                    {errors[field.name] && <p className="text-red-500 px-2 text-xs mt-1">{errors[field.name].message}</p>}
-                  </div>
-                ))}
+              {formFields.map((field, index) => (
+                <div key={index} className="flex flex-col">
+                  <label className={`text-sm font-medium mb-1 px-2 ${errors[field.name] ? "text-red-500" : "text-white"}`}>
+                    {field.label}
+                  </label>
+                  <input
+                    type={field.type || 'text'}
+                    className='border text-white w-full h-10 bg-transparent border-zinc-700 rounded-md text-sm px-3 focus:outline-none focus:ring-2 focus:ring-blue-500'
+                    placeholder={field.placeholder}
+                    {...register(field.name, {
+                      required: field.required ? `${field.label} is required` : false,
+                      // If the field is a file input, handle multiple files
+                      validate: field.type === 'file' ? (value) => value.length > 0 || `${field.label} is required` : undefined,
+                    })}
+                    // Add the multiple attribute for file inputs
+                    multiple={field.type === 'file' ? true : undefined}
+                  />
+                  {errors[field.name] && <p className="text-red-500 px-2 text-xs mt-1">{errors[field.name].message}</p>}
+                </div>
+              ))}
               </div>
               {error && <p className="text-red-500 text-sm text-center">{error}</p>}
               {success && <p className="text-green-500 text-sm text-center">{success}</p>}

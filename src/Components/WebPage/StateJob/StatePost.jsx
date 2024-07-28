@@ -92,7 +92,7 @@ const StatePost = () => {
               {error && <p className="text-red-500 text-sm text-center">{error}</p>}
               {success && <p className="text-green-500 text-sm text-center">{success}</p>}
               <button type="submit" className="bg-blue-500 w-full md:w-auto block mx-auto mt-8 hover:bg-blue-700 text-white py-1 px-4 rounded-md transition duration-300">
-                Create Job Post
+                Create StateJob Post
               </button>
             </form>
           )}

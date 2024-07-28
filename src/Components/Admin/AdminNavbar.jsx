@@ -27,9 +27,9 @@ const AdminNavbar = () => {
   return (
     <>
     <div className=' flex py-4 justify-between items-center px-4 relative'>
-        <h1 className='font-serif font-black text-xl tracking-tighter text-[#119766]'>Naukri<span className=' font-Jost text-[#f4b27b]'>VACANCY</span></h1>        
+        <NavLink to="/admin" > <h1 className='font-serif font-black text-xl tracking-tighter text-[#119766]'>Naukri<span className=' font-Jost text-[#f4b27b]'>VACANCY</span></h1> </NavLink>       
         <div className=" flex gap-6 items-center lg:px-3">
-          <img className='h-9 w-9 object-cover hidden md:block rounded-full' src="Images/Admin.avif" alt="Images/admin.svg" />
+        <NavLink to="/admin" > <img className='h-9 w-9 object-cover hidden md:block  rounded-full' src="Images/Admin.avif" alt="Images/admin.svg" /> </NavLink>
           <img onClick={menuToggle} className='h-6 w-6 rounded-full' src="Images/amenu.svg" alt="Images/amenu.svg" />
         </div>
     </div>

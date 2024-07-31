@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import axios from '../../../../utils/Axios';
 import ReactGA from 'react-ga';
 
-const AdminAnswerKey = () => {
+const AdminResult = () => {
     const [Loading, setLoading] = useState(true);
     const [filteredData, setFilteredData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -21,7 +21,7 @@ const AdminAnswerKey = () => {
       ReactGA.pageview(window.location.pathname)
       const fetchProducts = async () => {
         try {
-          const response = await axios.get('answerKey/answerKey', {
+          const response = await axios.get('/result/result', {
             params: {
               searchTerm
             }
@@ -51,7 +51,7 @@ const AdminAnswerKey = () => {
                 {...register('searchTerm')}
                 className="w-[70%] md:w-[80%] lg:w-[90%] text-base bg-black text-zinc-400 focus:bg-transparent outline-none px-2"
                 type="text"
-                placeholder='Job Search '
+                placeholder='Search for result...'
                 />
                 <button
                 className="h-12 lg:h-8 bg-[#119766] rounded-md text-[#F2F2F2] w-[30%] md:w-[20%] lg:w-[10%]"
@@ -90,5 +90,4 @@ const AdminAnswerKey = () => {
     </>
   )
 }
-
-export default AdminAnswerKey
+export default AdminResult;

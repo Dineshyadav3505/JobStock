@@ -5,12 +5,12 @@ import JobDetailsBottomdiv from '../../AdminElements/JobDetailsBottomdiv'
 import { useParams, useLocation } from 'react-router-dom';
 import axios from '../../../../utils/Axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { setPostDetails } from '../../../../Store/singleJobPost';
+import { setAdmissionDetails } from '../../../../Store/singleAdmissionPost';
 import ReactGA from 'react-ga';
 
 const AdminAdmissionDetails = () => {
 
-  const data = useSelector((state) => state.jobPostDetails.product);
+  const data = useSelector((state) => state.admissionDetails.product);
   const [Loading , setLoading] = useState(true);
   const { id } = useParams();
   const dispatch = useDispatch(); 
@@ -21,7 +21,7 @@ const AdminAdmissionDetails = () => {
       const fetchProducts = async () => {
         try {
           const response = await axios.get(`/admission/${id}`);
-          dispatch(setPostDetails(response.data.data));
+          dispatch(setAdmissionDetails(response.data.data));
           setLoading(false);
         } catch (error) {
           console.error(error);

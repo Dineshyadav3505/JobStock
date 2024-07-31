@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import axios from "../../../utils/Axios";
+import axios from "../../../../utils/Axios";
 import Cookies from 'js-cookie';
+import NavBar from '../../AdminElements/NavBar';
 // import AdminNavbar from '../../Admin/AdminNavbar';
 // import SideNavbar from '../../Admin/SideNavbar';
 
@@ -66,7 +67,7 @@ const JobPost = () => {
 
   return (
     <div className='bg-zinc-900 min-h-screen'>
-      <AdminNavbar />
+      <NavBar/>
       <div className="flex">
         <div className="w-full px-8 md:px-16 py-5 relative mb-10">
           <h1 className='text-white text-center text-2xl font-bold mb-6'>Create Job Post</h1>

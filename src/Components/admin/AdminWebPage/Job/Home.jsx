@@ -4,6 +4,7 @@ import JobCard from '../../AdminElements/JobCard'
 import { useForm } from 'react-hook-form';
 import axios from '../../../../utils/Axios';
 import ReactGA from 'react-ga';
+import { NavLink } from 'react-router-dom';
 
 const AdminHome = () => {
     const [Loading, setLoading] = useState(true);
@@ -51,7 +52,7 @@ const AdminHome = () => {
                 {...register('searchTerm')}
                 className="w-[70%] md:w-[80%] lg:w-[90%] text-base bg-black text-zinc-400 focus:bg-transparent outline-none px-2"
                 type="text"
-                placeholder='Job Search '
+                placeholder='Search for Job...'
                 />
                 <button
                 className="h-12 lg:h-8 bg-[#119766] rounded-md text-[#F2F2F2] w-[30%] md:w-[20%] lg:w-[10%]"
@@ -60,6 +61,8 @@ const AdminHome = () => {
                 Search
                 </button>
         </form>
+
+        <NavLink to='/admin/jobPost' className={` h-10 w-full mt-3 rounded-md bg-[#119766] flex justify-center items-center text-[#F2F2F2] font-semibold`}> Create Job Post </NavLink>
 
         {
           filteredData.length > 0 ? 

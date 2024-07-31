@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import axios from '../../../../utils/Axios';
 import ReactGA from 'react-ga';
 
-const AdminAdmission = () => {
+const AdminHome = () => {
     const [Loading, setLoading] = useState(true);
     const [filteredData, setFilteredData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -21,7 +21,7 @@ const AdminAdmission = () => {
       ReactGA.pageview(window.location.pathname)
       const fetchProducts = async () => {
         try {
-          const response = await axios.get('/admission/admission', {
+          const response = await axios.get('/job/job', {
             params: {
               searchTerm
             }
@@ -91,4 +91,4 @@ const AdminAdmission = () => {
   )
 }
 
-export default AdminAdmission;
+export default AdminHome;

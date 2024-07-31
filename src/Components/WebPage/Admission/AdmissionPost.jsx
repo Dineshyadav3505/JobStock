@@ -62,7 +62,7 @@ const AdmissionPost = () => {
     <div className='bg-zinc-900 min-h-screen'>
       <AdminNavbar />
       <div className="flex">
-        <div className="w-full px-8 md:px-16 py-5 relative">
+        <div className="w-full px-8 md:px-16 py-5 relative mb-10">
           <h1 className='text-white text-center text-2xl font-bold mb-6'>Create Admission  Post</h1>
           {loading ? (
             <div className="h-screen w-full flex justify-center items-center">

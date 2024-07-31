@@ -19,16 +19,25 @@ import Upcomming from './Components/WebPage/Upcomming/Upcomming';
 import StateJob from './Components/WebPage/StateJob/Statejob';
 import StatejobDetails from './Components/WebPage/StateJob/StatejobDetails';
 import LogIn from './Components/WebPage/LogIn/LogIn';
-import Admin from './Components/Admin/Admin';
 import ProtectedRoute from './utils/ProtectedRoute';
-import JobPost from './Components/WebPage/Job/JobPost';
-import StatePost from './Components/WebPage/StateJob/StatePost';
-import AdmissionPost from './Components/WebPage/Admission/AdmissionPost';
-import AdmitCardPost from './Components/WebPage/AdmitCard/AdmitCardPost';
-import AnswerKeyPost from './Components/WebPage/AnswerKey/AnswerKeyPost';
-import ResultPost from './Components/WebPage/Result/ResultPost';
-import UpcommingPost from './Components/WebPage/Upcomming/UpcommingPost';
-import NotificationPost from './Components/WebPage/SavedPost/NotificationPost';
+
+
+import Admin from './Components/admin/AdminWebPage/Job/Home';
+import AdminJobDetails from './Components/admin/AdminWebPage/Job/JobDetails';
+import AdminResult from './Components/admin/AdminWebPage/Result/Result';
+import AdminResultDetails from './Components/admin/AdminWebPage/Result/ResultDetails';
+import AdminAdmitCard from './Components/admin/AdminWebPage/AdmitCard/AdmitCard';
+import AdminAdmitCardDetails from './Components/admin/AdminWebPage/AdmitCard/AdmitCardDetails';
+import AdminUpcomming from './Components/admin/AdminWebPage/Upcomming/Upcomming';
+
+// import JobPost from './Components/WebPage/Job/JobPost';
+// import StatePost from './Components/WebPage/StateJob/StatePost';
+// import AdmissionPost from './Components/WebPage/Admission/AdmissionPost';
+// import AdmitCardPost from './Components/WebPage/AdmitCard/AdmitCardPost';
+// import AnswerKeyPost from './Components/WebPage/AnswerKey/AnswerKeyPost';
+// import ResultPost from './Components/WebPage/Result/ResultPost';
+// import UpcommingPost from './Components/WebPage/Upcomming/UpcommingPost';
+// import NotificationPost from './Components/WebPage/SavedPost/NotificationPost';
 import UpcommingDetails from './Components/WebPage/Upcomming/UpcommingDetails';
 
 // Initialize Google Analytics
@@ -37,6 +46,8 @@ ReactGA.initialize(trackingId);
 
 const App = () => {
   return (
+      <div className="">
+ 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/admitCard" element={<AdmitCard />} />
@@ -57,17 +68,32 @@ const App = () => {
 
           //// Protected Route
           <Route path="/admin" element={ <ProtectedRoute> <Admin /> </ProtectedRoute> } />
-          <Route path="/jobPost" element={ <ProtectedRoute> <JobPost/> </ProtectedRoute> } />
-          <Route path="/stateJobPost" element={ <ProtectedRoute> <StatePost/> </ProtectedRoute> } />
-          <Route path="/resulJobPost" element={ <ProtectedRoute> <ResultPost/> </ProtectedRoute> } />
-          <Route path="/admitCardPost" element={ <ProtectedRoute> <AdmitCardPost/> </ProtectedRoute> } />
-          <Route path="/answerKeyPost" element={ <ProtectedRoute> <AnswerKeyPost/> </ProtectedRoute> } />
-          <Route path="/admissionPost" element={ <ProtectedRoute> <AdmissionPost/> </ProtectedRoute> } />
-          <Route path="/upCommingPost" element={ <ProtectedRoute> <UpcommingPost/> </ProtectedRoute> } />
-          <Route path="/notificationPost" element={ <ProtectedRoute> <NotificationPost/> </ProtectedRoute> } />
+          <Route path="/admin/:postname/:id" element={ <ProtectedRoute> < AdminJobDetails/> </ProtectedRoute> } />
+
+          <Route path="/admin/result"     element={ <ProtectedRoute> <AdminResult /> </ProtectedRoute>}/>
+          <Route path="/admin/result/:postname/:id"     element={ <ProtectedRoute> <AdminResultDetails /> </ProtectedRoute>}/>
+
+          <Route path="/admin/admitCard"  element={ <ProtectedRoute> <AdminAdmitCard /> </ProtectedRoute>}/>
+          <Route path="/admin/admitCard/:postname/:id"  element={ <ProtectedRoute> <AdminAdmitCardDetails /> </ProtectedRoute>}/>
+
+          <Route path="/admin/upcomming"  element={ <ProtectedRoute> <AdminUpcomming /> </ProtectedRoute>}/>
+
+          <Route path="/admin/statejob"   element={ <ProtectedRoute> <Admin /> </ProtectedRoute>}/>
+          <Route path="/admin/admission"  element={ <ProtectedRoute> <Admin /> </ProtectedRoute>}/>
+          <Route path="/admin/answer_Key" element={ <ProtectedRoute> <Admin /> </ProtectedRoute>}/>
+          {/* <Route path="/admin/jobPost" element={ <ProtectedRoute> <JobPost/> </ProtectedRoute> } />
+          <Route path="/admin/stateJobPost" element={ <ProtectedRoute> <StatePost/> </ProtectedRoute> } />
+          <Route path="/admin/resulJobPost" element={ <ProtectedRoute> <ResultPost/> </ProtectedRoute> } />
+          <Route path="/admin/admitCardPost" element={ <ProtectedRoute> <AdmitCardPost/> </ProtectedRoute> } />
+          <Route path="/admin/answerKeyPost" element={ <ProtectedRoute> <AnswerKeyPost/> </ProtectedRoute> } />
+          <Route path="/admin/admissionPost" element={ <ProtectedRoute> <AdmissionPost/> </ProtectedRoute> } />
+          <Route path="/admin/upCommingPost" element={ <ProtectedRoute> <UpcommingPost/> </ProtectedRoute> } />
+          <Route path="/admin/notificationPost" element={ <ProtectedRoute> <NotificationPost/> </ProtectedRoute> } /> */}
 
         </Routes>
 
+       
+    </div> 
   );
 };
 

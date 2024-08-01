@@ -50,7 +50,7 @@ const JobDetailsUpperdiv = ({
             <div className=" flex gap-3 flex-wrap">
                 <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#0E0202] capitalize px-2 py-1 bg-[#a9f1d1]" > <span> ✩ Begin:</span> {date} </p>
                 <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#D03030] capitalize px-2 py-1 bg-[#a9f1d1]" > <span> ✩ Last Date:</span> {lastDate}</p>
-                <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#0E0202] capitalize px-2 py-1 bg-[#a9f1d1]" > <span> ✩ Time left:</span> {days} </p>
+                {yyyymmddDate && <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#0E0202] capitalize px-2 py-1 bg-[#a9f1d1]" > <span> ✩ Time left:</span> {days} </p>}
             </div>
         </div>
     </div>

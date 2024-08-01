@@ -97,7 +97,7 @@ const UpcommingDetails = () => {
                   Fee8={data.Fee8}
                   Fee9={data.Fee9}
                   Fee10={data.Fee10}
-                  children="View Result"
+                  children="Available Soon"
                   vacancyDetails="Block"
                 />
 

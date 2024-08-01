@@ -4,6 +4,8 @@ import resultPostDetailsReducer from './singleResultPost';
 import admitCardDetailsReducer from './singleAdmitCardPost';
 import answerKeyDetailsReducer from './singleAnswerKeyPost';
 import admissionDetailsReducer from './singleAdmissionPost';
+import UpcommingDetailsReducer from './singleUpcommingPost';
+import StatejobDetailsReducer from './singleStatePost';
 
 
 
@@ -14,6 +16,8 @@ const store = configureStore({
     admitCardDetails: admitCardDetailsReducer,
     answerKeyDetails: answerKeyDetailsReducer,
     admissionDetails: admissionDetailsReducer,
+    upcommingDetails: UpcommingDetailsReducer,
+    stateDetails: StatejobDetailsReducer,
   },
 });
 

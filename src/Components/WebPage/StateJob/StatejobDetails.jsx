@@ -5,13 +5,13 @@ import JobDetailsBottomdiv from '../../Elements/JobDetailsBottomdiv'
 import { useParams, useLocation } from 'react-router-dom';
 import axios from '../../../utils/Axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { setPostDetails } from '../../../Store/singleJobPost';
+import { setStatePostDetails } from '../../../Store/singleStatePost';
 import ReactGA from 'react-ga';
 
 const StatejobDetails = () => {
 
 
-  const data = useSelector((state) => state.jobPostDetails.product);
+  const data = useSelector((state) => state.stateDetails.product);
   const [Loading , setLoading] = useState(true);
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -23,7 +23,7 @@ const StatejobDetails = () => {
       const fetchProducts = async () => {
         try {
           const response = await axios.get(`/statejob/${id}`);
-          dispatch(setPostDetails(response.data.data));
+          dispatch(setStatePostDetails(response.data.data));
           setLoading(false);
         } catch (error) {
           console.error(error);
@@ -96,7 +96,7 @@ const StatejobDetails = () => {
                   Fee8={data.Fee8}
                   Fee9={data.Fee9}
                   Fee10={data.Fee10}
-                  children="View Result"
+                  children="Apply Now"
                   vacancyDetails="Block"
                 />
 

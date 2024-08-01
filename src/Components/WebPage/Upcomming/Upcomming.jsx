@@ -53,7 +53,7 @@ const Upcomming = () => {
                 {...register('searchTerm')}
                 className="w-[70%] md:w-[80%] lg:w-[90%] text-base text-black focus:bg-transparent outline-none px-2"
                 type="text"
-                placeholder='Up-Comming Post...'
+                placeholder='Search for Up-Comming Jobs...'
                 />
                 <button
                 className="h-12 lg:h-8 bg-[#119766] rounded-md text-[#F2F2F2] w-[30%] md:w-[20%] lg:w-[10%]"
@@ -63,12 +63,14 @@ const Upcomming = () => {
                 </button>
         </form>
 
+
+
         {
           filteredData.length > 0 ? 
             (filteredData.map((item, index) => (
                   <JobCard 
                       key={index}
-                      id={item.id}
+                      id={item._id}
                       img={item.iconImage}
                       title={item.postName}
                       date={item.beginDate}
@@ -80,8 +82,8 @@ const Upcomming = () => {
                       resultupdateclass="Block"
                       resultupdate={item.updatedAt}
                       children="commimg-soon"
-                      button="hidden"
-                      upcommingButton="block"
+                      button="block"
+                      
                   />
               )))
               :

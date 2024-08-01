@@ -4,6 +4,7 @@ import JobCard from '../../Elements/JobCard'
 import { useForm } from 'react-hook-form';
 import axios from '../../../utils/Axios';
 import ReactGA from 'react-ga';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
     const [Loading, setLoading] = useState(true);
@@ -51,7 +52,7 @@ const Home = () => {
                 {...register('searchTerm')}
                 className="w-[70%] md:w-[80%] lg:w-[90%] text-base text-black focus:bg-transparent outline-none px-2"
                 type="text"
-                placeholder='Job Search '
+                placeholder='Search for job...'
                 />
                 <button
                 className="h-12 lg:h-8 bg-[#119766] rounded-md text-[#F2F2F2] w-[30%] md:w-[20%] lg:w-[10%]"

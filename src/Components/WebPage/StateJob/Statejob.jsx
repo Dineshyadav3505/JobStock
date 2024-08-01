@@ -28,34 +28,18 @@ const StateJob = () => {
     };
 
     const statesOfIndia = [
-        "Andhra Pradesh",
-        "Arunachal Pradesh",
-        "Assam",
+
         "Bihar",
-        "Chhattisgarh",
-        "Goa",
+        "Chandigarh",
         "Gujarat",
         "Haryana",
         "Himachal Pradesh",
-        "Jharkhand",
-        "Karnataka",
-        "Kerala",
         "Madhya Pradesh",
         "Maharashtra",
-        "Manipur",
-        "Meghalaya",
-        "Mizoram",
-        "Nagaland",
-        "Odisha",
         "Punjab",
         "Rajasthan",
-        "Sikkim",
-        "Tamil Nadu",
-        "Telangana",
-        "Tripura",
         "Uttar Pradesh",
         "Uttarakhand",
-        "West Bengal",
     ];
 
     useEffect(() => {
@@ -108,7 +92,7 @@ const StateJob = () => {
                         </form>
                         <div onClick={filter} className="border mt-3 lg:mt-0 rounded-md py-2 items-center justify-center px-6 flex gap-2 select-none">
                             <img className='select-none' src="Images/filter.svg" alt="" />
-                            <button className="h-12 h-8 select-none rounded-md text-[#119766]"> Filter </button>
+                            <button className="h-8 select-none rounded-md text-[#119766]"> Filter </button>
                         </div>
                     </div>
 

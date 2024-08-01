@@ -2,7 +2,9 @@ import React from 'react'
 import Button from './Button'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import Cookies from 'js-cookie';
 import { useLocation } from 'react-router-dom';
+import axios from '../../../utils/Axios';
 
 
 const JobCard = (
@@ -30,29 +32,24 @@ const JobCard = (
     const [copy, setCopy] = useState(false);
     const location = useLocation();
     const postlink = title.replace(/ /g, "-").replace(/\//g, "-");
+    const accessToken = Cookies.get('cb_chec');
 
 
-    const jobPostDetails = () => {
-        console.log({id})
-        
-        // let url;
-        // if (location.pathname === "/") {
-        //   url = `https://naukrivacancy.com${location.pathname}${postlink || title}/${id}`;
-        // } else if (location.pathname === "/upcomming") {
-        //   url = `https://naukrivacancy.com${location.pathname}`;
-        // } else {
-        //   url = `https://naukrivacancy.com${location.pathname}/${postlink || title}/${id}`;
-        // }
-      
-        // navigator.clipboard.writeText(url).then(
-        //   () => {
-        //     setCopy(true);
-        //   },
-        //   (error) => {
-        //     console.error(error);
-        //   }
-        // );
-    }; 
+    const jobPostDetails = async () => {
+        const productId = { id };
+        const idString = productId.id;     
+        try {
+            const response = await axios.delete(`/statejob/${idString}`, {
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`, // Ensure accessToken is defined in scope
+                }
+            });    
+            window.location.reload(); 
+        } catch (error) {
+            console.error(error); // Log any errors
+        }
+    };
+    
 
 
     setTimeout(() => {

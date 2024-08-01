@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../Elements/Button'
+import Button from './Button'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -36,8 +36,6 @@ const JobCard = (
         let url;
         if (location.pathname === "/") {
           url = `https://naukrivacancy.com${location.pathname}${postlink || title}/${id}`;
-        } else if (location.pathname === "/upcomming") {
-          url = `https://naukrivacancy.com${location.pathname}`;
         } else {
           url = `https://naukrivacancy.com${location.pathname}/${postlink || title}/${id}`;
         }

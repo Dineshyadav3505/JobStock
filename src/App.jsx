@@ -39,13 +39,13 @@ import AdminStateJobDetails from './Components/admin/AdminWebPage/StateJob/State
 
 
 
-// import JobPost from './Components/admin/AdminWebPage/Job/JobPost';
+import JobPost from './Components/admin/AdminWebPage/Job/JobPost';
 import StatePost from './Components/admin/AdminWebPage/StateJob/StatePost';
-// import AdmissionPost from './Components/WebPage/Admission/AdmissionPost';
-// import AdmitCardPost from './Components/WebPage/AdmitCard/AdmitCardPost';
-// import AnswerKeyPost from './Components/WebPage/AnswerKey/AnswerKeyPost';
-// import ResultPost from './Components/WebPage/Result/ResultPost';
-// import UpcommingPost from './Components/WebPage/Upcomming/UpcommingPost';
+import ResultPost from './Components/admin/AdminWebPage/Result/ResultPost';
+import AdmitCardPost from './Components/admin/AdminWebPage/AdmitCard/AdmitCardPost';
+import AdmissionPost from './Components/admin/AdminWebPage/Admission/AdmissionPost';
+import AnswerKeyPost from './Components/admin/AdminWebPage/AnswerKey/AnswerKeyPost';
+import UpcommingPost from './Components/admin/AdminWebPage/Upcomming/UpcommingPost';
 // import NotificationPost from './Components/WebPage/SavedPost/NotificationPost';
 
 
@@ -97,13 +97,13 @@ const App = () => {
           <Route path="/admin/statejob"   element={ <ProtectedRoute> <AdminStateJob /> </ProtectedRoute>}/>
           <Route path="/admin/statejob/:postname/:id"   element={ <ProtectedRoute> <AdminStateJobDetails /> </ProtectedRoute>}/>
 
-          {/* <Route path="/admin/jobPost" element={ <ProtectedRoute> <JobPost/> </ProtectedRoute> } /> */}
-          {/* <Route path="/admin/resulPost" element={ <ProtectedRoute> <ResultPost/> </ProtectedRoute> } /> */}
+          <Route path="/admin/jobPost" element={ <ProtectedRoute> <JobPost/> </ProtectedRoute> }/>
+          <Route path="/admin/resulPost" element={ <ProtectedRoute> <ResultPost/> </ProtectedRoute> } />
           <Route path="/admin/statejobPost" element={ <ProtectedRoute> <StatePost/> </ProtectedRoute> } />
-          {/* <Route path="/admin/admitCardPost" element={ <ProtectedRoute> <AdmitCardPost/> </ProtectedRoute> } /> */}
-          {/* <Route path="/admin/answer_KeyPost" element={ <ProtectedRoute> <AnswerKeyPost/> </ProtectedRoute> } /> */}
-          {/* <Route path="/admin/admissionPost" element={ <ProtectedRoute> <AdmissionPost/> </ProtectedRoute> } /> */}
-          {/* <Route path="/admin/upcommingPost" element={ <ProtectedRoute> <UpcommingPost/> </ProtectedRoute> } /> */}
+          <Route path="/admin/admitCardPost" element={ <ProtectedRoute> <AdmitCardPost/> </ProtectedRoute> } />
+          <Route path="/admin/admissionPost" element={ <ProtectedRoute> <AdmissionPost/> </ProtectedRoute> } />
+          <Route path="/admin/answer_KeyPost" element={ <ProtectedRoute> <AnswerKeyPost/> </ProtectedRoute> } />
+          <Route path="/admin/upcommingPost" element={ <ProtectedRoute> <UpcommingPost/> </ProtectedRoute> } />
           {/* <Route path="/admin/notificationPost" element={ <ProtectedRoute> <NotificationPost/> </ProtectedRoute> } /> */}
 
         </Routes>

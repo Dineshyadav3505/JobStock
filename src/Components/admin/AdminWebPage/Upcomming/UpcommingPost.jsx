@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import axios from "../../../utils/Axios";
+import axios from "../../../../utils/Axios";
 import Cookies from 'js-cookie';
-import AdminNavbar from '../../Admin/AdminNavbar';
-import SideNavbar from '../../Admin/SideNavbar';
+import NavBar from '../../AdminElements/NavBar';
+import Input from '../../../Elements/Input';
 
 const UpcommingPost = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -11,20 +11,6 @@ const UpcommingPost = () => {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
   const accessToken = Cookies.get('cb_chec');
-
-  const formFields = [
-    { label: 'Job Title', placeholder: 'Enter job title', name: 'postName', required: true },
-    { label: 'Job Description', placeholder: 'Enter job description', name: 'postDescription', required: true },
-    { label: 'Begin Date', placeholder: '01 Jan 2024', name: 'beginDate', required: true, type: 'text' },
-    { label: 'Last Date to Apply', placeholder: '01 Jan 2024', name: 'lastDate', required: true, type: 'text' },
-    { label: 'Last Date for days left', placeholder: '2024-01-01', name: 'yyyymmddDate', required: true, type: 'text' },
-    ...Array.from({ length: 10 }, (_, i) => ({ label: `Date ${i + 1}`, placeholder: `Date ${i + 1}`, name: `date${i + 1}` })),
-    ...Array.from({ length: 10 }, (_, i) => ({ label: `Fee ${i + 1}`, placeholder: `Fee ${i + 1}`, name: `Fee${i + 1}` })),
-    ...Array.from({ length: 10 }, (_, i) => ({ label: `Age ${i + 1}`, placeholder: `Age ${i + 1}`, name: `age${i + 1}` })),
-    { label: 'Total Post', placeholder: 'Enter total posts', name: 'totalPost', required: true, type: 'number' },
-    { label: 'Icon Image', placeholder: 'Upload icon image', name: 'iconImage', required: true, type: 'file' },
-    { label: 'Post Image', placeholder: 'Upload post image', name: 'postImage', required: true, type: 'file' },
-  ];
 
   const onSubmit = async (data) => {
     setError('');
@@ -35,21 +21,24 @@ const UpcommingPost = () => {
       
       Object.keys(data).forEach(key => {
         if (key === 'iconImage' || key === 'postImage') {
-          formData.append(key, data[key][0]);
+          if (data[key] && data[key].length > 0) {
+            for (let i = 0; i < data[key].length; i++) {
+              formData.append(key, data[key][i]);
+            }
+          }
         } else {
           formData.append(key, data[key]);
         }
       });
 
-      const response = await axios.post('/upcomming/create', formData, {
+      const response = await axios.post('upcomming/create', formData, {
         headers: {
           'Authorization': `Bearer ${accessToken}`,
           'Content-Type': 'multipart/form-data'
         }
       });
       setLoading(false);
-      setSuccess('Job post created successfully!');
-      console.log(response.data);
+      setSuccess('Post created successfully!');
     } catch (error) {
       setLoading(false);
       setError(error.response?.data?.message || 'An error occurred while creating the job post.');
@@ -58,48 +47,178 @@ const UpcommingPost = () => {
   };
 
   return (
-    <div className='bg-zinc-900 min-h-screen'>
-      <AdminNavbar />
-      <div className="flex">
-        <div className="w-full px-8 md:px-16 py-5 relative mb-10">
-          <h1 className='text-white text-center text-2xl font-bold mb-6'>Create Admission  Post</h1>
-          {loading ? (
-            <div className="h-screen w-full flex justify-center items-center">
-              <div className="border-[5px] h-12 w-12 rounded-full border-t-[#119766] animate-spin"></div>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
-                {formFields.map((field, index) => (
-                  <div key={index} className="flex flex-col">
-                    <label className={`text-sm font-medium mb-1 px-2 ${errors[field.name] ? "text-red-500" : "text-white"}`}>
-                      {field.label}
-                    </label>
-                    <input
-                      type={field.type || 'text'}
-                      className='border text-white w-full h-10 bg-transparent border-zinc-700 rounded-md text-sm px-3 focus:outline-none focus:ring-2 focus:ring-blue-500'
-                      placeholder={field.placeholder}
-                      {...register(field.name, {
-                        required: field.required ? `${field.label} is required` : false,
+    <>
+      <NavBar/>
+      {loading ? (
+        <div className="h-screen w-full flex bg-black justify-center items-center">
+          <div className="border-[5px] h-12 w-12 rounded-full border-t-[#119766] animate-spin"></div>
+        </div>
+      ) : (
+        <div className="relative bg-black">
+          <img className='w-full md:hidden' src="/Images/Banner.svg" alt="Banner" />
+          <img className='w-full hidden md:block lg:hidden' src="/Images/Bannermd.svg" alt="Banner" />
+          <img className='w-full hidden lg:block' src="/Images/BannerLG.svg" alt="Banner" />
+          <div className="px-5 absolute top-56 w-screen md:px-16">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="w-full rounded-t-lg overflow-hidden">
+                <div className="w-full bg-zinc-900 px-5 pt-8 pb-4 md:flex gap-10">
+                  <div className="h-24 w-56 md:h-28 md:w-56 pl-4 pb-6 lg:pl-6 rounded-md bg-zinc-900 flex justify-center items-center">
+                    <Input
+                      label="Icon Image"
+                      labelclass="text-xs capitalize text-white"
+                      type="file"
+                      className='border h-16 w-56 rounded-md block bg-transparent border-white text-xs text-zinc-400 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500'
+                      placeholder="Icon Image"
+                      {...register('iconImage', {
+                        required: "Icon Image is required",
                       })}
                     />
-                    {errors[field.name] && <p className="text-red-500 px-2 text-xs mt-1">{errors[field.name].message}</p>}
                   </div>
-                ))}
-              </div>
-              {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-              {success && <p className="text-green-500 text-sm text-center">{success}</p>}
-              <button type="submit" className="bg-blue-500 w-full md:w-auto block mx-auto mt-8 hover:bg-blue-700 text-white py-1 px-4 rounded-md transition duration-300">
-                Create Admission Post
-              </button>
-            </form>
-          )}
-        </div>
-        <SideNavbar />
-      </div>
-    </div>
-  );
-}
+                  <div className="py-5 space-y-3">
+                    <Input
+                      label="Post Name"
+                      labelclass="text-xs capitalize text-white"
+                      type="text"
+                      className='border h-10 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
+                      placeholder="Post Name"
+                      {...register('postName', {
+                        required: "Post Name is required",
+                      })}
+                    />
+                    {errors.postName && <span className="text-red-500 text-xs">{errors.postName.message}</span>}
 
+                    <h5 className='font-Jost text-sm md:text-base text-zinc-400'>Important Dates</h5>
+                    <div className="flex gap-3">
+                      <Input
+                        label="Apply Date"
+                        labelclass="text-xs capitalize text-white"
+                        type="text"
+                        className='border h-10 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
+                        placeholder="12 Aug 2024"
+                        {...register('beginDate', {
+                          required: "Apply date is required",
+                        })}
+                      />
+                      {errors.beginDate && <span className="text-red-500 text-xs">{errors.beginDate.message}</span>}
+                      <Input
+                        label="Last Date"
+                        labelclass="text-xs capitalize text-white"
+                        type="text"
+                        className='border h-10 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
+                        placeholder="12 Aug 2024"
+                        {...register('lastDate', {
+                          required: "Last date is required",
+                        })}
+                      />
+                      {errors.lastDate && <span className="text-red-500 text-xs">{errors.lastDate.message}</span>}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="w-full py-5 px-7 bg-zinc-900 space-y-2">
+                <Input
+                  label="Post Description"
+                  labelclass="text-xs capitalize text-white"
+                  type="text"
+                  className='border h-10 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
+                  placeholder="Post Description"
+                  {...register('postDescription', {
+                    required: "Post Description is required",
+                  })}
+                />
+                {errors.postDescription && <span className="text-red-500 text-xs">{errors.postDescription.message}</span>}
+
+                <div className="w-full rounded-md border px-4 py-2 border-zinc-700">
+                  <div className="flex gap-3 flex-wrap">
+                    {[...Array(10)].map((_, index) => (
+                      <Input
+                        key={`date${index + 1}`}
+                        width="56px"
+                        label={`Date${index + 1}`}
+                        labelclass="text-xs capitalize text-white"
+                        type="text"
+                        className='border h-10 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
+                        placeholder="Date"
+                        {...register(`date${index + 1}`)}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="w-full rounded-md border px-4 py-2 border-zinc-700">
+                  <div className="flex gap-3 flex-wrap">
+                    {[...Array(10)].map((_, index) => (
+                      <Input
+                        key={`fee${index + 1}`}
+                        width="56px"
+                        label={`Fee${index + 1}`}
+                        labelclass="text-xs capitalize text-white"
+                        type="text"
+                        className='border h-10 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
+                        placeholder="Fee"
+                        {...register(`Fee${index + 1}`)}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="w-full rounded-md border px-4 py-2 border-zinc-700">
+                  <div className="flex gap-3 flex-wrap">
+                    {[...Array(10)].map((_, index) => (
+                      <Input
+                        key={`age${index + 1}`}
+                        width="56px"
+                        label={`Age${index + 1}`}
+                        labelclass="text-xs capitalize text-white"
+                        type="text"
+                        className='border h-10 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
+                        placeholder="Age"
+                        {...register(`age${index + 1}`)}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex gap-3 flex-wrap w-full rounded-md border px-4 py-2 border-zinc-700">
+                  <Input
+                    width="56px"
+                    label="Total Post"
+                    labelclass="text-xs capitalize text-white"
+                    type="text"
+                    className='border h-10 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
+                    placeholder="Total Post"
+                    {...register('totalPost')}
+                  />
+                  {errors.totalPost && <span className="text-red-500 text-xs">{errors.totalPost.message}</span>}
+                  <Input
+                    width="56px"
+                    label="Post Image"
+                    labelclass="text-xs capitalize text-white"
+                    type="file"
+                    className='border h-10 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
+                    placeholder="Post Image"
+                    multiple
+                    {...register('postImage', {
+                      required: "Post image is required",
+                    })}
+                  />
+                  {errors.postImage && <span className="text-red-500 text-xs">{errors.postImage.message}</span>}
+                </div>
+              </div>
+
+
+
+              <div className="flex flex-col gap-2 justify-center items-center py-5 mb-24 bg-zinc-900 rounded-b-md ">
+                {error && <div className="text-red-500 text-xs">{error}</div>}
+                {success && <div className="text-green-500 text-xs">{success}</div>}
+                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 export default UpcommingPost;

@@ -38,7 +38,7 @@ const StatePost = () => {
         }
       });
       setLoading(false);
-      setSuccess('Job post created successfully!');
+      setSuccess('Post created successfully!');
     } catch (error) {
       setLoading(false);
       setError(error.response?.data?.message || 'An error occurred while creating the job post.');

@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import axios from '../../../utils/Axios';
 import ReactGA from 'react-ga';
 import { NavLink } from 'react-router-dom';
+import Footer from '../../Elements/Footer';
 
 const Home = () => {
     const [Loading, setLoading] = useState(true);
@@ -46,7 +47,8 @@ const Home = () => {
             ></div>
           </div>
     ) : (
-    <div className="p-5 flex flex-wrap justify-between pb-24">
+    <>
+    <div className="p-5 flex flex-wrap justify-between pb-10">
         <form onSubmit={handleSubmit(onSubmit)} className="border rounded-md p-2 w-full">
                 <input
                 {...register('searchTerm')}
@@ -85,8 +87,10 @@ const Home = () => {
                 <h1 className=' text-lg font-Jost font-bold capitalize'>no Data found</h1>
               </div>
         }
-
+       
     </div>
+    <Footer/>
+    </>
     )}
     </>
   )

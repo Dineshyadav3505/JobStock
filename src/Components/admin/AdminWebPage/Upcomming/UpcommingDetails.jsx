@@ -7,6 +7,7 @@ import axios from '../../../../utils/Axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUpcommingDetails } from '../../../../Store/singleUpcommingPost';
 import ReactGA from 'react-ga';
+import UpdateForm from '../../AdminElements/UpdateForm';
 
 const AdminUpcommingDetails = () => {
 
@@ -23,13 +24,16 @@ const AdminUpcommingDetails = () => {
           const response = await axios.get(`/upcomming/${id}`);
           dispatch(setUpcommingDetails(response.data.data));
           setLoading(false);
+          console.log(response.data.data);
         } catch (error) {
           console.error(error);
         }
       };
   
       fetchProducts();
-    }, []);
+  }, []);
+
+
 
 
   return (
@@ -50,15 +54,12 @@ const AdminUpcommingDetails = () => {
         <div className="px-5 absolute top-56 w-screen md:px-16 ">
             <div className="w-full rounded-lg overflow-hidden ">
                 
-                <JobDetailsUpperdiv
-                    img={data.iconImage}
-                    title={data.postName}
-                    date={data.beginDate}
-                    lastDate={data.lastDate}
-                    yyyymmddDate={data.yyyymmddDate} 
-                />
-
-                <JobDetailsBottomdiv
+                <UpdateForm
+                  img={data.iconImage}
+                  title={data.postName}
+                  date={data.beginDate}
+                  lastDate={data.lastDate}
+                  yyyymmddDate={data.yyyymmddDate} 
                   postImage={data.postImage}
                   postDescription={data.postDescription}
                   applyLink={data.applyLink}
@@ -95,10 +96,7 @@ const AdminUpcommingDetails = () => {
                   Fee10={data.Fee10}
                   children="Apply Now"
                   vacancyDetails="Block"
-
                 />
-
-
                 
             </div>
 

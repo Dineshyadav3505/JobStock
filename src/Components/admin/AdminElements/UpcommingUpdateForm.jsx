@@ -6,7 +6,7 @@ import axios from '../../../utils/Axios';
 import Cookies from 'js-cookie';
 import { useParams} from 'react-router-dom';
 
-const UpdateForm = ({
+const UpcommingUpdateForm = ({
     img,
     title,
     date,
@@ -46,8 +46,7 @@ const UpdateForm = ({
     Fee8,
     Fee9,
     Fee10,
-    children,
-    vacancyDetails="hidden"
+
 }) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -471,4 +470,4 @@ const UpdateForm = ({
   )
 }
 
-export default UpdateForm
+export default UpcommingUpdateForm;

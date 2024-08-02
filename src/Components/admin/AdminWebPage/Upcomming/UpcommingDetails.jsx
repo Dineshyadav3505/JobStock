@@ -7,7 +7,7 @@ import axios from '../../../../utils/Axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUpcommingDetails } from '../../../../Store/singleUpcommingPost';
 import ReactGA from 'react-ga';
-import UpdateForm from '../../AdminElements/UpdateForm';
+import UpcommingUpdateForm from '../../AdminElements/UpcommingUpdateForm';
 
 const AdminUpcommingDetails = () => {
 
@@ -54,7 +54,7 @@ const AdminUpcommingDetails = () => {
         <div className="px-5 absolute top-56 w-screen md:px-16 ">
             <div className="w-full rounded-lg overflow-hidden ">
                 
-                <UpdateForm
+                <UpcommingUpdateForm
                   img={data.iconImage}
                   title={data.postName}
                   date={data.beginDate}
@@ -94,8 +94,6 @@ const AdminUpcommingDetails = () => {
                   Fee8={data.Fee8}
                   Fee9={data.Fee9}
                   Fee10={data.Fee10}
-                  children="Apply Now"
-                  vacancyDetails="Block"
                 />
                 
             </div>

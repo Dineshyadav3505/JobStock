@@ -39,7 +39,7 @@ const JobCard = (
         
         if (userConfirmed) {
             // Prompt user to select an option
-            const optionKeys = ["JOB", "STATE JOB", "RESULT", "ADMIT CARD", "ADMISSION", "UPCOMMING", "ANSWERKEY"];
+            const optionKeys = ["job", "statejob", "result", "admitCard", "admission", "upcomming", "answerKey"];
             const selectedOption = window.prompt(`Please select an option:\n${optionKeys.join("\n")}`);
             
             // Check if the selected option is valid

@@ -2,6 +2,9 @@ import React,{useState} from 'react'
 import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Input from './Input';
+import axios from '../../../utils/Axios';
+import Cookies from 'js-cookie';
+import { useParams} from 'react-router-dom';
 
 const UpdateForm = ({
     img,
@@ -48,6 +51,12 @@ const UpdateForm = ({
 }) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+    const accessToken = Cookies.get('cb_chec');
+    const [loading, setLoading] = useState(false);
+    const { id } = useParams();
+
 
     //up
     const someDate = new Date(yyyymmddDate);
@@ -72,18 +81,49 @@ const UpdateForm = ({
         days = `${Math.abs(diffInDays)} days ago`;
     }
 
-    const save = () => {
-        console.log('Save Job');
-    }
-    const remove = () => {
-        console.log('Remove Job');
-    }
+    const onSubmit = async (data) => {
+        console.log(data);
+        setError('');
+        setSuccess('');
+        setLoading(true);
+        try {
+            const formData = new FormData();
+    
+            Object.keys(data).forEach(key => {
+                if (key === 'iconImage' || key === 'postImage') {
+                    if (data[key] && data[key].length > 0) {
+                        for (let i = 0; i < data[key].length; i++) {
+                            formData.append(key, data[key][i]);
+                        }
+                        console.log(data[key]);
+                    }
+                } else {
+                    formData.append(key, data[key]);
+                }
+            });
+    
+            const response = await axios.patch(`/upcomming/${id}`, formData, {
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json',
+                },    
+            });
+    
+            setLoading(false);
+            setSuccess('Post updated successfully!');
+        } catch (error) {
+            setLoading(false);
+            setError(error.response?.data?.message || 'An error occurred while updating the job post.');
+            console.error(error);
+        }
+    };
+
 
 
   return (
     <>
     {/* // upper */}
-    <form action="">
+    <form onSubmit={handleSubmit(onSubmit)}>
     <div className="w-full bg-zinc-900 px-5 pt-8 pb-4 md:flex gap-5">
         <div className=" h-24 w-24 md:h-28 md:w-28 rounded-full p-2 overflow-hidden bg-white flex justify-center relative items-center">
             <img className='h-full object-contain' src={img} alt="" />
@@ -148,6 +188,7 @@ const UpdateForm = ({
             
             <div className="h-full w-full pt-7">
                 
+                    {/* Post Description  */}
                     <div className=" space-y-3 flex flex-col pb-5">
                         <Input
                             divclass=""
@@ -160,19 +201,19 @@ const UpdateForm = ({
                         />      
                     </div>
     
-                
+                    {/*  Dates */}
                     <div className=" space-y-3 flex flex-col pb-5">
                         <h6 className='text-zinc-400 font-Jost font-bold '>Important Dates:</h6>
                         <div className="flex flex-wrap justify-evenly gap-3">
                         <Input divClass="w-full lg:w-56"
                             label="Date"
                             labelclass="text-xs capitalize text-white" type="text" className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={date1 || NA} {...register(`date1`)
+                            placeholder={date1 || "NA"} {...register(`date1`)
                         }/>
                         <Input divClass="w-full lg:w-56"
                             label="Date"
                             labelclass="text-xs capitalize text-white" type="text" className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={date2 || NA} {...register(`date2`)
+                            placeholder={date2 || "NA"} {...register(`date2`)
                         }/>
                         <Input divClass="w-full lg:w-56"
                             label="Date"
@@ -210,12 +251,14 @@ const UpdateForm = ({
                             placeholder={date9 || "NA"} {...register(`date9`)
                         }/>
                         <Input divClass="w-full lg:w-56"
-                            label="Date1"
+                            label="Date"
                             labelclass="text-xs capitalize text-white" type="text" className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
                             placeholder={date10 || "NA"} {...register(`date10`)
                         }/>
                         </div>
                     </div>
+
+                    {/*  Applications Fees  */}
                     <div className=" space-y-3 flex flex-col pb-5">
                         <h6 className='text-zinc-400 font-Jost font-bold '>Application Fee:</h6>
                         <div className="flex flex-wrap justify-evenly gap-3">
@@ -223,12 +266,12 @@ const UpdateForm = ({
                         <Input divClass="w-full lg:w-56"
                             label="Fee"
                             labelclass="text-xs capitalize text-white"datepe="text" className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={Fee1 || NA} {...register(`Fee1`)
+                            placeholder={Fee1 || "NA"} {...register(`Fee1`)
                         }/>
                         <Input divClass="w-full lg:w-56"
                             label="Fee"
                             labelclass="text-xs capitalize text-white"datepe="text" className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={Fee2 || NA} {...register(`Fee2`)
+                            placeholder={Fee2 || "NA"} {...register(`Fee2`)
                         }/>
                         <Input divClass="w-full lg:w-56"
                             label="Fee"
@@ -274,6 +317,7 @@ const UpdateForm = ({
                         </div>
                     </div>
                 
+                    {/* Age */}
                     <div className=" space-y-3 flex flex-col pb-5">
                         <h6 className='text-zinc-400 font-Jost font-bold '>Eligibility and Exam Details:</h6>
                         <div className="flex flex-wrap justify-evenly gap-3">
@@ -284,8 +328,8 @@ const UpdateForm = ({
                             labelclass="text-xs capitalize text-white"
                             type="text" 
                             className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={Age1 || "NA"} 
-                            {...register(`Age1`)}
+                            placeholder={age1 || "NA"} 
+                            {...register(`age1`)}
                         />
                         <Input 
                             divClass="w-full lg:w-56"
@@ -293,8 +337,8 @@ const UpdateForm = ({
                             labelclass="text-xs capitalize text-white"
                             type="text" 
                             className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={Age2 || "NA"} 
-                            {...register(`Age2`)}
+                            placeholder={age2 || "NA"} 
+                            {...register(`age2`)}
                         />
                         <Input 
                             divClass="w-full lg:w-56"
@@ -302,8 +346,8 @@ const UpdateForm = ({
                             labelclass="text-xs capitalize text-white"
                             type="text" 
                             className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={Age3 || "NA"} 
-                            {...register(`Age3`)}
+                            placeholder={age3 || "NA"} 
+                            {...register(`age3`)}
                         />
                         <Input 
                             divClass="w-full lg:w-56"
@@ -311,8 +355,8 @@ const UpdateForm = ({
                             labelclass="text-xs capitalize text-white"
                             type="text" 
                             className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={Age4 || "NA"} 
-                            {...register(`Age4`)}
+                            placeholder={age4 || "NA"} 
+                            {...register(`age4`)}
                         />
                         <Input 
                             divClass="w-full lg:w-56"
@@ -320,8 +364,8 @@ const UpdateForm = ({
                             labelclass="text-xs capitalize text-white"
                             type="text" 
                             className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={Age5 || "NA"} 
-                            {...register(`Age5`)}
+                            placeholder={age5 || "NA"} 
+                            {...register(`age5`)}
                         />
                         <Input 
                             divClass="w-full lg:w-56"
@@ -329,8 +373,8 @@ const UpdateForm = ({
                             labelclass="text-xs capitalize text-white"
                             type="text" 
                             className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={Age6 || "NA"} 
-                            {...register(`Age6`)}
+                            placeholder={age6 || "NA"} 
+                            {...register(`age6`)}
                         />
                         <Input 
                             divClass="w-full lg:w-56"
@@ -338,8 +382,8 @@ const UpdateForm = ({
                             labelclass="text-xs capitalize text-white"
                             type="text" 
                             className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={Age7 || "NA"} 
-                            {...register(`Age7`)}
+                            placeholder={age7 || "NA"} 
+                            {...register(`age7`)}
                         />
                         <Input 
                             divClass="w-full lg:w-56"
@@ -347,8 +391,8 @@ const UpdateForm = ({
                             labelclass="text-xs capitalize text-white"
                             type="text" 
                             className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={Age8 || "NA"} 
-                            {...register(`Age8`)}
+                            placeholder={age8 || "NA"} 
+                            {...register(`age8`)}
                         />
                         <Input 
                             divClass="w-full lg:w-56"
@@ -356,8 +400,8 @@ const UpdateForm = ({
                             labelclass="text-xs capitalize text-white"
                             type="text" 
                             className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={Age9 || "NA"} 
-                            {...register(`Age9`)}
+                            placeholder={age9 || "NA"} 
+                            {...register(`age9`)}
                         />
                         <Input 
                             divClass="w-full lg:w-56"
@@ -365,14 +409,62 @@ const UpdateForm = ({
                             labelclass="text-xs capitalize text-white"
                             type="text" 
                             className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
-                            placeholder={Age10 || "NA"} 
-                            {...register(`Age10`)}
+                            placeholder={age10 || "NA"} 
+                            {...register(`age10`)}
                         />
                         
                         </div>
-                   
-                
-            
+                    </div>
+
+                    {/*  Vacancy Details */}
+                    <div className="space-y-3 flex flex-col pb-5">
+                    <h6 className='text-zinc-400 font-Jost font-bold '>Required fileds</h6>
+                        <div className="flex flex-wrap justify-start gap-3">
+                        
+                        <Input 
+                            divClass="w-full lg:w-56"
+                            label="Total Post"
+                            labelclass="text-xs capitalize text-white"
+                            type="text" 
+                            className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
+                            placeholder={totalPost || "NA"} 
+                            {...register(`totalPost`)}
+                        />
+                        <Input 
+                            divClass="w-full lg:w-56"
+                            label="Apply Link"
+                            labelclass="text-xs capitalize text-white"
+                            type="text" 
+                            className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
+                            placeholder={ applyLink || "NA"} 
+                            {...register(`applyLink`)}
+                        />
+                        
+                        </div>
+                    </div>
+                    
+                    {/* Post Images */}
+                    <div className="space-y-3 flex flex-col pb-5">
+                    <h6 className='text-zinc-400 font-Jost font-bold '>Required fileds</h6>
+                        <div className="flex flex-wrap  gap-3">
+                        <Input 
+                            divClass="w-full lg:w-56"
+                            label="Post Image"
+                            labelclass="text-xs capitalize text-white"
+                            type="file" 
+                            className='border py-1 w-full rounded-md block bg-transparent border-zinc-700 text-xs px-4 focus:outline-none text-zinc-400 focus:ring-2 focus:ring-blue-500'
+                            placeholder={postImage || "NA"} 
+                            multiple
+                            {...register(`postImage`)}
+                        />    
+                        </div>
+                    </div>
+            </div>   
+            <div className="flex flex-col gap-2 w-full justify-center items-center py-5 mb-24 bg-zinc-900 rounded-b-md ">
+                {error && <div className="text-red-500 text-xs">{error}</div>}
+                {success && <div className="text-green-500 text-xs">{success}</div>}
+                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">Submit</button>
+            </div>
         </div>
     </form>
     </>

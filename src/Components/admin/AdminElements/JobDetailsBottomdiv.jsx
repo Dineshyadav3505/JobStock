@@ -6,7 +6,7 @@ const JobDetailsBottomdiv = (
     {
         postDescription,
         applyLink,
-        totalPost = "Not Available",
+        totalPost,
         date1,
         date2,
         date3,

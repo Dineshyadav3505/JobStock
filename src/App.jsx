@@ -9,7 +9,6 @@ import Result from './Components/WebPage/Result/Result';
 import JobDetails from './Components/WebPage/Job/JobDetails';
 import Admission from './Components/WebPage/Admission/Admission';
 import AnswerKey from './Components/WebPage/AnswerKey/AnswerKey';
-import Important from './Components/WebPage/Important/Important';
 import ResultDetails from './Components/WebPage/Result/ResultDetails';
 import AdmitCardDetails from './Components/WebPage/AdmitCard/AdmitCardDetails';
 import AnswerKeyDetails from './Components/WebPage/AnswerKey/AnswerKeyDetails';
@@ -20,6 +19,11 @@ import StatejobDetails from './Components/WebPage/StateJob/StatejobDetails';
 import LogIn from './Components/WebPage/LogIn/LogIn';
 import ProtectedRoute from './utils/ProtectedRoute';
 import UpcommingDetails from './Components/WebPage/Upcomming/UpcommingDetails';
+import AboutUs from './Components/WebPage/ViewPages/AboutUs';
+import ContactUs from './Components/WebPage/ViewPages/ContactUs';
+import HelpSupport from './Components/WebPage/ViewPages/Help&Support';
+import PrivacyPolicy from './Components/WebPage/ViewPages/Policy';
+import TermsConditions from './Components/WebPage/ViewPages/Terms&Conditions';
 
 
 import Admin from './Components/admin/AdminWebPage/Job/Home';
@@ -39,6 +43,7 @@ import AdminStateJobDetails from './Components/admin/AdminWebPage/StateJob/State
 
 
 
+
 import JobPost from './Components/admin/AdminWebPage/Job/JobPost';
 import StatePost from './Components/admin/AdminWebPage/StateJob/StatePost';
 import ResultPost from './Components/admin/AdminWebPage/Result/ResultPost';
@@ -46,7 +51,7 @@ import AdmitCardPost from './Components/admin/AdminWebPage/AdmitCard/AdmitCardPo
 import AdmissionPost from './Components/admin/AdminWebPage/Admission/AdmissionPost';
 import AnswerKeyPost from './Components/admin/AdminWebPage/AnswerKey/AnswerKeyPost';
 import UpcommingPost from './Components/admin/AdminWebPage/Upcomming/UpcommingPost';
-// import NotificationPost from './Components/WebPage/SavedPost/NotificationPost';
+
 
 
 // Initialize Google Analytics
@@ -64,7 +69,6 @@ const App = () => {
           <Route path="/statejob" element={<StateJob />} />
           <Route path="/admission" element={<Admission />} />
           <Route path="/answer_Key" element={<AnswerKey />} />
-          <Route path="/important" element={<Important />} />
           <Route path="/result/:postname/:id" element={<ResultDetails />} />
           <Route path="/admission/:postname/:id" element={<AdmissionDetails />} />   
           <Route path="/statejob/:postname/:id" element={<StatejobDetails/>} />
@@ -74,6 +78,13 @@ const App = () => {
           <Route path="/upcomming/:postname/:id" element={<UpcommingDetails />} />
           <Route path="/:postname/:id" element={<JobDetails />} />
           <Route path="/login" element={<LogIn/>} />
+          <Route path="/aboutus" element={<AboutUs/>} />
+          <Route path="/contactus" element={<ContactUs/>} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
+          <Route path="/termsandconditions" element={<TermsConditions/>} />
+          <Route path="/careers" element={<AboutUs/>} />
+          <Route path="/helpandsupport" element={<HelpSupport/>} />
+
 
           //// Protected Route
           <Route path="/admin" element={ <ProtectedRoute> <Admin /> </ProtectedRoute> } />

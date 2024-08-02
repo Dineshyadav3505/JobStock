@@ -42,6 +42,7 @@ const JobDetailsUpperdiv = ({
     <div className="w-full bg-zinc-900 px-5 pt-8 pb-4 md:flex gap-5">
         <div className=" h-24 w-24 md:h-28 md:w-28 rounded-full p-2 overflow-hidden bg-white flex justify-center items-center">
             <img className='h-full object-contain' src={img} alt="" />
+            
         </div>
         <div className="py-5 space-y-3">
             <h1 className="text-xl md:text-2xl font-Jost font-bold text-zinc-400">{title}</h1>
@@ -50,7 +51,7 @@ const JobDetailsUpperdiv = ({
             <div className=" flex gap-3 flex-wrap">
                 <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#0E0202] capitalize px-2 py-1 bg-zinc-700" > <span> ✩ Begin:</span> {date} </p>
                 <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#D03030] capitalize px-2 py-1 bg-zinc-700" > <span> ✩ Last Date:</span> {lastDate}</p>
-                <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#0E0202] capitalize px-2 py-1 bg-zinc-700" > <span> ✩ Time left:</span> {days} </p>
+                {yyyymmddDate && <p className="text-xs md:text-sm font-Jost rounded font-semibold text-[#0E0202] capitalize px-2 py-1 bg-zinc-700" > <span> ✩ Time left:</span> {days} </p>}
             </div>
         </div>
     </div>

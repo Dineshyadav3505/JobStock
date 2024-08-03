@@ -7,6 +7,7 @@ import axios from '../../../../utils/Axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAdmitCardDetails } from '../../../../Store/singleAdmitCardPost';
 import ReactGA from 'react-ga';
+import UpdateForm from './UpdateForm';
 
 const AdminAdmitCardDetails = () => {
 
@@ -50,15 +51,12 @@ const AdminAdmitCardDetails = () => {
         <div className="px-5 absolute top-56 w-screen md:px-16 ">
             <div className="w-full rounded-lg overflow-hidden ">
                 
-                <JobDetailsUpperdiv
-                    img={data.iconImage}
-                    title={data.postName}
-                    date={data.beginDate}
-                    lastDate={data.lastDate}
-                    yyyymmddDate={data.yyyymmddDate} 
-                />
-
-                <JobDetailsBottomdiv
+                <UpdateForm
+                  img={data.iconImage}
+                  title={data.postName}
+                  date={data.beginDate}
+                  lastDate={data.lastDate}
+                  yyyymmddDate={data.yyyymmddDate} 
                   postImage={data.postImage}
                   postDescription={data.postDescription}
                   applyLink={data.applyLink}
@@ -93,13 +91,7 @@ const AdminAdmitCardDetails = () => {
                   Fee8={data.Fee8}
                   Fee9={data.Fee9}
                   Fee10={data.Fee10}
-                  children="Apply Now"
-                  vacancyDetails="Block"
-
-                />
-
-
-                
+                />          
             </div>
 
         </div>

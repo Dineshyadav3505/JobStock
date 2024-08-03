@@ -101,7 +101,7 @@ const UpdateForm = ({
                 }
             });
     
-            const response = await axios.patch(`/job/${id}`, formData, {
+            const response = await axios.patch(`/admitCard/${id}`, formData, {
                 headers: {
                     'Authorization': `Bearer ${accessToken}`,
                     'Content-Type': 'application/json',

@@ -7,6 +7,7 @@ import axios from '../../../../utils/Axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setStatePostDetails } from '../../../../Store/singleStatePost';
 import ReactGA from 'react-ga';
+import UpdateForm from './UpdateForm';
 
 const AdminStatejobDetails = () => {
 
@@ -50,19 +51,17 @@ const AdminStatejobDetails = () => {
         <div className="px-5 absolute top-56 w-screen md:px-16 ">
             <div className="w-full rounded-lg overflow-hidden ">
                 
-                <JobDetailsUpperdiv
-                    img={data.iconImage}
-                    title={data.postName}
-                    date={data.beginDate}
-                    lastDate={data.lastDate}
-                    yyyymmddDate={data.yyyymmddDate} 
-                />
-
-                <JobDetailsBottomdiv
+                <UpdateForm
+                  img={data.iconImage}
+                  title={data.postName}
+                  date={data.beginDate}
+                  lastDate={data.lastDate}
+                  yyyymmddDate={data.yyyymmddDate} 
                   postImage={data.postImage}
                   postDescription={data.postDescription}
                   applyLink={data.applyLink}
                   totalPost={data.totalPost}
+                  state={data.state}
                   date1={data.date1}
                   date2={data.date2}
                   date3={data.date3}
@@ -93,13 +92,7 @@ const AdminStatejobDetails = () => {
                   Fee8={data.Fee8}
                   Fee9={data.Fee9}
                   Fee10={data.Fee10}
-                  children="Apply Now"
-                  vacancyDetails="Block"
-
-                />
-
-
-                
+                />    
             </div>
 
         </div>

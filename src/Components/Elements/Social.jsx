@@ -9,7 +9,7 @@ const Social = () => {
     ];
 
     return (
-        <div className=" flex flex-col gap-2 mt-40 lg:mt-56">
+        <div className=" flex flex-col gap-2 ">
             {data.map((item, index) => (
                 <a 
                     key={index} 

@@ -49,7 +49,7 @@ const Home = () => {
     ) : (
     <>
     <div className="p-5 flex flex-wrap justify-between pb-10">
-        <form onSubmit={handleSubmit(onSubmit)} className="border sticky top-1 z-20 bg-black rounded-md p-2 w-full">
+        <form onSubmit={handleSubmit(onSubmit)} className="border sticky top-1 z-10 bg-black rounded-md p-2 w-full">
                 <input
                 {...register('searchTerm')}
                 className="w-[70%] md:w-[80%] lg:w-[90%] text-base bg-black text-white focus:bg-transparent outline-none px-2"

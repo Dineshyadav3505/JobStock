@@ -51,19 +51,19 @@ const AnswerKey = () => {
     </div>
   ) : (
   <div className="p-5 flex flex-wrap justify-between pb-24">
-      <form onSubmit={handleSubmit(onSubmit)} className="border rounded-md p-2 w-full">
-              <input
-              {...register('searchTerm')}
-              className="w-[70%] md:w-[80%] lg:w-[90%] text-base text-black focus:bg-transparent outline-none px-2"
+        <form onSubmit={handleSubmit(onSubmit)} className="border sticky top-1 z-20 bg-black rounded-md p-2 w-full">
+            <input
+              {...register('searchTerm')}  
+              className="w-[70%] md:w-[80%] lg:w-[90%] text-base bg-black text-white focus:bg-transparent outline-none px-2"
               type="text"
               placeholder='Search for Answer Key...'
-              />
-              <button
+            />
+            <button
               className="h-12 lg:h-8 bg-[#119766] rounded-md text-[#F2F2F2] w-[30%] md:w-[20%] lg:w-[10%]"
               type="submit"
-              >
+            >
               Search
-              </button>
+            </button>
       </form>
 
       {

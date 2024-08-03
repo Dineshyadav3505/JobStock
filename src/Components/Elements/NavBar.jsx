@@ -40,7 +40,7 @@ const NavBar = () => {
   return (
     <>
     {/* Mobbile Top NavBar */}
-    <div className=' flex py-4 justify-between px-4 border-b-[1px] relative'>
+    <div className=' flex py-4 justify-between px-4 z-50 top-0 border-b-[1px] relative'>
         <div className="flex  justify-between lg:w-[60%]">
             <h1 className='font-serif font-black text-xl tracking-tighter text-[#119766]'>Naukri<span className=' font-Jost text-[#f4b27b]'>VACANCY</span></h1>
             <div className=" text-base hidden font-Jost px-5 lg:flex gap-4 items-end ">
@@ -64,7 +64,7 @@ const NavBar = () => {
         </div>
 
         {notification === true ? (
-            <div className="bg-gray-200 z-50 rounded-2xl w-1/5 p-4 absolute top-14 right-10">
+            <div className="bg-gray-500 z-40 rounded-2xl w-1/5 p-4 absolute top-14 right-10">
                 <div className="text-gray-700 h-96  overflow-x-auto space-y-2">
                     <h1 className='font-Jost  flex items-end gap-1 text-sm'> <img src="/Images/noti.svg" alt="" />Notification</h1>
                     {data.map((item, index) => (
@@ -83,8 +83,8 @@ const NavBar = () => {
 
         {sideMenu == true ? 
             (
-                <div className=" absolute flex flex-col right-0 z-50 bg-zinc-100 drop-shadow-md rounded-l-2xl top-0 w-[70%] lg:w-1/3 py-5 px-5 bg-[#FDFDFD] ">
-                    <div className="">
+                <div className=" absolute flex flex-col right-0 z-50 drop-shadow-md rounded-l-2xl top-0 w-[70%] lg:w-1/3 py-5 px-5 bg-[#FDFDFD] ">
+                    <div className=" mb-40 lg:mb-56">
                         <button className='w-full flex justify-end mb-5'><img onClick={toggleSideMenu} src="/Images/close.svg" alt="" /></button>
                         <NavLink to="/"            className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/Job.svg"       alt="/" /> <p              className='font-Jost font-medium' > Latest job                </p> </NavLink>
                         <NavLink to="/upcomming"   className="p-2 flex hover:bg-[#DFE0E1] rounded-md mt-1 items-center text-xl gap-2 "> <img src="/Images/soon.svg"      alt="/" /> <p              className='font-Jost font-medium' > Up-comming Update         </p> </NavLink>

@@ -2,32 +2,43 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
+  const social = [
+    {img: "/Images/whatsapp.png",   link: "https://whatsapp.com/channel/0029VaalN6gJ3jv5HXQdqs0V" },
+    {img: "/Images/facebook.png",   link: "https://www.facebook.com/profile.php?id=100072466668709&mibextid=ZbWKwL" },
+    {img: "/Images/telegram.png",   link: "https://t.me/naukrivacancyofficial" },
+    {img: "/Images/instagram.png",  link: "https://www.instagram.com/naukrivacancy_com?igsh=MWt0anF5bHY2ZnkwYg==" }
+  ]
   const data = [
-    {lable:"About us", link:"aboutus"},
-    {lable:"Contact us", link:"contactus"},
-    {lable:"Privacy Policy", link:"privacypolicy"},
-    {lable:"Terms and Conditions", link:"termsandconditions"},
-    {lable:"Careers", link:"careers"},
-    {lable:"Help & Support", link:"helpandsupport"},
+    {lable:"About us", link:"/aboutus"},
+    {lable:"Contact us", link:"/contactus"},
+    {lable:"Privacy Policy", link:"/privacypolicy"},
+    {lable:"Terms and Conditions", link:"/termsandconditions"},
+    {lable:"Help & Support", link:"/helpandsupport"},
   ]
   return (
     <>
-    <div className="w-full lg:flex px-10 py-10 bg-[#0d8257]">
-      <div className="lg:w-1/2 lg:pr-16 flex flex-col gap-10 text-sm  text-zinc-400">
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat nihil obcaecati explicabo necessitatibus libero deleniti, minus dolorum. Fuga cumque reprehenderit error illum, corrupti rem eveniet. Necessitatibus aspernatur modi recusandae. Veritatis.
-          Dolore velit at illo cupiditate magni neque nostrum iste temporibus dicta quos sint error quae sit in vitae, iure obcaecati deleniti rem unde quo veritatis amet reprehenderit 
-        </p>
-        <p className='font-serif'>© 2024 NaukriVacancy.com Pty Ltd .</p>
-      </div>
-      <div className="lg:w-1/2 h-56 mt-10 lg:mt-0 text-zinc-300">
-      <div className="flex flex-wrap gap-10">
-          {data.map((item, index) => (
-            <NavLink to={item.link} key={index} className="text-sm hover:text-white text-zinc-400">
-              {item.lable}
-            </NavLink>
+    <div className="w-full mb-20 lg:mb-0 px-4 z-10 bg-[#0d8257]">
+      <div className="w-full">
+        <div className="w-fyll flex gap-6 py-12 lg:gap-14 justify-center">
+          {social.map((item, index) =>(
+              <a 
+                  key={index} 
+                  href={item.link} 
+                  className="py-2 px-4 rounded-3xl flex justify-center items-center gap-2"
+                  target="_blank"
+              >
+                  <img src={item.img} className='h-8 ' alt={item.name} />
+              </a>
           ))}
         </div>
+        <div className=" flex flex-wrap gap-3 py-3 justify-center text-zinc-900 underline text-xs mb-6">
+          {data.map((item, index) =>(
+            <NavLink to={item.link} key={index} >{item.lable}</NavLink>
+          ))}
+        </div>
+      </div>
+      <div className="w-full">
+        <h5 className='text-xs py-2 text-center'>copyright © 2024, Designed with ❤ by <br /> @NaukriVacancyTeam</h5>
       </div>
     </div>
     </>

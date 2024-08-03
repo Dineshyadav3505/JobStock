@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import {messaging} from "./utils/firebase";
+import { getMessaging, getToken } from "firebase/messaging";
 import React from 'react';
 import ReactGA from 'react-ga';
 import { Routes, Route } from 'react-router-dom';
@@ -59,6 +62,22 @@ const trackingId = "G-RKS7E9435N";
 ReactGA.initialize(trackingId);
 
 const App = () => {
+
+  async function requestPermissions() {
+    const permission = await Notification.requestPermission();
+    if (permission === "granted") {
+      const token = await getToken(messaging, {vapidKey: "BAiJB4Y1tc5Ro4EXL6t_YiG0VjPZ-9rswkgnIpYw333dNw08eix8M432MPK7CdBl4-78pf84Y9vDnbuet17I9kU"});
+      console.log(token);
+    } else if(permission === "denied") {
+      console.log("Notification permission denied.");
+    }
+  }
+
+  useEffect(() => {
+    // Req  user for notification permission 
+    requestPermissions();
+  },[])
+
   return (
       <div className="">
  
